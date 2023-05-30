@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bg_awan" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/tasya"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <RelativeLayout
+            android:id="@+id/bg_card"
+            android:layout_width="350dp"
+            android:layout_height="130dp"
+            android:background="@drawable/bg_card_profile"
+            android:elevation="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+            <TextView
+                android:id="@+id/nama_user"
+                style="@style/regular_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:padding="8dp"
+                android:text="Nanang Ardianto"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/phone_user"
+                style="@style/regular_white"
+                android:layout_width="114dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nama_user"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="1dp"
+                android:padding="8dp"
+                android:text="0812345689934"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="67dp"
+                tools:layout_editor_absoluteY="501dp" />
+
+            <TextView
+                android:id="@+id/last_donor"
+                style="@style/regular_white"
+                android:layout_width="114dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/phone_user"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:padding="8dp"
+                android:text="Terakhir Mendonor"
+                android:textSize="14sp"
+                tools:layout_editor_absoluteX="67dp"
+                tools:layout_editor_absoluteY="501dp" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="1dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="210dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/white" />
+
+            <View
+                android:id="@+id/view_darah"
+                android:layout_width="35dp"
+                android:layout_height="50dp"
+                android:layout_alignTop="@+id/view"
+                android:layout_alignBottom="@+id/view"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="14dp"
+                android:layout_toEndOf="@+id/view"
+                android:background="@drawable/ic_darah" />
+
+            <TextView
+                android:id="@+id/gol_dar"
+                style="@style/bold_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="265dp"
+                android:layout_marginTop="35dp"
+                android:text="O"
+                android:textSize="50dp"/>
+
+            <TextView
+                android:id="@+id/reshus_dar"
+                style="@style/bold_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="295dp"
+                android:layout_marginTop="33dp"
+                android:text="+"
+                android:textSize="50dp"/>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_riwayat_req"
+            style="@style/bold_white"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/button_red"
+            android:textAlignment="viewStart"
+            android:text="@string/riwayat_permintaan_kantong_darah"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bg_card" />
+
+        <Button
+            android:id="@+id/btn_about_us"
+            style="@style/bold_white"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_red"
+            android:textAlignment="viewStart"
+            android:text="@string/tentang_kami"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_riwayat_req" />
+
+        <Button
+            android:id="@+id/btn_contact_us"
+            style="@style/bold_white"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_red"
+            android:textAlignment="viewStart"
+            android:text="@string/hubungi_kami"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_about_us" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            style="@style/bold_white"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_red"
+            android:textAlignment="viewStart"
+            android:text="@string/keluar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_contact_us" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
