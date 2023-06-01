@@ -33,7 +33,7 @@
         <RelativeLayout
             android:id="@+id/bg_card"
             android:layout_width="350dp"
-            android:layout_height="130dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/bg_card_profile"
             android:elevation="15dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,10 +45,10 @@
                 style="@style/regular_white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:padding="8dp"
-                android:text="Nanang Ardianto"
+                android:text="Natasya Salsabila"
                 android:textStyle="bold"
                 android:textSize="20sp" />
 
@@ -58,34 +58,48 @@
                 android:layout_width="114dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/nama_user"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="1dp"
+                android:layout_marginStart="10dp"
                 android:padding="8dp"
                 android:text="0812345689934"
                 android:textSize="16sp"
                 tools:layout_editor_absoluteX="67dp"
                 tools:layout_editor_absoluteY="501dp" />
 
-            <TextView
-                android:id="@+id/last_donor"
+            <LinearLayout
+                android:id="@+id/layout_last_donor"
                 style="@style/regular_white"
-                android:layout_width="114dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/phone_user"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginStart="10dp"
                 android:padding="8dp"
                 android:text="Terakhir Mendonor"
                 android:textSize="14sp"
                 tools:layout_editor_absoluteX="67dp"
-                tools:layout_editor_absoluteY="501dp" />
+                tools:layout_editor_absoluteY="501dp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/regular_white"
+                    android:text="Terakhir Mendonor:" />
+
+                <TextView
+                    android:id="@+id/last_donor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/regular_white"
+                    android:text="12/12/2023"
+                    android:layout_marginStart="@dimen/spacing_8"/>
+            </LinearLayout>
 
             <View
                 android:id="@+id/view"
                 android:layout_width="1dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginStart="210dp"
+                android:layout_marginStart="220dp"
                 android:layout_marginEnd="8dp"
                 android:background="@color/white" />
 
@@ -95,7 +109,7 @@
                 android:layout_height="50dp"
                 android:layout_alignTop="@+id/view"
                 android:layout_alignBottom="@+id/view"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="14dp"
@@ -107,7 +121,7 @@
                 style="@style/bold_white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="265dp"
+                android:layout_marginStart="280dp"
                 android:layout_marginTop="35dp"
                 android:text="O"
                 android:textSize="50dp"/>
@@ -117,7 +131,7 @@
                 style="@style/bold_white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="295dp"
+                android:layout_marginStart="310dp"
                 android:layout_marginTop="33dp"
                 android:text="+"
                 android:textSize="50dp"/>
@@ -131,6 +145,7 @@
             android:layout_marginTop="32dp"
             android:background="@drawable/button_red"
             android:textAlignment="viewStart"
+            android:textSize="14sp"
             android:text="@string/riwayat_permintaan_kantong_darah"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

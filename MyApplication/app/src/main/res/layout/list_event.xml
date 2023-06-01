@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="20dp"
+    android:elevation="2dp"
+    app:cardElevation="17dp"
+    app:cardCornerRadius="20dp"
+    android:layout_marginHorizontal="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="12dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/photo_event"
+            android:layout_width="350dp"
+            android:layout_height="191dp"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            app:shapeAppearanceOverlay="@style/roundedCorners"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/bg_awan" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="12dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:text="Meriahkan Hari Jadi Kota Padang ke-352, Dinas Perdagangan Gelar Donor Darah"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/photo_event"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tgl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            android:text="Tanggal : 7 Agustus 2021"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:id="@+id/waktu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:textSize="14sp"
+            android:text="Waktu    : 08.00 s/d 17.00 WIB"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/tgl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:id="@+id/lokasi"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="12dp"
+            android:textSize="14sp"
+            android:text="Lokasi    : Jl. Loren Ipsum Dot Sit Amet"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/waktu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
