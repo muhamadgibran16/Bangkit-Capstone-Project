@@ -20,6 +20,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/bg_awan" />
 
+        <TextView
+            android:id="@+id/textViewid_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:background="@drawable/ic_edit_putih"
+            app:layout_constraintBottom_toTopOf="@+id/iv_profile"
+            app:layout_constraintStart_toEndOf="@+id/iv_profile"
+            app:layout_constraintTop_toTopOf="@+id/iv_profile" />
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_profile"
             android:layout_width="150dp"
@@ -124,7 +134,7 @@
                 android:layout_marginStart="280dp"
                 android:layout_marginTop="35dp"
                 android:text="O"
-                android:textSize="50dp"/>
+                android:textSize="50sp"/>
 
             <TextView
                 android:id="@+id/reshus_dar"
@@ -134,7 +144,8 @@
                 android:layout_marginStart="310dp"
                 android:layout_marginTop="33dp"
                 android:text="+"
-                android:textSize="50dp"/>
+                android:textSize="50sp"/>
+
         </RelativeLayout>
 
         <Button
@@ -143,9 +154,10 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:background="@drawable/button_red"
             android:textAlignment="viewStart"
+            android:background="@drawable/button_white"
             android:textSize="14sp"
+            android:textAllCaps="false"
             android:text="@string/riwayat_permintaan_kantong_darah"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -160,6 +172,7 @@
             android:background="@drawable/button_red"
             android:textAlignment="viewStart"
             android:text="@string/tentang_kami"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_riwayat_req" />
@@ -172,6 +185,7 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/button_red"
             android:textAlignment="viewStart"
+            android:textAllCaps="false"
             android:text="@string/hubungi_kami"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -186,10 +200,9 @@
             android:background="@drawable/button_red"
             android:textAlignment="viewStart"
             android:text="@string/keluar"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_contact_us" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>
