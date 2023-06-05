@@ -191,110 +191,94 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout_gender"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="@dimen/spacing_8"
+                app:layout_constraintEnd_toEndOf="@+id/layout_ttl"
+                app:layout_constraintStart_toStartOf="@+id/layout_ttl"
+                app:layout_constraintTop_toBottomOf="@+id/layout_ttl"
                 app:boxCornerRadiusBottomEnd="30dp"
                 app:boxCornerRadiusBottomStart="30dp"
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusTopStart="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_ttl">
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:id="@+id/input_gender"
-                    style="@style/regular_black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:enabled="false"
+                    android:inputType="none"
                     android:hint="Jenis Kelamin"
-                    android:inputType="text" />
+                    style="@style/regular_black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout_prov"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="@dimen/spacing_8"
+                app:layout_constraintEnd_toEndOf="@+id/layout_gender"
+                app:layout_constraintStart_toStartOf="@+id/layout_gender"
+                app:layout_constraintTop_toBottomOf="@+id/layout_gender"
                 app:boxCornerRadiusBottomEnd="30dp"
                 app:boxCornerRadiusBottomStart="30dp"
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusTopStart="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_gender">
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:id="@+id/input_prov"
-                    style="@style/regular_black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:hint="@string/prov"
-                    android:inputType="text" />
+                    android:inputType="none"
+                    android:hint="Provinsi"
+                    style="@style/regular_black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout_kab"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="@dimen/spacing_8"
+                app:layout_constraintEnd_toEndOf="@+id/layout_prov"
+                app:layout_constraintStart_toStartOf="@+id/layout_prov"
+                app:layout_constraintTop_toBottomOf="@+id/layout_prov"
                 app:boxCornerRadiusBottomEnd="30dp"
                 app:boxCornerRadiusBottomStart="30dp"
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusTopStart="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_prov">
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:id="@+id/input_kab"
-                    style="@style/regular_black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:hint="@string/kab"
-                    android:inputType="text" />
+                    android:inputType="none"
+                    android:hint="Kabupaten/Kota"
+                    style="@style/regular_black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout_kec"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="@dimen/spacing_8"
+                app:layout_constraintEnd_toEndOf="@+id/layout_kab"
+                app:layout_constraintStart_toStartOf="@+id/layout_kab"
+                app:layout_constraintTop_toBottomOf="@+id/layout_kab"
                 app:boxCornerRadiusBottomEnd="30dp"
                 app:boxCornerRadiusBottomStart="30dp"
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusTopStart="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_kab">
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:id="@+id/input_kec"
-                    style="@style/regular_black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:hint="@string/kecamatan"
-                    android:inputType="text" />
+                    android:hint="Kecamatan"
+                    android:inputType="none"
+                    style="@style/regular_black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
@@ -304,7 +288,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/button_red"
-                android:text="@string/simpan"
+                android:text="Simpan Perubahan"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
