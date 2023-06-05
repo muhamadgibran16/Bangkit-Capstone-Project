@@ -26,4 +26,8 @@
     <string name="prov">Provinsi</string>
     <string name="kecamatan">Kecamatan</string>
     <string name="simpan">Simpan</string>
+
+    <string name="tentang_kemanusiaan">Murni membantu tampa pamrih dan tidak transaksi jual beli darah. Diharapkan pihak keluarga tidak memberikan uang atau imbalan ke Pendonor. Dengan saling membantu semoga dapat menjalin silaturahmi dan menambah yg persaudaraan</string>
+    <string name="syarat_detail">• Kondisi fisik harus dalam keadaan sehat, jasmani maupun rohani.\n• Berusia 17-60 tahun.\n• Berat badan minimal 45 kilogram.\n• Tidak memiliki penyakit menular\n• Tidak baru melakukan operasi\n• Tidak baru mendapatkan vaksinasi.\n• Frekuensi donor darah maksimal lima kali setahun atau berjarak minimal tiga bulan.</string>
+    <string name="tidak_bisa_donor_darah">• Mengidap Hipertensi\n• Berat Badan Kurang dari 45 Kg\n• Mengidap Hepatitis B dan C\n• Orang yang Sedang Hamil</string>
 </resources>
