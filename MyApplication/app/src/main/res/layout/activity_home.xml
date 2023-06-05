@@ -50,13 +50,14 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/fan_fact"
+                    android:id="@+id/banner_home"
                     android:layout_width="340dp"
                     android:layout_height="190dp"
-                    android:background="@color/abu"
+                    android:background="@drawable/banner_home"
                     android:scaleType="centerCrop"
+                    app:strokeColor="@color/pink_soft"
+                    app:strokeWidth="2dp"
                     app:shapeAppearanceOverlay="@style/roundedCorners" />
-
             </LinearLayout>
 
             <LinearLayout

@@ -108,6 +108,77 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_goldar"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/spacing_8"
+            app:layout_constraintEnd_toEndOf="@+id/layout_nama"
+            app:layout_constraintStart_toStartOf="@+id/layout_nama"
+            app:layout_constraintTop_toBottomOf="@+id/layout_nama"
+            app:boxCornerRadiusBottomEnd="30dp"
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusTopStart="30dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+            <AutoCompleteTextView
+                android:id="@+id/input_goldar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:hint="Golongan Darah"
+                style="@style/regular_black"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_rhesus"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/spacing_8"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="@+id/layout_goldar"
+            app:layout_constraintStart_toStartOf="@+id/layout_goldar"
+            app:layout_constraintTop_toBottomOf="@+id/layout_goldar">
+
+            <RadioGroup
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/positif"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="@dimen/spacing_8"
+                    android:background="@drawable/rhesus_selector"
+                    android:button="@drawable/null_radio_button"
+                    android:elevation="5dp"
+                    android:gravity="center"
+                    android:outlineAmbientShadowColor="@color/red"
+                    android:text="POSITIF"
+                    style="@style/regular_black"/>
+
+                <RadioButton
+                    android:id="@+id/negatif"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rhesus_selector"
+                    android:button="@drawable/null_radio_button"
+                    android:elevation="5dp"
+                    android:gravity="center"
+                    android:outlineAmbientShadowColor="@color/red"
+                    android:text="NEGATIF"
+                    style="@style/regular_black" />
+            </RadioGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layout_ttl"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
@@ -121,7 +192,7 @@
             app:boxCornerRadiusTopStart="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layout_nama">
+            app:layout_constraintTop_toBottomOf="@+id/layout_rhesus">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_ttl"

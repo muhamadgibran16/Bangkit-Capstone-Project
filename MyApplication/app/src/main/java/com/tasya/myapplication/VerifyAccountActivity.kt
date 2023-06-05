@@ -16,6 +16,16 @@ class VerifyAccountActivity : AppCompatActivity() {
         binding = ActivityFormReqBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val goldar = listOf("A", "B", "AB", "O")
+        val goldarComplete : AutoCompleteTextView = findViewById(R.id.input_goldar)
+        val adapter = ArrayAdapter(this, R.layout.list_item, goldar)
+        goldarComplete.setAdapter(adapter)
+        goldarComplete.onItemClickListener = AdapterView.OnItemClickListener {
+                adapterView, view, i, l ->
+            val itemSelected = adapterView.getItemAtPosition(i)
+            Toast.makeText(this, "Item: $itemSelected", Toast.LENGTH_SHORT).show()
+        }
+
         val gender = listOf("Laki-laki", "Perempuan")
         val genderComplete : AutoCompleteTextView = findViewById(R.id.input_gender)
         val adapter2 = ArrayAdapter(this, R.layout.list_item, gender)
