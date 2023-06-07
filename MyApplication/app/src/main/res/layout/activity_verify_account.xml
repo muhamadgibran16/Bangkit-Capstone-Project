@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="*Kamu bisa input manual atau scan KTP"
-            android:textColor="@color/red"
+            android:textColor="@color/abu_tua"
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@+id/scan"
             app:layout_constraintStart_toStartOf="@+id/scan"
@@ -152,13 +152,13 @@
 
                 <RadioButton
                     android:id="@+id/positif"
-                    android:layout_width="150dp"
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="20dp"
+
                     android:layout_marginEnd="@dimen/spacing_8"
                     android:background="@drawable/rhesus_selector"
                     android:button="@drawable/null_radio_button"
-                    android:elevation="5dp"
+                    android:elevation="2dp"
                     android:gravity="center"
                     android:outlineAmbientShadowColor="@color/red"
                     android:text="POSITIF"
@@ -166,14 +166,27 @@
 
                 <RadioButton
                     android:id="@+id/negatif"
-                    android:layout_width="150dp"
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
+                    android:layout_marginEnd="@dimen/spacing_8"
                     android:background="@drawable/rhesus_selector"
                     android:button="@drawable/null_radio_button"
-                    android:elevation="5dp"
+                    android:elevation="2dp"
                     android:gravity="center"
                     android:outlineAmbientShadowColor="@color/red"
                     android:text="NEGATIF"
+                    style="@style/regular_black" />
+
+                <RadioButton
+                    android:id="@+id/blank"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rhesus_selector"
+                    android:button="@drawable/null_radio_button"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:outlineAmbientShadowColor="@color/red"
+                    android:text="TIDAK TAHU"
                     style="@style/regular_black" />
             </RadioGroup>
         </androidx.constraintlayout.widget.ConstraintLayout>
