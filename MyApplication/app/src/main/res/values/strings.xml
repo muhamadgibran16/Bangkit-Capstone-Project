@@ -27,9 +27,21 @@
     <string name="kecamatan">Kecamatan</string>
     <string name="simpan">Simpan</string>
 
+    <string name="donor">Donor</string>
     <string name="tentang_kemanusiaan">Murni membantu tampa pamrih dan tidak transaksi jual beli darah. Diharapkan pihak keluarga tidak memberikan uang atau imbalan ke Pendonor. Dengan saling membantu semoga dapat menjalin silaturahmi dan menambah yg persaudaraan</string>
     <string name="syarat_detail">• Kondisi fisik harus dalam keadaan sehat, jasmani maupun rohani.\n• Berusia 17-60 tahun.\n• Berat badan minimal 45 kilogram.\n• Tidak memiliki penyakit menular\n• Tidak baru melakukan operasi\n• Tidak baru mendapatkan vaksinasi.\n• Frekuensi donor darah maksimal lima kali setahun atau berjarak minimal tiga bulan.</string>
     <string name="tidak_bisa_donor_darah">• Mengidap Hipertensi\n• Berat Badan Kurang dari 45 Kg\n• Mengidap Hepatitis B dan C\n• Orang yang Sedang Hamil</string>
     <string name="desc">Rajin mendonorkan darah kira-kira mampu menurunkan risiko serangan jantung hingga 88 persen. Tak hanya itu, mendonorkan darah juga bisa meminimalkan risiko kanker, stroke, dan serangan jantung. Menariknya lagi, manfaat donor darah juga bisa membuat kadar zat besi dalam darah jadi stabil.\n\n"Darah yang Anda sumbangkan memberi seseorang kesempatan hidup lagi. Suatu hari, seseorang itu mungkin kerabat dekat, teman, orang yang dicintai atau bahkan Anda." - redcrossblood.org\n\nKamu bisa jadi pahlawan hanya dengan donor darah! Kamu dapat memberikan darah secara sukarela melalui transfusi darah untuk mereka yang membutuhkan.</string>
-    <string name="donor">Donor</string>
+    <string name="faq1">Mengapa Kita Perlu Donor Darah ?</string>
+    <string name="faq2">Apa Yang Harus Kita Persiapkan Sebelum Donor ?</string>
+    <string name="faq3">Syarat Untuk Melakukan Donor Darah</string>
+    <string name="faq4">Jangan Melakukan Donor Darah Jika</string>
+    <string name="faq5">Apakah dengan Donor Darah dapat menyehatkan ?</string>
+    <string name="faq6">Kapan harus menunda untuk menyumbangkan darah ?</string>
+    <string name="faq7">Apakah Donor Trombosit Apheresis ?</string>
+    <string name="faq8">Apa yang disebut trombosit (platelet) ?</string>
+    <string name="faq9">Apa itu Rhesus?</string>
+    <string name="faq10">Apa pentingnya mengetahui Rhesus darahmu ?</string>
+    <string name="faq12">Apa jadinya jika kamu tidak mengetahui Rhesus darahmu ?</string>
+    <string name="faq11">Apa itu Rhesus Negatif ?</string>
 </resources>

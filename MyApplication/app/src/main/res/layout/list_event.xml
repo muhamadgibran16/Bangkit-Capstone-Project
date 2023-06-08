@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="20dp"
+    android:layout_gravity="center_horizontal"
     android:elevation="2dp"
     app:cardElevation="17dp"
     app:cardCornerRadius="20dp"
@@ -13,20 +14,24 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
         android:paddingBottom="12dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/photo_event"
-            android:layout_width="350dp"
-            android:layout_height="191dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center_horizontal"
+            android:layout_margin="5dp"
             android:padding="8dp"
-            app:shapeAppearanceOverlay="@style/roundedCorners"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/bg_awan" />
+            app:shapeAppearanceOverlay="@style/roundedCorners"
+            tools:src="@drawable/event" />
 
         <TextView
             android:id="@+id/name"
@@ -43,29 +48,51 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:id="@+id/tgl"
-            android:layout_width="match_parent"
+            android:id="@+id/tv_publish"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="12dp"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            android:text="Tanggal : 7 Agustus 2021"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="10dp"
+            android:text="Tanggal publish :"
             android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/tgl_publish"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
         <TextView
-            android:id="@+id/waktu"
-            android:layout_width="match_parent"
+            android:id="@+id/tgl_publish"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="12dp"
-            android:textSize="14sp"
-            android:text="Waktu    : 08.00 s/d 17.00 WIB"
-            android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/tgl"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_marginTop="10dp"
+            android:text="7 Agustus 2021"
+            app:layout_constraintEnd_toEndOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
         <TextView
+            android:id="@+id/aksi"
+            style="@style/regular_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_grey"
+            android:padding="5dp"
+            android:text="Tutup"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_publish"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toTopOf="@+id/tv_publish" />
+        <!-- <TextView
+             android:id="@+id/waktu"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginHorizontal="12dp"
+             android:textSize="14sp"
+             android:text="Waktu    : 08.00 s/d 17.00 WIB"
+             android:textColor="@color/black"
+             app:layout_constraintTop_toBottomOf="@+id/tgl"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"/>-->
+        <!--<TextView
             android:id="@+id/lokasi"
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -75,7 +102,7 @@
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/waktu"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"/>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

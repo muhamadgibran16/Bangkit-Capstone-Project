@@ -102,6 +102,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/email"
+                    android:enabled="false"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
