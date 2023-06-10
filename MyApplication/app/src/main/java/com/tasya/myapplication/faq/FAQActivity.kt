@@ -11,7 +11,7 @@ import java.util.*
 
 class FAQActivity : AppCompatActivity() {
     private lateinit var recyclerViewFAQ: RecyclerView
-    private var mListFAQ = java.util.ArrayList<FAQData>()
+    private var mListFAQ = ArrayList<FAQData>()
     private lateinit var adapterFAQ: FAQAdapter
     private lateinit var searchViewFAQ: androidx.appcompat.widget.SearchView
 

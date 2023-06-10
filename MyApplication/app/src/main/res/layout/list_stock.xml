@@ -28,9 +28,9 @@
             android:outlineAmbientShadowColor="@color/red"
             app:cardCornerRadius="12dp"
             app:cardElevation="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/kab"
+            app:layout_constraintBottom_toBottomOf="@+id/alamat_rs"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/nama_pasien">
+            app:layout_constraintTop_toTopOf="@+id/layout_jumlah">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -61,19 +61,34 @@
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/nama_pasien"
+        <LinearLayout
+            android:id="@+id/layout_jumlah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="130dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="18dp"
-            style="@style/regular_black"
-            android:text="Roronoa Zoro bin Azzuhai"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/jml_kantong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/regular_black"
+                android:text="2" />
+
+            <TextView
+                android:id="@+id/tv_kantong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/regular_black"
+                android:text="Kantong"
+                android:layout_marginStart="@dimen/spacing_8"/>
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/rs"
+            android:id="@+id/nama_rs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="130dp"
@@ -81,18 +96,18 @@
             style="@style/regular_black"
             android:text="RSUD Kecamatan Mandau"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nama_pasien" />
+            app:layout_constraintTop_toBottomOf="@+id/layout_jumlah" />
 
         <TextView
-            android:id="@+id/kab"
+            android:id="@+id/alamat_rs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="130dp"
             android:layout_marginTop="8dp"
-            android:text="Bengkalis,Riau"
+            android:text="alamat rs"
             style="@style/regular_black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rs" />
+            app:layout_constraintTop_toBottomOf="@+id/nama_rs" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

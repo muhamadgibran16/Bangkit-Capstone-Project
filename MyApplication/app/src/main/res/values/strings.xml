@@ -44,4 +44,10 @@
     <string name="faq10">Apa pentingnya mengetahui Rhesus darahmu ?</string>
     <string name="faq12">Apa jadinya jika kamu tidak mengetahui Rhesus darahmu ?</string>
     <string name="faq11">Apa itu Rhesus Negatif ?</string>
+
+    <string name="desc_1">Setiap orang yang memenuhi syarat dapat mendonorkan darah, tetapi bergantung pada golongan darah Anda, Anda hanya dapat menerima jenis darah, plasma, atau trombosit tertentu. Apakah Anda tahu golongan darah Anda? Penting untuk diketahui karena golongan darah bisa cocok atau tidak cocok satu sama lain.</string>
+    <string name="desc2">Ada delapan golongan darah yang berbeda, dan mereka tidak selalu cocok satu sama lain. Menariknya, orang yang memiliki darah O-negatif dianggap sebagai donor universal untuk seluruh populasi karena bisa mendonorkan darah ke seluruh jenis golongan darah.\n\nAda empat golongan darah utama: A, B, AB dan O. Kombinasi protein dan gula, yang disebut antigen, pada permukaan sel darah merah inilah yang membuat golongan darah tersebut cocok atau tidak cocok dengan golongan darah lainnya.\n\n• Misalnya, jika Anda bergolongan darah A, Anda hanya dapat menerima golongan darah A atau golongan darah O. Anda tidak dapat menerima golongan darah B atau golongan darah AB.\n• Jika Anda memiliki golongan darah B, Anda hanya dapat menerima golongan darah B atau golongan darah O. Anda tidak dapat menerima golongan darah A atau golongan darah AB.\n• Jika Anda memiliki golongan darah AB, Anda dapat menerima semua golongan darah.\n• Jika Anda memiliki golongan darah O, Anda hanya dapat menerima golongan darah O.</string>
+    <string name="title1">Kesesuaian antar darah</string>
+    <string name="title2">Bagan kompatibilitas golongan darah</string>
+
 </resources>
