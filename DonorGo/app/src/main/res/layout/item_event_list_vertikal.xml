@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view_story"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="5dp"
+    android:backgroundTint="@color/white"
+    android:elevation="8dp"
+    app:cardCornerRadius="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_photo"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="5dp"
+            app:cardCornerRadius="10dp" >
+
+            <ImageView
+                android:id="@+id/img_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:src="@drawable/bg_awan"
+                android:adjustViewBounds="true"
+                android:transitionName="image_content"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/content_image_for_event"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:alpha="0.5"
+            android:transitionName="current_date"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="italic"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="08 Jun 2022 | 22:17" />
+
+        <TextView
+            android:id="@+id/title_event"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="5dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            tools:text="Meriahkan Hari Jadi Kota Padang ke-352, Dinas Perdagangan Gelar Donor Darah"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/card_photo"
+            app:layout_constraintEnd_toEndOf="@id/card_photo"
+            app:layout_constraintStart_toStartOf="@id/card_photo"/>
+
+        <ImageView
+            android:id="@+id/img_hospital"
+            android:layout_width="16dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="1.5dp"
+            android:src="@drawable/ic_marker"
+            app:layout_constraintTop_toBottomOf="@id/title_event"
+            app:layout_constraintStart_toStartOf="@id/card_photo"/>
+
+        <TextView
+            android:id="@+id/tv_hospital"
+            style="@style/semi_black"
+            android:layout_width="0dp"
+            android:layout_marginStart="2dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textSize="11sp"
+            android:maxLines="1"
+            android:alpha="0.5"
+            app:layout_constraintStart_toEndOf="@id/img_hospital"
+            app:layout_constraintBottom_toBottomOf="@id/img_hospital"
+            app:layout_constraintTop_toTopOf="@id/img_hospital"
+            tools:text="RS Umum Daerah Murangan" />
+
+        <LinearLayout
+            android:id="@+id/status_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="24dp"
+            android:paddingHorizontal="35dp"
+            android:gravity="start"
+            android:background="@drawable/bg_card_status_pink"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="@id/img_hospital"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/status_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/on_going"
+                android:layout_margin="4dp"
+                android:fontFamily="@font/akrobat_extrabold"
+                android:textColor="@color/pink_soft"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            app:layout_constraintTop_toBottomOf="@id/status_card"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

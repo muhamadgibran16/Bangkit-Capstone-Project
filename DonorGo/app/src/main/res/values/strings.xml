@@ -1,0 +1,214 @@
+<resources>
+    <string name="app_name">DonorGo</string>
+
+    // Started
+    <string name="welcome_starter">Welcome to our Blood \n Donation App!</string>
+    <string name="saving_life_text">Start saving lives by \n becoming a blood donor.</string>
+    <string name="get_started">GET STARTED</string>
+
+    // OTP
+    <string name="enter_the_otp">Enter the OTP we have send to your email</string>
+    <string name="verifikasi">Verification</string>
+
+    // Login
+    <string name="sign_in">Sign In</string>
+    <string name="we_have_already_met">We have already met!</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="masuk_dengan">Sign In With</string>
+    <string name="don_t_have_an_account">Don’t have account?</string>
+    <string name="google">Google</string>
+
+    // Register
+    <string name="sign_up">Sign Up</string>
+    <string name="let_s_create_an_account">Let’s create you an account</string>
+    <string name="sign_up_with">Sign Up With</string>
+    <string name="sudah_punya_akun">Already have an account?</string>
+
+    // Custom EditText
+    // email
+    <string name="email_label">Email</string>
+    <string name="email_empty">Please enter your email</string>
+    <string name="invalid_email">Please enter a valid email address</string>
+    // username
+    <string name="username_label">Your Name</string>
+    <string name="username_empty">Please enter your name</string>
+    // password
+    <string name="password_label">Password</string>
+    <string name="pass_empty">Please enter your password</string>
+    <string name="input_under_min_length">Password must be 8 or more characters</string>
+    <string name="invalid_password">Password is invalid</string>
+    // confirm
+    <string name="cpassword_label">Confirm Password</string>
+    <string name="cpassword_required">Confirm password is required!!!</string>
+    <string name="cpassword_not_match">Confirm Password not match</string>
+    // Telepon
+    <string name="label_telp">Phone Number</string>
+    <string name="telp_empty">Please enter your phone</string>
+    <string name="phone_must_be">Phone number must be more than 9 digits</string>
+
+    // Default
+    <string name="error_test">Couldn\'t find your Google Account</string>
+    <string name="default_required">Required*</string>
+    <string name="input_beyond_max_length">Your input is over the limit</string>
+
+    // OTP
+    <string name="resend_verification_code">Resend verification code</string>
+    <string name="enter_otp_code">Enter your OTP verification code</string>
+    <string name="invalid_otp">Code OTP is invalid</string>
+    <string name="empty_otp">Please enter your code OTP</string>
+    <string name="expired_otp">Your OTP code is expired</string>
+    <string name="must_be_otp">OTP code must be 6 digits</string>
+    <string name="timer_start">00:00</string>
+
+    // Profile
+    <string name="history_request">History Request</string>
+    <string name="about_us">About Us</string>
+    <string name="contact_us">Contact US</string>
+    <string name="logout">Logout</string>
+    <string name="last_donor">Last Donor :</string>
+    <string name="setting">Setting</string>
+
+    // Buttom Menu
+    <string name="home_btn">Home</string>
+    <string name="event_btn">Event</string>
+    <string name="news_btn">News</string>
+    <string name="profile_btn">Profile</string>
+
+    // Message
+    <string name="error_message_tag">Error Message:</string>
+    <string name="unauthorized_email">Email not registered!</string>
+    <string name="unauthorized_pass">Invalid password!</string>
+    <string name="email_not_verified">Email not verified! Please verify your account</string>
+    <string name="email_already_exists">Email already exists! If this is your account, please login</string>
+    <string name="email_already_exists_error">Email already exists!</string>
+
+    // Button Navigation
+    <string name="fab_blood_navigation_bar">View List Blood Request in Maps</string>
+    <string name="event_banner_home">Image Banner for Event</string>
+    <string name="button_home_navigation">Button Home Navigation</string>
+    <string name="button_event_navigation">Button Event Navigation</string>
+    <string name="button_news_navigation">Button News Navigation</string>
+    <string name="button_profile_navigation">Button Profile Navigation</string>
+    <string name="button_notif">Button Notification</string>
+    <string name="back_button">Button Back to Home</string>
+
+    // Dialog Message
+    <string name="logout_confirm">Are you sure to Logout?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    // Home
+    <string name="welcome">Welcome, \n%1$s</string>
+    <string name="stock_nav">Stock</string>
+    <string name="table_nav">Table</string>
+    <string name="donate_nav">Donate</string>
+    <string name="request_nav">Request</string>
+    <string name="faq_nav">FAQ</string>
+    <string name="blood_request_title">Blood Request</string>
+    <string name="more_blood"><![CDATA[More >>]]></string>
+    <string name="event_title">Event</string>
+    <string name="more_event"><![CDATA[More >>]]></string>
+    <string name="news_title">News</string>
+    <string name="more_news"><![CDATA[More >>]]></string>
+
+    // Event
+    <string name="image_cloud">Image Cloud Background</string>
+    <string name="title_event">Meriahkan Hari Jadi Kota Padang ke-352, Dinas Perdagangan Gelar Donor Darah</string>
+    <string name="content_image_for_event">Content Image For Event</string>
+
+    // Maps
+    <string name="help_and_save_others">Help and Save Others</string>
+    <string name="your_blood_means_a_lot">Your blood means a lot and can save the lives of others</string>
+    <string name="help_people">Help People in Need of Blood</string>
+
+    // News
+    <string name="news_title_list">BPKP Riau Bersama UTD PMI Kota Pekanbaru Gelar Bakti Sosial Untuk Meningkatkan Kesejahteraan Masyarakat…</string>
+    <string name="posted_list_news_item">Posted at: %1$s</string>
+
+    // Status
+    <string name="on_going">On Going</string>
+    <string name="close">Close</string>
+    <string name="done">Done</string>
+    <string name="waiting">Waiting</string>
+
+    // Uploud KTP
+    <string name="select_text">browse and select your image to uploud file</string>
+    <string name="change_image">Change Image</string>
+    <string name="title_uploud">Uploud Your Image</string>
+    <string name="btn_uploud">UPLOUD</string>
+    <string name="btn_gallery">GALLERY</string>
+    <string name="btn_camera" translatable="false">CAMERA</string>
+    <string name="btn_continue">CONTINUE</string>
+    <string name="empty_image_select">Please select an image first\…</string>
+    <string name="compress_and_uploud">Waiting for the compression process and image upload</string>
+
+    // Profile
+    <string name="edit_foto_profile">Change</string>
+    <string name="verified_user">Verified User</string>
+    <string name="scan_ktp">SCAN KTP</string>
+    <string name="unverified_user">Unverified User</string>
+
+    // Edit Profile
+    <string name="natasya_salsabila">Natasya Salsabila</string>
+    <string name="nik_hint">NIK</string>
+    <string name="place_of_birth_hint">Place of Birth</string>
+    <string name="icon_image_calender">Icon Image Calender</string>
+    <string name="date_of_birth_label">Date of Birth</string>
+    <string name="blood_type">Blood Type</string>
+    <string name="pick_date_btn">Pick Date</string>
+    <string name="gender_hint">Gender</string>
+    <string name="address_hint">Address</string>
+    <string name="blood_rhesus">Blood Rhesus</string>
+    <string name="last_donor_date">Last Donor Date</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="save">Save</string>
+
+    // Voluntary Donor
+    <string name="desc">Rajin mendonorkan darah kira-kira mampu menurunkan risiko serangan jantung hingga 88 persen. Tak hanya itu, mendonorkan darah juga bisa meminimalkan risiko kanker, stroke, dan serangan jantung. Menariknya lagi, manfaat donor darah juga bisa membuat kadar zat besi dalam darah jadi stabil.\n\n\"Darah yang Anda sumbangkan memberi seseorang kesempatan hidup lagi. Suatu hari, seseorang itu mungkin kerabat dekat, teman, orang yang dicintai atau bahkan Anda.\" - redcrossblood.org\n\nKamu bisa jadi pahlawan hanya dengan donor darah! Kamu dapat memberikan darah secara sukarela melalui transfusi darah untuk mereka yang membutuhkan.</string>
+    <string name="taukah_kamu">Taukah Kamu?</string>
+    <string name="can_donate">Can Donate:</string>
+    <string name="regency_city">Regency/City</string>
+    <string name="hospital">Hospital</string>
+    <string name="donor">DONOR</string>
+
+    // Detail Request
+    <string name="pasient_name">Roronoa Zoro bin Azzuhai</string>
+    <string name="banyak_yang_dibutuhkan">Banyak yang dibutuhkan :</string>
+    <string name="_3">3</string>
+    <string name="location">Location</string>
+    <string name="rsud_mandau">RSUD Mandau</string>
+    <string name="address">Address</string>
+    <string name="jl_stadion_no_10_duri_bengkalis">Jl. Stadion No 10, Duri, Bengkalis</string>
+    <string name="description">Description</string>
+    <string name="butuh_bantuan_nya_pak_bu_butuh_darah_utk_istri_teman_yang_nge_drop_setelah_keguguran">Butuh bantuan nya pak/Bu. butuh darah utk istri teman yang nge drop setelah keguguran.</string>
+    <string name="close_family">Close Family</string>
+    <string name="nelly_agustin">Nelly Agustin</string>
+    <string name="number_phone">(%1$s)</string>
+
+    // Form Request
+    <string name="tittle_form_req">Form Request Donor</string>
+    <string name="patient_s_name">Patient\'s Name</string>
+    <string name="number_of_blood_bags">Number of blood bags</string>
+    <string name="family_contact">Family Contact</string>
+    <string name="family_name">Family Name</string>
+    <string name="positif">Positif</string>
+    <string name="negatif">Negatif</string>
+    <string name="unknown">Unknown</string>
+    <string name="province">Province</string>
+    <string name="distric_or_city">Distric or City</string>
+    <string name="discription">Discription</string>
+
+    // Stock Page
+    <string name="blood_bags">blood bags</string>
+    <string name="blood_stock">Blood Stock</string>
+
+    // Table Page
+    <string name="title_blood_table">Kesesuaian antar Darah</string>
+    <string name="content_desc1_table">Setcciap orang yang memenuhi syarat dapat mendonorkan darah, tetapi bergantung pada golongan darah Anda, Anda hanya dapat menerima jenis darah, plasma, atau trombosit tertentu. Apakah Anda tahu golongan darah Anda? Penting untuk diketahui karena golongan darah bisa cocok atau tidak cocok satu sama lain.</string>
+    <string name="content_desc2_table">Ada delapan golongan darah yang berbeda, dan mereka tidak selalu cocok satu sama lain. Menariknya, orang yang memiliki darah O-negatif dianggap sebagai donor universal untuk seluruh populasi karena bisa mendonorkan darah ke seluruh jenis golongan darah.\n\nAda empat golongan darah utama: A, B, AB dan O. Kombinasi protein dan gula, yang disebut antigen, pada permukaan sel darah merah inilah yang membuat golongan darah tersebut cocok atau tidak cocok dengan golongan darah lainnya.\n\n• Misalnya, jika Anda bergolongan darah A, Anda hanya dapat menerima golongan darah A atau golongan darah O. Anda tidak dapat menerima golongan darah B atau golongan darah AB.\n• Jika Anda memiliki golongan darah B, Anda hanya dapat menerima golongan darah B atau golongan darah O. Anda tidak dapat menerima golongan darah A atau golongan darah AB.\n• Jika Anda memiliki golongan darah AB, Anda dapat menerima semua golongan darah.\n• Jika Anda memiliki golongan darah O, Anda hanya dapat menerima golongan darah O.</string>
+    <string name="understand">Understand</string>
+    <string name="request_sent">Request sent</string>
+    <string name="content_pop_up">Your data will be automatically updated once the process is done</string>
+    <string name="btn_ok">OK</string>
+
+</resources>

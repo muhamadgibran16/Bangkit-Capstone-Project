@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.profile.ProfileActivity"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="-100dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="80dp">
+
+            <LinearLayout
+                android:id="@+id/notif_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:layout_marginEnd="45dp"
+                android:background="@drawable/circle_red">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_bell"
+                    android:contentDescription="@string/button_notif" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/greeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome"
+                style="@style/big_title_black"
+                android:layout_marginStart="32dp"
+                app:layout_constraintTop_toBottomOf="@id/notif_icon"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/banner"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_marginHorizontal="32dp"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="11dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/greeting">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/worldblood" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/banner"
+                app:layout_constraintStart_toStartOf="@id/banner"
+                app:layout_constraintEnd_toEndOf="@id/banner"
+                android:background="@drawable/pagination"
+                android:layout_marginTop="8dp" />
+
+            <LinearLayout
+                android:id="@+id/btn_stock"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintTop_toBottomOf="@id/banner"
+                app:layout_constraintStart_toStartOf="@id/banner"
+                app:layout_constraintEnd_toStartOf="@id/btn_table"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/button_box_nav"
+                android:elevation="10dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:outlineAmbientShadowColor="@color/red_blood"
+                android:outlineSpotShadowColor="@color/red_blood">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/stock" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/akrobat_bold"
+                android:text="@string/stock_nav"
+                android:textColor="@color/pretty_pink"
+                android:textSize="11sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_stock"
+                app:layout_constraintStart_toStartOf="@id/btn_stock"
+                app:layout_constraintEnd_toEndOf="@id/btn_stock"/>
+
+            <LinearLayout
+                android:id="@+id/btn_table"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintTop_toBottomOf="@id/banner"
+                app:layout_constraintStart_toEndOf="@id/btn_stock"
+                app:layout_constraintEnd_toStartOf="@id/btn_donate"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/button_box_nav"
+                android:elevation="10dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:outlineAmbientShadowColor="@color/red_blood"
+                android:outlineSpotShadowColor="@color/red_blood">
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/table" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/akrobat_bold"
+                android:text="@string/table_nav"
+                android:textColor="@color/pretty_pink"
+                android:textSize="11sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_table"
+                app:layout_constraintStart_toStartOf="@id/btn_table"
+                app:layout_constraintEnd_toEndOf="@id/btn_table"/>
+
+            <LinearLayout
+                android:id="@+id/btn_donate"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintTop_toBottomOf="@id/banner"
+                app:layout_constraintStart_toEndOf="@id/btn_table"
+                app:layout_constraintEnd_toStartOf="@id/btn_request"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/button_box_nav"
+                android:elevation="10dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:outlineAmbientShadowColor="@color/red_blood"
+                android:outlineSpotShadowColor="@color/red_blood">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/donation" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/akrobat_bold"
+                android:text="@string/donate_nav"
+                android:textColor="@color/pretty_pink"
+                android:textSize="11sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_donate"
+                app:layout_constraintStart_toStartOf="@id/btn_donate"
+                app:layout_constraintEnd_toEndOf="@id/btn_donate"/>
+
+            <LinearLayout
+                android:id="@+id/btn_request"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintTop_toBottomOf="@id/banner"
+                app:layout_constraintStart_toEndOf="@id/btn_donate"
+                app:layout_constraintEnd_toStartOf="@id/btn_faq"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/button_box_nav"
+                android:elevation="10dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:outlineAmbientShadowColor="@color/red_blood"
+                android:outlineSpotShadowColor="@color/red_blood">
+
+                <ImageView
+                    android:layout_width="23dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/search" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/akrobat_bold"
+                android:text="@string/request_nav"
+                android:textColor="@color/pretty_pink"
+                android:textSize="11sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_request"
+                app:layout_constraintStart_toStartOf="@id/btn_request"
+                app:layout_constraintEnd_toEndOf="@id/btn_request"/>
+
+            <LinearLayout
+                android:id="@+id/btn_faq"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintTop_toBottomOf="@id/banner"
+                app:layout_constraintStart_toEndOf="@id/btn_request"
+                app:layout_constraintEnd_toEndOf="@id/banner"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/button_box_nav"
+                android:elevation="10dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:outlineAmbientShadowColor="@color/red_blood"
+                android:outlineSpotShadowColor="@color/red_blood">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/faq" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/akrobat_bold"
+                android:text="@string/faq_nav"
+                android:textColor="@color/pretty_pink"
+                android:textSize="11sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_faq"
+                app:layout_constraintStart_toStartOf="@id/btn_faq"
+                app:layout_constraintEnd_toEndOf="@id/btn_faq"/>
+
+            <LinearLayout
+                android:id="@+id/blood_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginHorizontal="32dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_donate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/blood"
+                    style="@style/bold_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/blood_request_title"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/blood_more"
+                    style="@style/bold_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/more_blood"
+                    android:textSize="12sp"
+                    android:textColor="@color/red_blood" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_blood"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="32dp"
+                android:orientation="horizontal"
+                tools:listitem="@layout/item_request_list_home"
+                app:layout_constraintTop_toBottomOf="@id/blood_title"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/event_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="32dp"
+                app:layout_constraintTop_toBottomOf="@id/rv_blood"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/event"
+                    style="@style/bold_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/event_title"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/event_more"
+                    style="@style/bold_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/more_event"
+                    android:textSize="12sp"
+                    android:textColor="@color/red_blood" />
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/img_event"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginHorizontal="32dp"
+                app:layout_constraintTop_toBottomOf="@id/event_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/img_event"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/event_banner_home" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/news_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="32dp"
+                app:layout_constraintTop_toBottomOf="@id/img_event"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/news"
+                    style="@style/bold_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/news_title"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/news_more"
+                    style="@style/bold_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/more_news"
+                    android:textSize="12sp"
+                    android:textColor="@color/red_blood" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_news"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="32dp"
+                android:orientation="horizontal"
+                tools:listitem="@layout/item_news_list_home"
+                app:layout_constraintTop_toBottomOf="@id/news_title"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_news"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <!-- BLOOD BUTTON -->
+    <LinearLayout
+        android:id="@+id/donor_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blood_button"
+        android:layout_gravity="center"
+        android:elevation="11dp"
+        android:layout_marginBottom="-90dp"
+        android:orientation="horizontal" />
+
+    <!--  NAVIGATION  -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginBottom="-115dp"
+        android:elevation="10dp">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/white"
+            android:paddingTop="6dp"
+            android:paddingBottom="4dp"
+            app:addElevationShadow="true"
+            app:fabCradleMargin="15dp"
+            app:fabCradleRoundedCornerRadius="70dp"
+            app:fabCradleVerticalOffset="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/home_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="-7dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home"
+                        android:contentDescription="@string/button_home_navigation" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/akrobat_bold"
+                        android:text="@string/home_btn"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/event_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/home_btn"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/event"
+                        android:contentDescription="@string/button_event_navigation" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/akrobat_bold"
+                        android:text="@string/event_btn"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/news_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/profile_btn"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/news"
+                        android:contentDescription="@string/button_news_navigation" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/akrobat_semibold"
+                        android:text="@string/news_btn"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/profile_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/profil"
+                        android:contentDescription="@string/button_profile_navigation" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/akrobat_bold"
+                        android:text="@string/profile_btn"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/fab_blood_navigation_bar"
+            android:elevation="3dp"
+            app:fabSize="mini"
+            app:layout_anchor="@id/app_bar"
+            app:maxImageSize="40dp" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+</LinearLayout>

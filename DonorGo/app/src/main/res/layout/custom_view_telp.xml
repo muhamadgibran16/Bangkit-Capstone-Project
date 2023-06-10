@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/telp_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/label_telp"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_error"
+        app:counterEnabled="true"
+        app:boxStrokeColor="@color/outline_default_color"
+        app:counterMaxLength="14"
+        app:endIconMode="custom"
+        app:endIconTint="@color/pretty_pink"
+        app:endIconDrawable="@drawable/ic_check"
+        app:startIconDrawable="@drawable/ic_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxCornerRadiusBottomEnd="30dp"
+        app:boxCornerRadiusBottomStart="30dp"
+        app:boxCornerRadiusTopEnd="30dp"
+        app:boxCornerRadiusTopStart="30dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_telp"
+            android:layout_width="match_parent"
+            android:maxLength="15"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            style="@style/regular_black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/ic_error_telp"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_below="@id/telp_layout"
+        android:src="@drawable/ic_error"
+        android:visibility="invisible"
+        android:layout_marginTop="-18dp"
+        android:layout_marginStart="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_error_telp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/telp_layout"
+        android:layout_toEndOf="@id/ic_error_telp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@color/child_red"
+        android:visibility="visible"
+        android:text="@string/default_required"
+        android:layout_marginTop="-19dp"
+        android:layout_marginStart="4dp"/>
+
+</merge>

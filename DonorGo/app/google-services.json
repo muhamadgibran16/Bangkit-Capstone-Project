@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "105675284941",
+    "project_id": "donorgo-df5b0",
+    "storage_bucket": "donorgo-df5b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105675284941:android:4d50651be854d23007e484",
+        "android_client_info": {
+          "package_name": "com.example.donorgo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105675284941-r7ps2r22v5kiu1mhtmr09ibf55ej4jqa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.donorgo",
+            "certificate_hash": "6a76a84a3706f1b6919c9e8ebabea6347046e224"
+          }
+        },
+        {
+          "client_id": "105675284941-1ld8voc6ffitsph9nqqo206knmne60be.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDi7e5GFO7XeMZOz4EtxBotdYnGtcbWBwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105675284941-1ld8voc6ffitsph9nqqo206knmne60be.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

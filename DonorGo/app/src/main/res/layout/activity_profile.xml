@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.profile.ProfileActivity"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="-100dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bg_awan"
+                android:contentDescription="@string/image_cloud" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/iv_profile"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="70dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:cardCornerRadius="75dp" >
+
+                <ImageView
+                    android:id="@+id/img_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:src="@drawable/tasya"
+                    android:adjustViewBounds="true"
+                    android:transitionName="image_content"
+                    android:layout_gravity="center"
+                    android:elevation="4dp"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/content_image_for_event"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@color/black"
+                    android:elevation="5dp"
+                    android:gravity="center"
+                    android:layout_gravity="bottom"
+                    android:alpha="0.3"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:elevation="6dp"
+                    android:layout_marginBottom="-58dp"
+                    android:text="@string/edit_foto_profile"
+                    android:layout_marginTop="-2dp"
+                    android:textSize="15sp"
+                    android:alpha="1"
+                    style="@style/extra_bold_white"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/edit_identity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="-35dp"
+                android:background="@drawable/button_red"
+                android:padding="10dp"
+                android:src="@drawable/ic_edit_putih"
+                app:layout_constraintStart_toEndOf="@+id/iv_profile"
+                app:layout_constraintTop_toTopOf="@+id/iv_profile" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/bg_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:outlineSpotShadowColor="@color/red_blood"
+                android:outlineAmbientShadowColor="@color/red_blood"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/bg_card_verified"
+                    android:layout_height="180dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_data_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="20dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:outlineSpotShadowColor="@color/black"
+                            android:outlineAmbientShadowColor="@color/black"
+                            android:background="@drawable/bg_card_profile"
+                            android:elevation="25dp" >
+
+                            <TextView
+                                android:id="@+id/nama_user"
+                                style="@style/regular_white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="15dp"
+                                android:padding="8dp"
+                                tools:text="Nanang Ardianto"
+                                android:textStyle="bold"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/phone_user"
+                                style="@style/regular_white"
+                                android:layout_width="114dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/nama_user"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="-18dp"
+                                android:padding="8dp"
+                                tools:text="0812345689934"
+                                android:textSize="14sp"
+                                tools:layout_editor_absoluteX="67dp"
+                                tools:layout_editor_absoluteY="501dp" />
+
+                            <TextView
+                                android:id="@+id/last_donor_label"
+                                style="@style/regular_white"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/phone_user"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="-10dp"
+                                android:padding="8dp"
+                                android:text="@string/last_donor"
+                                android:textSize="13sp"
+                                tools:layout_editor_absoluteX="67dp"
+                                tools:layout_editor_absoluteY="501dp" />
+
+                            <TextView
+                                android:id="@+id/last_donor_date"
+                                style="@style/regular_white"
+                                android:layout_width="90dp"
+                                android:gravity="end"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/phone_user"
+                                android:layout_toStartOf="@id/view_darah"
+                                android:layout_marginStart="-10dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_marginTop="-10.3dp"
+                                android:paddingVertical="8dp"
+                                tools:text="07 Agustus 2001"
+                                android:textSize="13sp"
+                                tools:layout_editor_absoluteX="67dp"
+                                tools:layout_editor_absoluteY="501dp" />
+
+                            <TextView
+                                android:id="@+id/can_donate_label"
+                                style="@style/regular_white"
+                                android:layout_width="85dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/phone_user"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="7dp"
+                                android:padding="8dp"
+                                android:text="@string/can_donate"
+                                android:textSize="13sp"
+                                tools:layout_editor_absoluteX="67dp"
+                                tools:layout_editor_absoluteY="501dp" />
+
+                            <TextView
+                                android:id="@+id/can_donote_date"
+                                style="@style/regular_white"
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:layout_below="@+id/phone_user"
+                                android:layout_toStartOf="@id/view_darah"
+                                android:layout_marginStart="-10dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_marginTop="7.3dp"
+                                android:paddingVertical="8dp"
+                                tools:text="10 Desember 2001"
+                                android:textSize="13sp"
+                                tools:layout_editor_absoluteX="67dp"
+                                tools:layout_editor_absoluteY="501dp" />
+
+                            <View
+                                android:id="@+id/view"
+                                android:layout_width="1dp"
+                                android:layout_height="83dp"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginStart="210dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="@color/white" />
+
+                            <View
+                                android:id="@+id/view_darah"
+                                android:layout_width="35dp"
+                                android:layout_height="50dp"
+                                android:layout_alignTop="@+id/view"
+                                android:layout_alignBottom="@+id/view"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="14dp"
+                                android:layout_toEndOf="@+id/view"
+                                android:background="@drawable/ic_darah" />
+
+                            <TextView
+                                android:id="@+id/gol_dar"
+                                style="@style/bold_white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="270dp"
+                                android:layout_marginTop="42dp"
+                                tools:text="AB"
+                                android:textSize="40sp"/>
+
+                            <TextView
+                                android:id="@+id/reshus_dar"
+                                style="@style/bold_white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="307dp"
+                                android:layout_marginTop="33dp"
+                                tools:text="+"
+                                android:textSize="30sp"/>
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/status_verify"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        style="@style/extra_bold_black"
+                        android:layout_marginStart="30dp"
+                        android:textColor="@color/red_blood"
+                        android:layout_marginTop="15dp"
+                        android:layout_below="@id/card_data_user"
+                        android:text="@string/unverified_user"/>
+
+                    <LinearLayout
+                        android:id="@+id/btn_ktp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_alignEnd="@id/card_data_user"
+                        android:gravity="center"
+                        android:paddingVertical="2dp"
+                        android:layout_below="@id/card_data_user"
+                        android:layout_toEndOf="@id/status_verify"
+                        android:background="@drawable/bg_card_btn_ktp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/scan_ktp"
+                            android:layout_gravity="center"
+                            android:layout_margin="4dp"
+                            android:fontFamily="@font/akrobat_extrabold"
+                            android:textColor="@color/pingky"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/btn_setting"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginHorizontal="20dp"
+                app:cardElevation="0dp"
+                android:gravity="start"
+                android:elevation="5dp"
+                android:outlineSpotShadowColor="@color/red_blood"
+                android:outlineAmbientShadowColor="@color/red_blood"
+                android:paddingVertical="11dp"
+                android:background="@drawable/bg_card_profile_button"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bg_card">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting"
+                    android:fontFamily="@font/akrobat_semibold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="25dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_history_req"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="20dp"
+                app:cardElevation="0dp"
+                android:gravity="start"
+                android:elevation="5dp"
+                android:outlineSpotShadowColor="@color/red_blood"
+                android:outlineAmbientShadowColor="@color/red_blood"
+                android:paddingVertical="11dp"
+                android:background="@drawable/bg_card_profile_button"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_setting">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/history_request"
+                    android:fontFamily="@font/akrobat_semibold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="25dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_about_us"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="20dp"
+                app:cardElevation="0dp"
+                android:gravity="start"
+                android:elevation="5dp"
+                android:outlineSpotShadowColor="@color/red_blood"
+                android:outlineAmbientShadowColor="@color/red_blood"
+                android:paddingVertical="11dp"
+                android:background="@drawable/bg_card_profile_button"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_history_req">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about_us"
+                    android:fontFamily="@font/akrobat_semibold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="25dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_contact_us"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="20dp"
+                app:cardElevation="0dp"
+                android:gravity="start"
+                android:elevation="5dp"
+                android:outlineSpotShadowColor="@color/red_blood"
+                android:outlineAmbientShadowColor="@color/red_blood"
+                android:paddingVertical="11dp"
+                android:background="@drawable/bg_card_profile_button"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_about_us">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contact_us"
+                    android:fontFamily="@font/akrobat_semibold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="25dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_logout"
+                style="@style/bold_white"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:paddingVertical="5dp"
+                android:background="@drawable/button_red"
+                android:textAlignment="center"
+                android:text="@string/logout"
+                app:layout_constraintEnd_toEndOf="@id/btn_setting"
+                app:layout_constraintStart_toStartOf="@id/btn_setting"
+                app:layout_constraintTop_toBottomOf="@+id/btn_contact_us" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <!-- BLOOD BUTTON -->
+    <LinearLayout
+        android:id="@+id/donor_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blood_button"
+        android:layout_gravity="center"
+        android:elevation="11dp"
+        android:layout_marginBottom="-90dp"
+        android:orientation="horizontal" />
+
+    <!--  NAVIGATION  -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginBottom="-115dp"
+        android:elevation="10dp">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/white"
+            android:paddingTop="6dp"
+            android:paddingBottom="4dp"
+            app:addElevationShadow="true"
+            app:fabCradleMargin="15dp"
+            app:fabCradleRoundedCornerRadius="70dp"
+            app:fabCradleVerticalOffset="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/home_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="-7dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home"
+                        android:contentDescription="@string/button_home_navigation" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/akrobat_bold"
+                        android:text="@string/home_btn"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/event_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/home_btn"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/event"
+                        android:contentDescription="@string/button_event_navigation" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/akrobat_bold"
+                        android:text="@string/event_btn"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/news_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/profile_btn"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/news"
+                        android:contentDescription="@string/button_news_navigation" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/akrobat_semibold"
+                        android:text="@string/news_btn"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/profile_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/profil"
+                        android:contentDescription="@string/button_profile_navigation" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/akrobat_bold"
+                        android:text="@string/profile_btn"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/fab_blood_navigation_bar"
+            android:elevation="3dp"
+            app:fabSize="mini"
+            app:layout_anchor="@id/app_bar"
+            app:maxImageSize="40dp" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</LinearLayout>

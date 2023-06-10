@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/otp_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/enter_otp_code"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_error"
+        app:counterEnabled="false"
+        app:boxStrokeColor="@color/outline_default_color"
+        app:counterMaxLength="6"
+        app:endIconMode="custom"
+        app:endIconTint="@color/pretty_pink"
+        app:endIconDrawable="@drawable/ic_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_otp"
+            android:layout_width="match_parent"
+            android:maxLength="6"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/ic_error_otp"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_below="@id/otp_layout"
+        android:src="@drawable/ic_error"
+        android:visibility="invisible"
+        android:layout_marginTop="-18dp"
+        android:layout_marginStart="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_error_otp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/otp_layout"
+        android:layout_toEndOf="@id/ic_error_otp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@color/child_red"
+        android:visibility="invisible"
+        android:text="@string/default_required"
+        android:layout_marginTop="-19dp"
+        android:layout_marginStart="4dp"/>
+
+</merge>

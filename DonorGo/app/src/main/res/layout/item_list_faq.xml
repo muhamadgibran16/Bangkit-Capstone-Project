@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginHorizontal="32dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/wrapper_detail_request">
+
+    <LinearLayout
+        android:id="@+id/constraintLayoutFAQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp"
+
+        android:layout_marginHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/titleFAQ"
+            style="@style/bold_black"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scrollHorizontally="true"
+            android:maxLines="1"
+            android:text="Hal-hal yang harus diperhatikan sebelum berdonor"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/FAQDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:layout_marginHorizontal="20dp"
+        style="@style/regular_black"
+        android:textAlignment="viewStart"
+        android:justificationMode="inter_word"
+        android:text="Jangan sakit, jangan sakit, pokoknya harus sehat selalu kan. yaudah jangan sakit yaa, nanti ga bisa donor.." />
+
+</LinearLayout>

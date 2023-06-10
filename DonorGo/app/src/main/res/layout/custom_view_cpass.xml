@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cpass_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/cpassword_label"
+        app:errorEnabled="false"
+        app:counterEnabled="true"
+        app:boxStrokeColor="@color/outline_default_color"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/ic_lock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxCornerRadiusBottomEnd="30dp"
+        app:boxCornerRadiusBottomStart="30dp"
+        app:boxCornerRadiusTopEnd="30dp"
+        app:boxCornerRadiusTopStart="30dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_cpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            style="@style/regular_black"
+            android:ems="10" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/ic_error_cpass"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_below="@id/cpass_layout"
+        android:src="@drawable/ic_error"
+        android:visibility="invisible"
+        android:layout_marginTop="-18dp"
+        android:layout_marginStart="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_error_cpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cpass_layout"
+        android:layout_toEndOf="@id/ic_error_cpass"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@color/child_red"
+        android:visibility="visible"
+        android:text="@string/default_required"
+        android:layout_marginTop="-19dp"
+        android:layout_marginStart="4dp"/>
+
+</merge>
