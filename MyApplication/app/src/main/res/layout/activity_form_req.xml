@@ -110,6 +110,7 @@
             app:layout_constraintTop_toBottomOf="@+id/layout_goldar">
 
             <RadioGroup
+                android:id="@+id/radio_rhesus"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
@@ -235,6 +236,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="none"
                 android:hint="Rumah Sakit Pasien"
+                android:ellipsize="end"
+                android:maxLines="1"
                 style="@style/regular_black"/>
         </com.google.android.material.textfield.TextInputLayout>
 
