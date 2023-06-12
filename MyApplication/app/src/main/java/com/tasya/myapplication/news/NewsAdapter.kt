@@ -1,8 +1,10 @@
 package com.tasya.myapplication.news
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.tasya.myapplication.data.response.PayloadItem
 import com.tasya.myapplication.databinding.ItemNewsBinding
 
@@ -33,15 +35,14 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     inner class NewsViewHolder(private val binding: ItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(news: PayloadItem) {
-            binding.titleTextView.text = news.title
-            binding.urlTextView.text = news.url
-            // Bind other views as needed
+            Log.d("NewsAdapter", "Title: ${news.title}")
+            Log.d("NewsAdapter", "Title: ${news.url}")
+            binding.news = news // Mengatur objek news sebagai variabel binding
+            binding.executePendingBindings() // Mengupdate tampilan segera
 
-            // You can also set click listeners or perform other actions on the views
-            // For example:
-            binding.root.setOnClickListener {
-                // Handle item click event
-            }
+            Glide.with(binding.root)
+                .load(news.urlImage)
+                .into(binding.imageView)
         }
     }
 }

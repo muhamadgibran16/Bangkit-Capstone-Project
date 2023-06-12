@@ -6,8 +6,8 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    @GET("/v1/get-news")
-    fun getNews(): Call<NewsResponse>
+    @GET("get-news")
+    fun getNews(@Header ("Authorization")token: String): Call<NewsResponse>
 
     @GET("province/city/hospital/{id}")
     fun getHospitalByCityId(@Path("id") idCity: Int): Call<HospitalResponse>
