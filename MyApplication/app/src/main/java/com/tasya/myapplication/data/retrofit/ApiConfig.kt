@@ -1,7 +1,7 @@
 package com.tasya.myapplication.data.retrofit
 
 import ApiService
-import com.tasya.myapplication.BuildConfig
+import androidx.viewbinding.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

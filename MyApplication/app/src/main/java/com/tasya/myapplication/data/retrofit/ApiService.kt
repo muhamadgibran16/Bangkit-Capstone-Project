@@ -1,13 +1,14 @@
 import android.util.JsonToken
 import com.tasya.myapplication.data.BloodRequestRequest
-import com.tasya.myapplication.data.response.BloodRequestResponse
-import com.tasya.myapplication.data.response.CityResponse
-import com.tasya.myapplication.data.response.HospitalResponse
-import com.tasya.myapplication.data.response.ProvinceResponse
+import com.tasya.myapplication.data.response.*
 import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiService {
+
+    @GET("/v1/get-news")
+    fun getNews(): Call<NewsResponse>
+
     @GET("province/city/hospital/{id}")
     fun getHospitalByCityId(@Path("id") idCity: Int): Call<HospitalResponse>
 
