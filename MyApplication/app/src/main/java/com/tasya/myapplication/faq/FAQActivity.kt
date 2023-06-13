@@ -46,7 +46,7 @@ class FAQActivity : AppCompatActivity() {
         if (query != null) {
             val filteredList = java.util.ArrayList<FAQData>()
             for (i in mListFAQ) {
-                if (i.title.lowercase(Locale.ROOT).contains(query)) {
+                if (i.desc.lowercase(Locale.ROOT).contains(query) and i.title.lowercase(Locale.ROOT).contains(query)) {
                     filteredList.add(i)
                 }
             }
