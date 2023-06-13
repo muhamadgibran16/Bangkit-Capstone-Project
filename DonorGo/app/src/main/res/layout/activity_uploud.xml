@@ -22,13 +22,42 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"/>
 
+        <TextView
+            android:id="@+id/tv_clue"
+            style="@style/regular_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Example for good KTP photo"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/iv_ktp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_fragment" />
+
+        <ImageView
+            android:id="@+id/iv_ktp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/image_cloud"
+            app:layout_constraintTop_toBottomOf="@id/tv_clue"
+            app:layout_constraintBottom_toTopOf="@+id/bt_lets_uploud"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/sample_ktp" />
+
         <com.example.donorgo.customview.MyCustomButton
             android:id="@+id/bt_lets_uploud"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="15dp"
             app:customText="@string/btn_uploud"
-            app:layout_constraintTop_toBottomOf="@id/layout_fragment"
+            app:layout_constraintTop_toBottomOf="@id/iv_ktp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

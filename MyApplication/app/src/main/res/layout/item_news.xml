@@ -2,15 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
         <variable
             name="news"
-            type="com.tasya.myapplication.data.response.PayloadItem" />
-
+            type="com.tasya.myapplication.data.response.NewsItem" />
     </data>
 
     <androidx.cardview.widget.CardView
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cv_news"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"

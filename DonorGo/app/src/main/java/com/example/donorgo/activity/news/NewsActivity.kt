@@ -7,6 +7,9 @@ import com.example.donorgo.R
 class NewsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+<<<<<<< HEAD
         setContentView(R.layout.activity_news)
+=======
+>>>>>>> origin/mobile-development
     }
 }

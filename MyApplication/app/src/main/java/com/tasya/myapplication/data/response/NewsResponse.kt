@@ -1,6 +1,8 @@
 package com.tasya.myapplication.data.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class NewsResponse(
 
@@ -8,7 +10,7 @@ data class NewsResponse(
 	val pagination: Pagination? = null,
 
 	@field:SerializedName("payload")
-	val payload: List<PayloadItem?>? = null,
+	val payload: List<NewsItem?>? = null,
 
 	@field:SerializedName("success")
 	val success: Boolean? = null,
@@ -37,8 +39,8 @@ data class Pagination(
 	@field:SerializedName("nextLink")
 	val nextLink: Any? = null
 )
-
-data class PayloadItem(
+@Parcelize
+data class NewsItem(
 
 	@field:SerializedName("createdAt")
 	val createdAt: String? = null,
@@ -54,4 +56,4 @@ data class PayloadItem(
 
 	@field:SerializedName("urlImage")
 	val urlImage: String? = null
-)
+) : Parcelable

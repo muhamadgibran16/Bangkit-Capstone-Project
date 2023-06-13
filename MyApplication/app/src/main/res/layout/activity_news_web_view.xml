@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.history.HistoryActivity"
+    tools:context=".news.NewsActivity"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -15,11 +15,9 @@
         android:layout_marginBottom="-110dp"
         android:layout_weight="1">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_history"
+        <WebView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            tools:listitem="@layout/item_history_request_vertikal"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,9 +27,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="90dp"
-            android:background="@color/background_app"
-            android:paddingStart="@dimen/margin_start_toolbar"
-            android:paddingEnd="@dimen/margin_start_end"
+            android:background="@color/white"
+            android:paddingHorizontal="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -42,23 +39,21 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="3dp"
                 android:backgroundTint="@color/white"
-                android:drawableTop="@drawable/bt_back_arrow"
                 android:paddingTop="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_toolbarTitrle"
-                android:text="@string/history_request"
+                android:id="@+id/tv_toolbarTitle"
+                android:text="Title"
                 style="@style/extra_bold_black"
                 android:textSize="20sp"
-                android:layout_gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="20dp"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_width="match_parent"/>
 
         </androidx.appcompat.widget.Toolbar>
 
