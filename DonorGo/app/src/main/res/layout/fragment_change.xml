@@ -21,7 +21,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_photo"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,18 +44,35 @@
 
         </androidx.cardview.widget.CardView>
 
-        <Button
+        <LinearLayout
             android:id="@+id/bt_change"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="20dp"
-            android:text="@string/change_image"
             android:alpha="1"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="8dp"
+            android:gravity="center"
             android:background="@drawable/button_background_rounded"
+            android:backgroundTint="@color/child_red"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/card_photo"
-            app:layout_constraintStart_toStartOf="@id/card_photo"
-            app:layout_constraintEnd_toEndOf="@id/card_photo"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/change_image"
+                android:layout_margin="4dp"
+                android:fontFamily="@font/akrobat_bold"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

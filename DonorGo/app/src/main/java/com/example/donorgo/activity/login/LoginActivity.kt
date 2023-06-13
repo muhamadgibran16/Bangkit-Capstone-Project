@@ -79,7 +79,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             showLoading(it)
         }
         loginViewModel.dataSesion.observe(this) {
-            Log.w("LOGIN", "Login Line 84 uid: $it")
+            Log.w("uid", "Login Line 84 uid: $it")
             if (loginViewModel.isError.value == false && userAction) {
                 sessionViewModel.saveUsername(it.username)
                 sessionViewModel.saveUserToken(it.token)
@@ -206,7 +206,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             // Telepon, Nama, Email, PASS, CPASS, Token
             // Login Succes, Move to HomePage
             Log.w("LOGIN", "Login Line 207")
-            sessionViewModel.saveStateSession(true)
+            setMessage(getString(R.string.unser_construction))
+            // sessionViewModel.saveStateSession(true)
         }
     }
 
@@ -226,30 +227,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     "Email not registered!" -> {
                         binding.layoutEmail.setErrorToEmailField(getString(R.string.unauthorized_email))
                         emailInput.requestFocus()
-                        Toast.makeText(
-                            this,
-                            getString(R.string.unauthorized_email),
-                            Toast.LENGTH_LONG
-                        )
-                            .show()
+                        setMessage(getString(R.string.unauthorized_email))
                     }
                     "Wrong Password!" -> {
                         binding.layoutPass.setErrorToPassField(getString(R.string.unauthorized_pass))
                         passwordInput.requestFocus()
-                        Toast.makeText(
-                            this,
-                            getString(R.string.unauthorized_pass),
-                            Toast.LENGTH_LONG
-                        )
-                            .show()
+                        setMessage(getString(R.string.unauthorized_pass))
                     }
                     "Email not verified!" -> {
-                        Toast.makeText(this, getString(R.string.email_not_verified), Toast.LENGTH_LONG)
-                            .show()
-                        // CALL REQUEST NEW OTP DI OTP ACTIVITY AJA
-                        // kalok udah di verify (datastore verify condition di true ###sekarang dikomen###) saat di otp activity
+                        setMessage(getString(R.string.email_not_verified))
+                        // Sending to OTP Page
                         val uid = loginViewModel.uniqueID.value
-                        Log.w("UID, ","user id: $uid")
                         uid?.let { RequestResendOTP(it, email) } ?.let { loginViewModel.resendOTP(it) }
                         val intent = Intent(this@LoginActivity, OtpActivity::class.java)
                         val dataIntent = DataToOTP(email, password, userID)
@@ -268,6 +256,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
         userAction = false
+    }
+
+    private fun setMessage(message: String) {
+        Toast.makeText(
+            this,
+            message,
+            Toast.LENGTH_LONG
+        )
+            .show()
     }
 
     private fun setupView() {

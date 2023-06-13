@@ -2,7 +2,7 @@ package com.tasya.myapplication.data
 
 import com.google.gson.annotations.SerializedName
 
-data class BloodRequestRequest(
+data class RequestBloodRequest(
 
 	@field:SerializedName("nama_pasien")
 	val namaPasien: String,
@@ -36,4 +36,5 @@ data class BloodRequestRequest(
 
 	@field:SerializedName("prov")
 	val prov: String
+
 )

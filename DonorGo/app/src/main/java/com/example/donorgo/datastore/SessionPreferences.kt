@@ -70,17 +70,18 @@ class SessionPreferences private constructor(private val dataStore: DataStore<Pr
         }
     }
 
-//    fun getIsUnVerifiedOTP(): Flow<Boolean> {
-//        return dataStore.data.map { preferences ->
-//            preferences[VERIFY_CONDITION] ?: false
-//        }
-//    }
-//
-//    suspend fun saveIsUnVerifiedOTP(condition: Boolean) {
-//        dataStore.edit { preferences ->
-//            preferences[VERIFY_CONDITION] = condition
-//        }
-//    }
+    fun getIsOpenFirstDialog(): Flow<Boolean> {
+        return dataStore.data.map { preferences ->
+            preferences[IS_OPEN_FIRST_DIALOG] ?: false
+        }
+    }
+
+    suspend fun saveIsOpenFirstDialog(condition: Boolean) {
+        dataStore.edit { preferences ->
+            preferences[IS_OPEN_FIRST_DIALOG] = condition
+        }
+    }
+
 //
 //    fun getIsNoDataKTP(): Flow<Boolean> {
 //        return dataStore.data.map { preferences ->
@@ -111,7 +112,8 @@ class SessionPreferences private constructor(private val dataStore: DataStore<Pr
         private val TOKEN_KEY = stringPreferencesKey("token_key")
         private val UNIQUE_ID = stringPreferencesKey("unique_id")
         private val ALREADY_ENTERED = booleanPreferencesKey("already_entered")
+        private val IS_OPEN_FIRST_DIALOG = booleanPreferencesKey("is_open_first_dialog")
 //        private val KTP_CONDITION = booleanPreferencesKey("ktp_condition")
-//        private val VERIFY_CONDITION = booleanPreferencesKey("verify_condition")
+
     }
 }

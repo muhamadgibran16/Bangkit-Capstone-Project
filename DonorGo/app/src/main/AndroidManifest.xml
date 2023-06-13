@@ -2,6 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,88 +32,90 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonorGo"
         tools:targetApi="31">
+        <!--    Child from Home Page    -->
         <activity
-            android:name=".StockActivity"
-            android:exported="false" />
+            android:name=".activity.stock.StockActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
         <activity
-            android:name=".FaqActivity"
-            android:exported="false" />
+            android:name=".activity.faq.FaqActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
         <activity
-            android:name=".TableActivity"
-            android:exported="false" />
+            android:name=".activity.table.TableActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
         <activity
-            android:name=".RequestActivity"
-            android:exported="false" />
+            android:name=".activity.request_form.RequestActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
         <activity
-            android:name=".DetailRequestActivity"
-            android:exported="false" />
-        <activity
-            android:name=".VoluntaryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LastDonorActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HistoryActivity"
-            android:exported="false" />
+            android:name=".activity.donor.VoluntaryActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
+
+        <!--    Child from Profile Page    -->
         <activity
             android:name=".activity.edit_profile.EditProfileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.uploud_photo.UploudActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.Dialog.Select"/>
+        <activity
+            android:name=".activity.history.HistoryActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
+
+        <!--    Child from Event Page    -->
         <activity
             android:name=".activity.web_view.WebViewNewsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTop" />
+
+        <!--    Child from Request Page    -->
+        <activity
+            android:name=".activity.detail_request.DetailRequestActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
+
+        <!--    Dialog Page    -->
+        <activity
+            android:name=".activity.lastdonor.LastDonorActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Dialog.Select" />
         <activity
             android:name=".activity.camera.SelectImageActivity"
             android:exported="false"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.DonorGo.NoActionBar" />
-        <activity
-            android:name=".activity.uploud_ktp.UploudActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.maps.MapsRequestActivity"
-            android:exported="false"
-            android:launchMode="singleTop"
-            android:parentActivityName=".activity.home.HomeActivity"
-            android:theme="@style/NoBarTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.home.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".activity.news.NewsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.event.EventActivity"
-            android:exported="false" />
+            android:theme="@style/Theme.Dialog.Select" />
+
+        <!--    Main Page    -->
         <activity
             android:name=".activity.home.HomeActivity"
             android:exported="false"
             android:launchMode="singleTask" />
         <activity
+            android:name=".activity.maps.MapsRequestActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
+        <activity
             android:name=".activity.profile.ProfileActivity"
             android:exported="false"
-            android:launchMode="singleTask"
-            android:parentActivityName=".activity.home.HomeActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.home.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".activity.otp.OtpActivity"
-            android:exported="true"
-            android:launchMode="singleTop" />
-        <activity
-            android:name=".activity.login.LoginActivity"
-            android:exported="true"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.register.RegisterActivity"
-            android:exported="true"
+            android:name=".activity.news.NewsActivity"
+            android:exported="false"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.StartedActivity"
-            android:exported="false" />
+            android:name=".activity.event.EventActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
+
+        <!--    Starter Page    -->
         <activity
             android:name=".activity.SplashActivity"
             android:exported="true">
@@ -102,6 +125,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.StartedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.register.RegisterActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.login.LoginActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.otp.OtpActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.donorgo.activity.camera"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.bumptech.glide.module.AppGlideModule"
+            android:value="com.example.donorgo.cacheimage.MyAppGlideModule" />
+
     </application>
 
 </manifest>

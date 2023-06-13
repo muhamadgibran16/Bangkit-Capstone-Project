@@ -34,6 +34,64 @@ interface ApiService {
         @Body requestResendOTP: RequestResendOTP
     ): Call<ResponseMessage>
 
+    // Get All Province
+    @GET("province")
+    fun getAllProvince(): Call<ProvinceResponse>
+
+    // Get All City
+    @GET("province/city/{id}")
+    fun getCityByProvId(
+        @Path("id") idProv: Int
+    ): Call<CityResponse>
+
+    // Get All Hospital
+    @GET("province/city/hospital/{id}")
+    fun getHospitalByCityId(
+        @Path("id") idCity: Int
+    ): Call<HospitalResponse>
+
+    // Post Blood Request
+    @POST("request")
+    fun postBloodRequest(
+        @Body requestBloodRequest: RequestBloodRequest,
+        @Header ("Authorization") token: String
+    ): Call<ResponseMessage>
+
+    // Get User Profile
+    @GET("users")
+    fun getUserProfile(
+        @Header ("Authorization") token: String
+    ): Call<UserProfileResponse>
+
+    // Edit User Profile
+    @PATCH("update-profile")
+    fun editUserProfile(
+        @Body request: RequestEditUserProfile,
+        @Header ("Authorization") token: String
+    ): Call<ResponseMessage>
+
+    // First Time Dialog at Home Page
+    @PATCH("update-dialog")
+    fun setLastDonor(
+        @Body request: RequestEditLastDonor,
+        @Header ("Authorization") token: String
+    ): Call<ResponseMessage>
+
+    // Uploud Photo Profile
+    @Multipart
+    @PATCH("img-upload")
+    fun uploudPhotoProfile(
+        @Part file: MultipartBody.Part,
+        @Header("Authorization") token: String
+    ): Call<ResponseUploudPhotoProfile>
+
+    @Multipart
+    @PATCH("upload-ktp/{uid}")
+    fun uploudKtp(
+        @Path("uid") userId: String,
+        @Part file: MultipartBody.Part
+    ): Call<ResponseMessage>
+
 //    //Uploud Image DataStory_Schema
 //    @Multipart
 //    @POST("stories")

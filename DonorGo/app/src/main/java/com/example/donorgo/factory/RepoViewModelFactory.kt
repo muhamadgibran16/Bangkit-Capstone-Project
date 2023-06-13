@@ -4,11 +4,15 @@ import android.content.Context
 import android.provider.ContactsContract
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.donorgo.activity.edit_profile.EditProfileViewModel
 import com.example.donorgo.activity.home.HomeViewModel
+import com.example.donorgo.activity.lastdonor.LastDonorViewModel
 import com.example.donorgo.activity.login.LoginViewModel
 import com.example.donorgo.activity.otp.OtpViewModel
 import com.example.donorgo.activity.profile.ProfileViewModel
 import com.example.donorgo.activity.register.RegisterViewModel
+import com.example.donorgo.activity.request_form.RequestViewModel
+import com.example.donorgo.activity.uploud_photo.UploudViewModel
 import com.example.donorgo.di.Injection
 import com.example.donorgo.repository.ViewModelRepository
 
@@ -28,6 +32,14 @@ class RepoViewModelFactory private constructor
             return HomeViewModel(mViewModelRepository) as T
         } else if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
             return ProfileViewModel(mViewModelRepository) as T
+        } else if (modelClass.isAssignableFrom(RequestViewModel::class.java)) {
+            return RequestViewModel(mViewModelRepository) as T
+        } else if (modelClass.isAssignableFrom(LastDonorViewModel::class.java)) {
+            return LastDonorViewModel(mViewModelRepository) as T
+        } else if (modelClass.isAssignableFrom(EditProfileViewModel::class.java)) {
+            return EditProfileViewModel(mViewModelRepository) as T
+        } else if (modelClass.isAssignableFrom(UploudViewModel::class.java)) {
+            return UploudViewModel(mViewModelRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }

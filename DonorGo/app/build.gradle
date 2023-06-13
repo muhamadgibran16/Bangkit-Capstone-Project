@@ -26,11 +26,13 @@ android {
     buildTypes {
         debug {
             buildConfigField "String", "BASE_URL", "\"https://donor-go-m6zxt5yvja-et.a.run.app/v1/\""
+            buildConfigField "String", "OCR_URL", "\"https://donor-go-ocr-model-m6zxt5yvja-et.a.run.app/v1/\""
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "BASE_URL", "\"https://donor-go-m6zxt5yvja-et.a.run.app/v1/\""
+            buildConfigField "String", "OCR_URL", "\"https://donor-go-ocr-model-m6zxt5yvja-et.a.run.app/v1/\""
         }
     }
     compileOptions {

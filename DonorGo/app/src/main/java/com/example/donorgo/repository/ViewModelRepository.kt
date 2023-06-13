@@ -3,9 +3,11 @@ package com.example.donorgo.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.donorgo.BuildConfig
 import com.example.donorgo.dataclass.*
 import com.example.donorgo.retrofit.ApiConfig
 import com.example.donorgo.retrofit.ApiService
+import okhttp3.MultipartBody
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Call
@@ -22,6 +24,21 @@ class ViewModelRepository constructor(
 
     private val _uniqueID = MutableLiveData<String>()
     val uniqueID: LiveData<String> = _uniqueID
+
+    private val _dataProvince = MutableLiveData<List<ProvinceItem>>()
+    val dataProvince: LiveData<List<ProvinceItem>> = _dataProvince
+
+    private val _dataCity = MutableLiveData<List<CityItem>>()
+    val dataCity: LiveData<List<CityItem>> = _dataCity
+
+    private val _dataHospital = MutableLiveData<List<HospitalItem>>()
+    val dataHospital: LiveData<List<HospitalItem>> = _dataHospital
+
+    private val _userProfile = MutableLiveData<UserProfileData>()
+    val userProfile: LiveData<UserProfileData> = _userProfile
+
+    private val _photoProfile = MutableLiveData<String>()
+    val photoProfile: LiveData<String> = _photoProfile
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -114,7 +131,6 @@ class ViewModelRepository constructor(
                 _isLoading.value = false
                 _message.value = t.message.toString()
             }
-
         })
     }
 
@@ -153,7 +169,6 @@ class ViewModelRepository constructor(
                 _isLoading.value = false
                 _message.value = t.message.toString()
             }
-
         })
     }
 
@@ -191,7 +206,256 @@ class ViewModelRepository constructor(
                 _isLoading.value = false
                 _message.value = t.message.toString()
             }
+        })
+    }
 
+    fun getAllProvince() {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().getAllProvince()
+        client.enqueue(object : Callback<ProvinceResponse> {
+            override fun onResponse(
+                call: Call<ProvinceResponse>,
+                response: Response<ProvinceResponse>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                    _dataProvince.value = data?.payload
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<ProvinceResponse>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+            }
+        })
+    }
+
+    fun getAllCity(provId: Int) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().getCityByProvId(provId)
+        client.enqueue(object : Callback<CityResponse> {
+            override fun onResponse(
+                call: Call<CityResponse>,
+                response: Response<CityResponse>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                    _dataCity.value = data?.payload
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<CityResponse>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+            }
+        })
+    }
+
+    fun getAllHospital(cityId: Int) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().getHospitalByCityId(cityId)
+        client.enqueue(object : Callback<HospitalResponse> {
+            override fun onResponse(
+                call: Call<HospitalResponse>,
+                response: Response<HospitalResponse>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                    _dataHospital.value = data?.payload
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<HospitalResponse>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+            }
+        })
+    }
+
+    fun postBloodRequest(request: RequestBloodRequest, token: String) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().postBloodRequest(request, "Bearer $token")
+        client.enqueue(object : Callback<ResponseMessage> {
+            override fun onResponse(
+                call: Call<ResponseMessage>,
+                response: Response<ResponseMessage>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseMessage>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+            }
+        })
+    }
+
+    fun getDataUserProfile(token: String) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().getUserProfile("Bearer $token")
+        client.enqueue(object : Callback<UserProfileResponse> {
+            override fun onResponse(
+                call: Call<UserProfileResponse>,
+                response: Response<UserProfileResponse>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = "Fetch user data successfully!"
+                    _userProfile.value = data?.payload?.get(0)
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<UserProfileResponse>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+            }
+        })
+    }
+
+    fun editUserProfile(request: RequestEditUserProfile, token: String) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().editUserProfile(request, "Bearer $token")
+        client.enqueue(object : Callback<ResponseMessage> {
+            override fun onResponse(
+                call: Call<ResponseMessage>,
+                response: Response<ResponseMessage>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseMessage>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+            }
+        })
+    }
+
+    fun setFirstLastDonor(request: RequestEditLastDonor, token: String) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().setLastDonor(request, "Bearer $token")
+        client.enqueue(object : Callback<ResponseMessage> {
+            override fun onResponse(
+                call: Call<ResponseMessage>,
+                response: Response<ResponseMessage>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseMessage>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+            }
+        })
+    }
+
+    fun uploudPhotoProfile(image: MultipartBody.Part, token: String) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().uploudPhotoProfile(image, "Bearer $token")
+        client.enqueue(object : Callback<ResponseUploudPhotoProfile> {
+            override fun onResponse(
+                call: Call<ResponseUploudPhotoProfile>,
+                response: Response<ResponseUploudPhotoProfile>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                    _photoProfile.value = data?.url
+                    Log.w("uploud", "photo berhasil")
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseUploudPhotoProfile>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+            }
+        })
+    }
+
+    fun uploudKTP(userId: String, image: MultipartBody.Part) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService(BuildConfig.OCR_URL).uploudKtp(userId, image)
+        client.enqueue(object : Callback<ResponseMessage> {
+            override fun onResponse(
+                call: Call<ResponseMessage>,
+                response: Response<ResponseMessage>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.code() == 404) {
+                    val errorBody = response.errorBody()?.string()
+                    try {
+                        val json = errorBody?.let { JSONObject(it) }
+                        val errorMessage = json?.getString("message")
+                        _message.value = errorMessage
+                    } catch (e: JSONException) {
+                        _message.value = e.message.toString()
+                    }
+                } else if (response.code() == 500) {
+                    _message.value = "Internal Server Error"
+                } else {
+                    _message.value = response.message()
+                    Log.w("uploud", "hmmm ${response.code()}")
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseMessage>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+                Log.w("uploud", "ktp gagal2")
+            }
         })
     }
 

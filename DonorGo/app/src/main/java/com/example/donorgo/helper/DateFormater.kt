@@ -13,11 +13,11 @@ import java.util.*
 object DateFormater {
     fun formatDate(currentDate: String): String? {
         val currentFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        val targetFormat = "dd MMM yyyy | HH:mm"
+        val targetFormat = "dd MMM yyyy"
         val timezone = "GMT"
-        val currentDf: DateFormat = SimpleDateFormat(currentFormat, Locale.getDefault())
+        val currentDf: DateFormat = SimpleDateFormat(currentFormat, Locale.US)
         currentDf.timeZone = TimeZone.getTimeZone(timezone)
-        val targetDf: DateFormat = SimpleDateFormat(targetFormat, Locale.getDefault())
+        val targetDf: DateFormat = SimpleDateFormat(targetFormat, Locale.US)
         var targetDate: String? = null
         Log.w("detail", "date18: ${currentDf.parse(currentDate)}")
         try {
@@ -35,31 +35,44 @@ object DateFormater {
     fun formatDateToISO(currentDate: String): String? {
         val outputFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
-        val currentFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
-        val targetFormatter = SimpleDateFormat(outputFormat, Locale.getDefault())
+        val currentFormat = SimpleDateFormat("dd MMMM yyyy", Locale.US)
+        val targetFormatter = SimpleDateFormat(outputFormat, Locale.US)
 
         val date = currentFormat.parse(currentDate)
         return date?.let { targetFormatter.format(it) }
     }
 
     fun countingTheNextThreeMonths(currentDate: String): String? {
-        val currentFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
-        val initialDate = currentFormat.parse(currentDate)
+        val currentFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        val targetFormat = "dd MMMM yyyy"
+        val timezone = "GMT"
+        val currentDf: DateFormat = SimpleDateFormat(currentFormat, Locale.US)
+        currentDf.timeZone = TimeZone.getTimeZone(timezone)
+        val targetDf: DateFormat = SimpleDateFormat(targetFormat, Locale.US)
+        targetDf.timeZone = TimeZone.getTimeZone(timezone)
+        var targetDate: String? = null
+        try {
+            val initialDate = currentDf.parse(currentDate)
 
-        val calendar = Calendar.getInstance()
-        if (initialDate != null) calendar.time = initialDate
-        calendar.add(Calendar.MONTH, 3)
-
-        val futureDate = calendar.time
-        val formattedFutureDate = currentFormat.format(futureDate)
-        return formatDate(formattedFutureDate)
+            val calendar = Calendar.getInstance()
+            if (initialDate != null) calendar.time = initialDate
+            calendar.add(Calendar.MONTH, 3)
+            if (initialDate != null) {
+                val futureDate = calendar.time
+                targetDate = targetDf.format(futureDate)
+            }
+        } catch (ex: ParseException) {
+            ex.printStackTrace()
+        }
+        return targetDate
     }
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun formatNumberMonthToString(currentDate: String): String? {
         val currentFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy")
         val date = LocalDate.parse(currentDate, currentFormat)
-        val targetFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.getDefault())
+        val targetFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.US)
         return date.format(targetFormatter)
     }
 
