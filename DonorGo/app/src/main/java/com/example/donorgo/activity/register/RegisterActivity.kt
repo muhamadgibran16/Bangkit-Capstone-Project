@@ -211,9 +211,10 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         if (currentUser != null){
             // MASUKKIN TOKEN KE USER PROPIL
             // Telepon, Nama, Email, PASS, CPASS, Token
-            sessionViewModel.saveStateSession(true)
-            startActivity(Intent(this@RegisterActivity, HomeActivity::class.java))
-            finish()
+            setMessage(getString(R.string.unser_construction))
+            // sessionViewModel.saveStateSession(true)
+            // startActivity(Intent(this@RegisterActivity, HomeActivity::class.java))
+            // finish()
         }
     }
 
@@ -233,8 +234,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                     "Email is already exists!" -> {
                         binding.layoutEmail.setErrorToEmailField(getString(R.string.email_already_exists_error))
                         emailInput.requestFocus()
-                        Toast.makeText(this, getString(R.string.email_already_exists), Toast.LENGTH_LONG)
-                            .show()
+                        setMessage(getString(R.string.email_already_exists))
                     }
                     else -> {
                         Toast.makeText(
@@ -248,6 +248,15 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
         userAction = false
+    }
+
+    private fun setMessage(message: String) {
+        Toast.makeText(
+            this,
+            message,
+            Toast.LENGTH_LONG
+        )
+            .show()
     }
 
     private fun showLoading(isLoading: Boolean) {

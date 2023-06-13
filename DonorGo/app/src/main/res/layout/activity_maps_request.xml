@@ -163,7 +163,7 @@
 
     <!-- BLOOD BUTTON -->
     <LinearLayout
-        android:id="@+id/donor_btn"
+        android:id="@+id/list_request_maps_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/blood_button"

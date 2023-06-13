@@ -253,7 +253,7 @@
                     android:layout_marginStart="100dp"
                     android:justificationMode="inter_word"
                     android:padding="10dp"
-                    android:text="@string/butuh_bantuan_nya_pak_bu_butuh_darah_utk_istri_teman_yang_nge_drop_setelah_keguguran"
+                    android:text="@string/example_request_description"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@id/description_label"
                     app:layout_constraintTop_toTopOf="@+id/description_label"

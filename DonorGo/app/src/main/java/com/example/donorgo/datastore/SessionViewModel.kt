@@ -59,15 +59,16 @@ class SessionViewModel(private val pref: SessionPreferences) : ViewModel() {
         }
     }
 
-//    fun getIsUnVerifiedOTP(): LiveData<Boolean> {
-//        return pref.getIsUnVerifiedOTP().asLiveData()
-//    }
-//
-//    fun saveIsUnVerifiedOTP(condition: Boolean) {
-//        viewModelScope.launch {
-//            pref.saveIsUnVerifiedOTP(condition)
-//        }
-//    }
+    fun getIsOpenFirstDialog(): LiveData<Boolean> {
+        return pref.getIsOpenFirstDialog().asLiveData()
+    }
+
+    fun saveIsOpenFirstDialog(condition: Boolean) {
+        viewModelScope.launch {
+            pref.saveIsOpenFirstDialog(condition)
+        }
+    }
+
 //
 //    fun getIsNoDataKTP(): LiveData<Boolean> {
 //        return pref.getIsNoDataKTP().asLiveData()

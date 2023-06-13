@@ -53,6 +53,7 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
         setupView()
         init()
 
+        // SessionViewModel
         sessionViewModel.getStateSession().observe(this) { state ->
             if (state) {
                 val moveIntent = Intent(this@OtpActivity, HomeActivity::class.java)
