@@ -213,7 +213,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility =
-            if (isLoading) View.VISIBLE else View.GONE
+            if (isLoading && userAction) View.VISIBLE else View.GONE
     }
 
     private fun showMessage(message: String, isError: Boolean) {

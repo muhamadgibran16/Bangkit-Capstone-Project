@@ -6,7 +6,7 @@
     android:id="@+id/change_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:layout_margin="10dp"
     app:cardElevation="10dp"
     app:cardCornerRadius="10dp"
     android:background="@color/white"
@@ -27,6 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="5dp"
+            android:minWidth="360dp"
             app:cardElevation="0dp"
             android:layout_marginBottom="20dp"
             app:cardCornerRadius="10dp" >

@@ -85,6 +85,10 @@ class UploudActivity : AppCompatActivity(), View.OnClickListener {
     private fun init() {
         binding.btLetsUploud.setOnClickListener(this)
         uploudType = intent.getStringExtra(UPLOUD_TYPE).toString()
+        if (uploudType == ProfileActivity.SCAN_KTP) {
+            binding.tvClue.visibility = View.VISIBLE
+            binding.ivKtp.visibility = View.VISIBLE
+        }
     }
 
     private fun setFragmentViewPhoto(isFilled: Boolean) {
@@ -117,8 +121,8 @@ class UploudActivity : AppCompatActivity(), View.OnClickListener {
                         showMessage(text, false)
                     }
                     else -> {
+                        showMessage(getString(R.string.compress_and_uploud), false)
                         lifecycleScope.launch {
-                            showMessage(getString(R.string.compress_and_uploud), false)
                             val reducedFile = async { reduceFileImage(getFile as File) }
 
                             // Menunggu hingga fungsi reduceFileImage selesai
@@ -145,7 +149,7 @@ class UploudActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility =
-            if (isLoading) View.VISIBLE else View.GONE
+            if (isLoading && userAction) View.VISIBLE else View.GONE
     }
 
     private fun showMessage(message: String, isError: Boolean) {
@@ -166,7 +170,8 @@ class UploudActivity : AppCompatActivity(), View.OnClickListener {
                         setMessage(getString(R.string.user_not_found))
                     }
                     "Internal Server Error" -> {
-                        setMessage(getString(R.string.invalid_ktp))
+                        if (uploudType == ProfileActivity.SCAN_KTP) setMessage(getString(R.string.invalid_ktp))
+                        else setMessage(getString(R.string.internal_server_err))
                     }
                     "timeout" -> {
                         setMessage(getString(R.string.timeout))

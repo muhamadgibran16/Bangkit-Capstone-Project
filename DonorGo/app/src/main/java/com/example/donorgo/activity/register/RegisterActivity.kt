@@ -261,7 +261,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility =
-            if (isLoading) View.VISIBLE else View.GONE
+            if (isLoading && userAction) View.VISIBLE else View.GONE
     }
 
     private fun setupView() {
