@@ -31,7 +31,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".event.EventActivity"
+            android:name=".faq.FAQActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -52,7 +52,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".faq.FAQActivity"
+            android:name=".news.NewsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -136,7 +136,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".news.NewsActivity"
+            android:name=".event.EventActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
