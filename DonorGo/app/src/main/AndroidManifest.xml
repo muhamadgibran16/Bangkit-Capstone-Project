@@ -12,28 +12,28 @@
         android:theme="@style/Theme.DonorGo"
         tools:targetApi="31">
         <activity
-            android:name=".StockActivity"
+            android:name=".activity.stock.StockActivity"
             android:exported="false" />
         <activity
-            android:name=".FaqActivity"
+            android:name=".activity.faq.FaqActivity"
             android:exported="false" />
         <activity
-            android:name=".TableActivity"
+            android:name=".activity.table.TableActivity"
             android:exported="false" />
         <activity
-            android:name=".RequestActivity"
+            android:name=".activity.request_form.RequestActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailRequestActivity"
+            android:name=".activity.detail_request.DetailRequestActivity"
             android:exported="false" />
         <activity
-            android:name=".VoluntaryActivity"
+            android:name=".activity.donor.VoluntaryActivity"
             android:exported="false" />
         <activity
-            android:name=".LastDonorActivity"
+            android:name=".activity.lastdonor.LastDonorActivity"
             android:exported="false" />
         <activity
-            android:name=".HistoryActivity"
+            android:name=".activity.history.HistoryActivity"
             android:exported="false" />
         <activity
             android:name=".activity.edit_profile.EditProfileActivity"

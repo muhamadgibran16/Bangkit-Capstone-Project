@@ -1,44 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="370dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:layout_marginHorizontal="32dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@drawable/wrapper_detail_request">
+    app:cardCornerRadius="20dp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="5dp">
 
-    <LinearLayout
-        android:id="@+id/constraintLayoutFAQ"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="12dp"
+        android:background="@drawable/bg_faq">
 
-        android:layout_marginHorizontal="20dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutFAQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/titleFAQ"
+                style="@style/bold_black"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/faq_title"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/titleFAQ"
-            style="@style/bold_black"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:scrollHorizontally="true"
-            android:maxLines="1"
-            android:text="Hal-hal yang harus diperhatikan sebelum berdonor"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-    </LinearLayout>
+            android:id="@+id/descFAQ"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            style="@style/regular_black"
+            android:justificationMode="inter_word"
+            android:text="@string/faq_desc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintLayoutFAQ" />
 
-    <TextView
-        android:id="@+id/FAQDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="15dp"
-        android:layout_marginHorizontal="20dp"
-        style="@style/regular_black"
-        android:textAlignment="viewStart"
-        android:justificationMode="inter_word"
-        android:text="Jangan sakit, jangan sakit, pokoknya harus sehat selalu kan. yaudah jangan sakit yaa, nanti ga bisa donor.." />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>
