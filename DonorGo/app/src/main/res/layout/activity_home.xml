@@ -44,6 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/welcome"
+                android:maxLines="2"
                 style="@style/big_title_black"
                 android:layout_marginStart="32dp"
                 app:layout_constraintTop_toBottomOf="@id/notif_icon"

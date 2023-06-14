@@ -137,10 +137,10 @@
     <string name="waiting">Waiting</string>
 
     // Uploud Photo Profile Or KTP
-    <string name="select_text">browse and select your image to uploud file</string>
+    <string name="select_text">browse and select your image to upload file</string>
     <string name="change_image">CHANGE IMAGE</string>
-    <string name="title_uploud">Uploud Your Image</string>
-    <string name="btn_uploud">UPLOUD</string>
+    <string name="title_uploud">Upload Your Image</string>
+    <string name="btn_uploud">UPLOAD</string>
     <string name="btn_gallery">GALLERY</string>
     <string name="btn_camera" translatable="false">CAMERA</string>
     <string name="btn_continue">CONTINUE</string>
@@ -148,7 +148,10 @@
     <string name="compress_and_uploud">Waiting for the compression process and image upload</string>
     <string name="user_not_found">User not found!</string>
     <string name="invalid_ktp">Make sure the KTP that you upload is clear and correct!</string>
-    <string name="timeout">Make sure the image is an ID card or try again later</string>
+    <string name="timeout_ktp">Make sure the image is an ID card or try again later</string>
+    <string name="timeout">Sorry, your request could not be completed within the specified time limit. Please try again later or contact the technical support team for further assistance.</string>
+    <string name="internal_server_err">I apologize for this inconvenience. Our server encountered an internal error that stopped processing your request. We\'re working to fix it.</string>
+    <string name="uploud_photo_succes">Profile photo updated successfully</string>
 
     // Profile
     <string name="edit_foto_profile">Change</string>
@@ -238,7 +241,5 @@
 
     // LastDonor Dialog
     <string name="initial_date">-</string>
-    <string name="uploud_photo_succes">Profile photo updated successfully</string>
-
 
 </resources>

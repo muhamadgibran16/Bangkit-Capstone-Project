@@ -5,16 +5,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.faq.FaqActivity">
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardViewFAQ"
-        android:layout_width="370dp"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="12dp"
-        app:cardUseCompatPadding="true"
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/white"
+        android:elevation="10dp"
+        android:paddingStart="@dimen/margin_start_toolbar"
+        android:paddingEnd="@dimen/margin_start_end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_back"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="3dp"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/bt_back_arrow"
+            android:paddingTop="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_toolbarTitle"
+            android:text="Frequently Asked Questions (FAQ)"
+            style="@style/extra_bold_black"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardViewFAQ"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardUseCompatPadding="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
+        app:strokeColor="@color/grey"
+        app:strokeWidth="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchViewFAQ"
@@ -23,7 +65,8 @@
             app:iconifiedByDefault="false"
             style="@style/regular_black"
             app:queryBackground="@android:color/transparent"
-            app:queryHint="Search here ..." />
+            app:queryHint="Search here ..."
+            />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -31,7 +74,8 @@
         android:id="@+id/recyclerViewFAQ"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="30dp"
         app:layout_constraintEnd_toEndOf="@+id/materialCardViewFAQ"
         app:layout_constraintStart_toStartOf="@+id/materialCardViewFAQ"
         app:layout_constraintTop_toBottomOf="@+id/materialCardViewFAQ" />

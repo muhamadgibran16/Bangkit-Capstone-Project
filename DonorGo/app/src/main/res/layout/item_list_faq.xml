@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="370dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
     android:layout_gravity="center_horizontal"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="20dp"
-    app:cardUseCompatPadding="true"
+    android:layout_marginTop="10dp"
     app:cardElevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +32,7 @@
                 android:text="@string/faq_title"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +42,10 @@
             android:id="@+id/descFAQ"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="15dp"
+            android:paddingTop="5dp"
+            android:layout_marginHorizontal="25dp"
+            android:paddingBottom="15dp"
+            android:textSize="11sp"
             style="@style/regular_black"
             android:justificationMode="inter_word"
             android:text="@string/faq_desc"

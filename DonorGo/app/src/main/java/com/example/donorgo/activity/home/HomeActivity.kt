@@ -52,6 +52,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         setupView()
         init()
 
+        userProfileData = UserProfileData()
         // SessionViewModel
         sessionViewModel.getUsername().observe(this) {
             this.myUsername = it

@@ -115,6 +115,7 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
     private fun displayUserProfile(data: UserProfileData) {
         with(binding) {
             namaUser.text = data.name ?: "-"
+            data.name?.let { sessionViewModel.saveUsername(it) }
             phoneUser.text = data.telp ?: "-"
             lastDonorDate.text = data.lastDonor?.let { DateFormater.formatDate(it) } ?: "-"
             canDonoteDate.text = data.lastDonor?.let { DateFormater.countingTheNextThreeMonths(it) } ?: "-"
@@ -219,7 +220,7 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
     private fun showLoading(isLoading: Boolean) {
         if (userAction) {
             binding.progressBar.visibility =
-                if (isLoading) View.VISIBLE else View.GONE
+                if (isLoading && userAction) View.VISIBLE else View.GONE
         }
     }
 

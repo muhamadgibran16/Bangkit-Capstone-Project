@@ -1,5 +1,6 @@
 package com.example.donorgo.retrofit
 
+import com.example.donorgo.activity.history.HistoryResponse
 import com.example.donorgo.dataclass.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -91,6 +92,10 @@ interface ApiService {
         @Path("uid") userId: String,
         @Part file: MultipartBody.Part
     ): Call<ResponseMessage>
+
+    // History Request
+    @GET("blood-history")
+    fun getAllHistory(@Header ("Authorization")token: String): Call<HistoryResponse>
 
 //    //Uploud Image DataStory_Schema
 //    @Multipart

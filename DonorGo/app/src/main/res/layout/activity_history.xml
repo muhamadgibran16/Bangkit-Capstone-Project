@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.event.EventActivity"
+    tools:context=".activity.history.HistoryActivity"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -16,6 +16,7 @@
         android:layout_weight="1">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_history"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             tools:listitem="@layout/item_history_request_vertikal"
@@ -48,7 +49,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_toolbarTitle"
+                android:id="@+id/tv_toolbarTitrle"
                 android:text="@string/history_request"
                 style="@style/extra_bold_black"
                 android:textSize="20sp"
