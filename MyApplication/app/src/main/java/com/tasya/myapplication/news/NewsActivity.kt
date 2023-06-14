@@ -81,11 +81,11 @@ class NewsActivity : AppCompatActivity() {
 //                                    createdAt
 //                                )
 //
-////                                if (title != null && urlImage != null && url != null) {
-////                                    PayloadItem(title = title, urlImage = urlImage, url = url)
-////                                } else {
-////                                    null
-////                                }
+    ////                                if (title != null && urlImage != null && url != null) {
+    ////                                    PayloadItem(title = title, urlImage = urlImage, url = url)
+    ////                                } else {
+    ////                                    null
+    ////                                }
 ////                            }
 ////
 ////                            newsAdapter.setNewsList(newsList)

@@ -117,6 +117,10 @@
     <string name="title_event">Celebrating the 352nd Anniversary of the City of Padang, the Department of Commerce Holds a Blood Donation</string>
     <string name="content_image_for_event">Content Image For Event</string>
 
+    // FAQ
+    <string name="faq_desc">Rhesus Negative is a rare blood. Rhesus negative blood voters are only 15% in the world and Indonesia only has 1% of them</string>
+    <string name="faq_title">What is the importance of knowing your blood Rhesus?</string>
+
     // Maps
     <string name="help_and_save_others">Help and Save Others</string>
     <string name="your_blood_means_a_lot">Your blood means a lot and can save the lives of others</string>
@@ -133,10 +137,10 @@
     <string name="waiting">Waiting</string>
 
     // Uploud Photo Profile Or KTP
-    <string name="select_text">browse and select your image to uploud file</string>
+    <string name="select_text">browse and select your image to upload file</string>
     <string name="change_image">CHANGE IMAGE</string>
-    <string name="title_uploud">Uploud Your Image</string>
-    <string name="btn_uploud">UPLOUD</string>
+    <string name="title_uploud">Upload Your Image</string>
+    <string name="btn_uploud">UPLOAD</string>
     <string name="btn_gallery">GALLERY</string>
     <string name="btn_camera" translatable="false">CAMERA</string>
     <string name="btn_continue">CONTINUE</string>
