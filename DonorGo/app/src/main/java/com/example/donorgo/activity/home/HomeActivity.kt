@@ -61,13 +61,21 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         sessionViewModel.getUserToken().observe(this) {
             this.myToken = it
             Log.w("token", it)
-            profileViewModel.getUserProfile(myToken) // Udah manggil profile
+            profileViewModel.getUserProfile(myToken)
+        // Udah manggil profile terus lempar
             // Manggil getEvent terus lempar
             // Manggil getNews terus lempar jangan lupa di set
             // Manggil blood Maps (pagination) masukin DB terus ambil dari DB lalu di set
             // Manggil stock terus lempar
-            // Lempar userDataProfile ke Donate >>> check kurang dari tiga bulan sama kalok gak cocok gak bisa donate
-            //
+            // Manggil history
+        // Lempar userDataProfile ke Donate >>> check kurang dari tiga bulan sama kalok gak cocok gak bisa donate
+
+            // Boleh loading dari awal
+            // 1) Stock
+            // 2) Home
+            // 3) Event
+            // 4) News, History
+            // Maps
         }
         sessionViewModel.getIsOpenFirstDialog().observe(this) {
             this.openFirstDialog = it
@@ -117,9 +125,18 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         when(v?.id) {
             // Button Navigation
             R.id.home_btn -> {}
-            R.id.event_btn -> { startActivity(Intent(this@HomeActivity, EventActivity::class.java)) }
-            R.id.list_request_maps_btn -> { startActivity(Intent(this@HomeActivity, MapsRequestActivity::class.java)) }
-            R.id.news_btn -> { startActivity(Intent(this@HomeActivity, NewsActivity::class.java)) }
+            R.id.event_btn -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, EventActivity::class.java))
+            }
+            R.id.list_request_maps_btn -> {
+                //////// Pagination
+                startActivity(Intent(this@HomeActivity, MapsRequestActivity::class.java))
+            }
+            R.id.news_btn -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, NewsActivity::class.java))
+            }
             R.id.profile_btn -> {
                 val intent = Intent(this@HomeActivity, ProfileActivity::class.java)
                 intent.putExtra(ProfileActivity.EXTRA_DATA, userProfileData)
@@ -127,17 +144,35 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             // Button Category
-            R.id.btn_stock -> { startActivity(Intent(this@HomeActivity, StockActivity::class.java)) }
+            R.id.btn_stock -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, StockActivity::class.java))
+            }
             R.id.btn_table -> { startActivity(Intent(this@HomeActivity, TableActivity::class.java)) }
             R.id.btn_request -> { startActivity(Intent(this@HomeActivity, RequestActivity::class.java)) }
-            R.id.btn_donate -> { startActivity(Intent(this@HomeActivity, VoluntaryActivity::class.java)) }
+            R.id.btn_donate -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, VoluntaryActivity::class.java))
+            }
             R.id.btn_faq -> { startActivity(Intent(this@HomeActivity, FaqActivity::class.java)) }
 
             R.id.notif_icon -> {}
-            R.id.blood_more -> { startActivity(Intent(this@HomeActivity, MapsRequestActivity::class.java)) }
-            R.id.event_more -> { startActivity(Intent(this@HomeActivity, EventActivity::class.java)) }
-            R.id.img_event -> { startActivity(Intent(this@HomeActivity, EventActivity::class.java)) }
-            R.id.news_more -> { startActivity(Intent(this@HomeActivity, NewsActivity::class.java)) }
+            R.id.blood_more -> {
+                //////// Pagination
+                startActivity(Intent(this@HomeActivity, MapsRequestActivity::class.java))
+            }
+            R.id.event_more -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, EventActivity::class.java))
+            }
+            R.id.img_event -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, EventActivity::class.java))
+            }
+            R.id.news_more -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, NewsActivity::class.java))
+            }
         }
     }
 

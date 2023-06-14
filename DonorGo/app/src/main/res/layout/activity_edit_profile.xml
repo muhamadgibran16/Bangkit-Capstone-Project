@@ -132,12 +132,12 @@
 
                     <RelativeLayout
                         android:id="@+id/wrapper_birthDate"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="13.5dp"
-                        android:layout_gravity="start"
+                        android:layout_marginHorizontal="21dp"
+                        android:layout_gravity="center"
                         android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="20dp"
                         app:layout_constraintTop_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent">
@@ -148,8 +148,7 @@
                             android:layout_height="28dp"
                             android:layout_marginTop="18dp"
                             android:layout_marginStart="15dp"
-                            android:src="@drawable/calender"
-                            android:contentDescription="@string/icon_image_calender" />
+                            android:src="@drawable/calender" />
 
                         <LinearLayout
                             android:id="@+id/linear_layout_birthDate"
@@ -157,7 +156,6 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:layout_marginStart="8dp"
-                            android:layout_marginEnd="20dp"
                             android:layout_toEndOf="@id/icon_calender1"
                             android:orientation="vertical">
 
@@ -165,7 +163,7 @@
                                 android:id="@+id/label_birthDate"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/date_of_birth_label"
+                                android:text="@string/date_of_birth"
                                 android:layout_marginTop="10dp"
                                 android:textColor="@android:color/black"
                                 android:textSize="15sp"
@@ -185,8 +183,10 @@
                             android:id="@+id/btn_pickBirthDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginStart="35dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="20dp"
+                            android:gravity="center"
+                            android:layout_alignParentEnd="true"
                             android:layout_toEndOf="@id/linear_layout_birthDate"
                             android:paddingHorizontal="10dp"
                             android:paddingVertical="2dp"
