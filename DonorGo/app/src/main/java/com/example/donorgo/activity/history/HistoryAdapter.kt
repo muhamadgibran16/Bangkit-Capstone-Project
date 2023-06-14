@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.donorgo.databinding.ItemHistoryRequestVertikalBinding
-import com.example.donorgo.activity.history.ItemHistory
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
     private val historyList: MutableList<ItemHistory> = mutableListOf()
@@ -39,8 +38,13 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() 
             Log.d("HistoryAdapter", "Kota: ${history.kota}")
             Log.d("HistoryAdapter", "Nama Pasien: ${history.namaPasien}")
             Log.d("HistoryAdapter", "Nama RS: ${history.namaRs}")
-            binding.history = history // Mengatur objek history sebagai variabel binding
-            binding.executePendingBindings() // Mengupdate tampilan segera
+            binding.reshusDar.text = history.rhesus
+            binding.tvBloodType.text = history.tipeDarah
+            binding.tvCity.text = history.kota
+            binding.tvPasienName.text = history.namaPasien
+            binding.tvHospital.text = history.namaRs
+            /*binding.history = history // Mengatur objek history sebagai variabel binding
+            binding.executePendingBindings() // Mengupdate tampilan segera*/
         }
     }
 }
