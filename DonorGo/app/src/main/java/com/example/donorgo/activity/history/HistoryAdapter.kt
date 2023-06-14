@@ -39,8 +39,8 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() 
             Log.d("HistoryAdapter", "Kota: ${history.kota}")
             Log.d("HistoryAdapter", "Nama Pasien: ${history.namaPasien}")
             Log.d("HistoryAdapter", "Nama RS: ${history.namaRs}")
-            binding.history = history // Mengatur objek history sebagai variabel binding
-            binding.executePendingBindings() // Mengupdate tampilan segera
+//            binding.history = history // Mengatur objek history sebagai variabel binding
+//            binding.executePendingBindings() // Mengupdate tampilan segera
         }
     }
 }
