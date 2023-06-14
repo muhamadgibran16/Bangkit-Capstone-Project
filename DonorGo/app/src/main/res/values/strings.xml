@@ -59,7 +59,7 @@
     <string name="empty_otp">Please enter your code OTP</string>
     <string name="expired_otp">Your OTP code is expired</string>
     <string name="must_be_otp">OTP code must be 6 digits</string>
-    <string name="timer_start">00:00</string>
+    <string name="timer_start" translatable="false">00:00</string>
 
     // Profile
     <string name="history_request">History Request</string>
@@ -71,12 +71,12 @@
 
     // Buttom Menu
     <string name="home_btn">Home</string>
-    <string name="event_btn">Event</string>
+    <string name="event_btn" translatable="false">Event</string>
     <string name="news_btn">News</string>
     <string name="profile_btn">Profile</string>
 
     // Message
-    <string name="error_message_tag">onFailure:</string>
+    <string name="error_message_tag" translatable="false">onFailure:</string>
     <string name="unauthorized_email">Email not registered!</string>
     <string name="unauthorized_pass">Invalid password!</string>
     <string name="email_not_verified">Email not verified! Please verify your account</string>
@@ -84,14 +84,14 @@
     <string name="email_already_exists_error">Email already exists!</string>
 
     // Button Navigation
-    <string name="fab_blood_navigation_bar">View List Blood Request in Maps</string>
-    <string name="event_banner_home">Image Banner for Event</string>
-    <string name="button_home_navigation">Button Home Navigation</string>
-    <string name="button_event_navigation">Button Event Navigation</string>
-    <string name="button_news_navigation">Button News Navigation</string>
-    <string name="button_profile_navigation">Button Profile Navigation</string>
-    <string name="button_notif">Button Notification</string>
-    <string name="back_button">Button Back to Home</string>
+    <string name="fab_blood_navigation_bar" translatable="false">View List Blood Request in Maps</string>
+    <string name="event_banner_home" translatable="false">Image Banner for Event</string>
+    <string name="button_home_navigation" translatable="false">Button Home Navigation</string>
+    <string name="button_event_navigation" translatable="false">Button Event Navigation</string>
+    <string name="button_news_navigation" translatable="false">Button News Navigation</string>
+    <string name="button_profile_navigation" translatable="false">Button Profile Navigation</string>
+    <string name="button_notif" translatable="false">Button Notification</string>
+    <string name="back_button" translatable="false">Button Back to Home</string>
 
     // Dialog Message
     <string name="logout_confirm">Are you sure to Logout?</string>
@@ -99,7 +99,6 @@
     <string name="no">No</string>
 
     // Home
-    <string name="welcome">Welcome, \n%1$s</string>
     <string name="stock_nav">Stock</string>
     <string name="table_nav">Table</string>
     <string name="donate_nav">Donate</string>
@@ -107,15 +106,15 @@
     <string name="faq_nav">FAQ</string>
     <string name="blood_request_title">Blood Request</string>
     <string name="more_blood"><![CDATA[More >>]]></string>
-    <string name="event_title">Event</string>
+    <string name="event_title" translatable="false">Event</string>
     <string name="more_event"><![CDATA[More >>]]></string>
-    <string name="news_title">News</string>
+    <string name="news_title" translatable="false">News</string>
     <string name="more_news"><![CDATA[More >>]]></string>
 
     // Event
-    <string name="image_cloud">Image Cloud Background</string>
+    <string name="image_cloud" translatable="false">Image Cloud Background</string>
     <string name="title_event">Celebrating the 352nd Anniversary of the City of Padang, the Department of Commerce Holds a Blood Donation</string>
-    <string name="content_image_for_event">Content Image For Event</string>
+    <string name="content_image_for_event" translatable="false">Content Image For Event</string>
 
     // FAQ
     <string name="faq_desc">Rhesus Negative is a rare blood. Rhesus negative blood voters are only 15% in the world and Indonesia only has 1% of them</string>
@@ -140,8 +139,8 @@
     <string name="select_text">browse and select your image to upload file</string>
     <string name="change_image">CHANGE IMAGE</string>
     <string name="title_uploud">Upload Your Image</string>
-    <string name="btn_uploud">UPLOAD</string>
-    <string name="btn_gallery">GALLERY</string>
+    <string name="btn_uploud" translatable="false">UPLOAD</string>
+    <string name="btn_gallery" translatable="false">GALLERY</string>
     <string name="btn_camera" translatable="false">CAMERA</string>
     <string name="btn_continue">CONTINUE</string>
     <string name="empty_image_select">Please select an image first\…</string>
@@ -155,9 +154,9 @@
 
     // Profile
     <string name="edit_foto_profile">Change</string>
-    <string name="verified_user">Verified User</string>
-    <string name="unverified_user">Unverified User</string>
-    <string name="scan_ktp">SCAN KTP</string>
+    <string name="verified_user" translatable="false">Verified User</string>
+    <string name="unverified_user" translatable="false">Unverified User</string>
+    <string name="scan_ktp" translatable="false">SCAN KTP</string>
 
     // Voluntary Donor
     <string name="desc">Diligently donating blood can reduce the risk of heart attack by up to 88 percent. Not only that, donating blood can also minimize the risk of cancer, stroke, and heart attack. Interestingly, the benefits of blood donation can also stabilize iron levels in the blood.\n\n\"The blood you donate gives someone another chance to live. One day, that someone may be a close relative, friend, loved one or even you. .\" - redcrossblood.org\n\nYou can be a hero just by donating blood! You can give blood voluntarily through blood transfusions for those in need.</string>
@@ -165,21 +164,21 @@
     <string name="can_donate">Can Donate:</string>
     <string name="regency_city">Regency/City</string>
     <string name="hospital">Hospital</string>
-    <string name="donor">DONOR</string>
+    <string name="donor" translatable="false">DONOR</string>
 
     // Detail Request
-    <string name="pasient_name">Roronoa Zoro bin Azzuhai</string>
+    <string name="pasient_name" translatable="false">Roronoa Zoro bin Azzuhai</string>
     <string name="banyak_yang_dibutuhkan">Much needed:</string>
-    <string name="_3">3</string>
+    <string name="_3" translatable="false">3</string>
     <string name="location">Location</string>
-    <string name="rsud_mandau">RSUD Mandau</string>
+    <string name="rsud_mandau" translatable="false">RSUD Mandau</string>
     <string name="address">Address</string>
-    <string name="jl_stadion_no_10_duri_bengkalis">Jl. Stadion No 10, Duri, Bengkalis</string>
+    <string name="jl_stadion_no_10_duri_bengkalis" translatable="false">Jl. Stadion No 10, Duri, Bengkalis</string>
     <string name="description">Description</string>
     <string name="example_request_description">Need help sir/madam. need blood for a friend\'s wife who dropped after a miscarriage.</string>
     <string name="close_family">Close Family</string>
-    <string name="nelly_agustin">Nelly Agustin</string>
-    <string name="number_phone">(%1$s)</string>
+    <string name="nelly_agustin" translatable="false">Nelly Agustin</string>
+    <string name="number_phone" translatable="false">(%1$s)</string>
 
     // Form Request
     <string name="tittle_form_req">Form Request Donor</string>
@@ -187,12 +186,12 @@
     <string name="number_of_blood_bags">Number of blood bags</string>
     <string name="family_contact">Family Contact</string>
     <string name="family_name">Family Name</string>
-    <string name="positif">Positif</string>
-    <string name="negatif">Negatif</string>
+    <string name="positif">Positive</string>
+    <string name="negatif">Negative</string>
     <string name="unknown">Unknown</string>
     <string name="province">Province</string>
     <string name="regency_or_city">Regency or City</string>
-    <string name="discription">Discription</string>
+    <string name="discription">Description</string>
     <string name="send">SEND</string>
 
     // Stock Page
@@ -206,18 +205,18 @@
     <string name="understand">Understand</string>
     <string name="request_sent">Request sent</string>
     <string name="content_pop_up">Your data will be automatically updated once the process is done</string>
-    <string name="btn_ok">OK</string>
+    <string name="btn_ok" translatable="false">OK</string>
 
     // Error Message For Request Input Field
     <string name="patient_name_message">Please fill in the patient name input field</string>
     <string name="blood_bags_message">Please fill in the number of blood bags input field</string>
     <string name="family_name_message">Please fill in the family name input field</string>
     <string name="phone_number_message">Please fill in the phone number input field</string>
-    <string name="gender_message">Please sellect in the gender dropdown field</string>
-    <string name="blood_type_message">Please sellect in the blood type dropdown field</string>
-    <string name="province_message">Please sellect in the province dropdown field</string>
-    <string name="city_message">Please sellect in the city dropdown field</string>
-    <string name="hospital_message">Please sellect in the hospital dropdown field</string>
+    <string name="gender_message">Please select in the gender dropdown field</string>
+    <string name="blood_type_message">Please select in the blood type dropdown field</string>
+    <string name="province_message">Please select in the province dropdown field</string>
+    <string name="city_message">Please select in the city dropdown field</string>
+    <string name="hospital_message">Please select in the hospital dropdown field</string>
     <string name="rhesus_message">Please sellect in the rhesus radiobutton field</string>
     <string name="lastdate_message">Please enter the last date of blood donation</string>
 
@@ -225,13 +224,13 @@
     <string name="did_not_get_permit">Did not get permissions..</string>
 
     // LastDonor Dialog
-    <string name="initial_date">-</string>
+    <string name="initial_date" translatable="false">-</string>
 
     // Edit Profile
-    <string name="natasya_salsabila">Natasya Salsabila</string>
-    <string name="nik_hint">NIK</string>
+    <string name="natasya_salsabila" translatable="false">Natasya Salsabila</string>
+    <string name="nik_hint" translatable="false">NIK</string>
     <string name="place_of_birth_hint">Place of Birth</string>
-    <string name="icon_image_calender">Icon Image Calender</string>
+    <string name="icon_image_calender" translatable="false">Icon Image Calender</string>
     <string name="date_of_birth_label">Date of Birth</string>
     <string name="blood_type">Blood Type</string>
     <string name="pick_date_btn">Pick Date</string>
@@ -244,6 +243,44 @@
     <string name="nik_message_err">Please fill in the NIK input field</string>
     <string name="address_message_err">Please fill in the Address input field</string>
     <string name="date_birth_err_message">Please enter your date of birth</string>
+    <string name="cancel">cancel</string>
+    <string name="verify_email">Verify Your Email</string>
+    <string name="welcome">Welcome,  %1$s</string>
+    <string name="check_inbox">Please check your inbox to find the verification email.</string>
+    <string name="resend_timer">The verification code can be resent within</string>
+    <string name="resend_code">Resend the code.</string>
+    <string name="enter_otp">Insert OTP</string>
+    <string name="verification_successful">Verification Successful</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="view_donation_history">View Donor History</string>
+    <string name="blood_group">Blood Type</string>
+    <string name="last_donated">Last Donor</string>
+    <string name="donor_type">Donor Type</string>
+    <string name="complete_profile">Complete your profile</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="password_changed">Password Changed</string>
+    <string name="donation_history">Donor History</string>
+    <string name="no_donation_history">No donor history found.</string>
+    <string name="donation_date">Donor Date</string>
+    <string name="donation_type">Donor Type</string>
+    <string name="donation_status">Donor Status</string>
+    <string name="permission_needed">Permission Needed</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="permission_denied_text">To use this feature, you need to provide the necessary permissions.</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="request_blood">Blood Request</string>
+    <string name="request_sent_text">Your blood donation request has been sent. Thank you for your participation!</string>
+    <string name="back_to_home">Go Back to Home</string>
+    <string name="empty_state_title">No data found</string>
+    <string name="empty_state_subtitle">Data not found</string>
+    <string name="confirm_logout">Confirm Logout</string>
+    <string name="logout_message">Do you want to logout?</string>
 
     // ============================================================== //
 

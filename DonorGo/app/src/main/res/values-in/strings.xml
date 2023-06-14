@@ -1,0 +1,223 @@
+<resources>
+    <string name="app_name">DonorGo</string>
+    <string name="unser_construction">Fitur sedang dalam konstruksi</string>
+
+    <!-- Started -->
+    <string name="welcome_starter">Selamat datang di Aplikasi Donor Darah Kami!</string>
+    <string name="saving_life_text">Mulailah menyelamatkan nyawa dengan menjadi donor darah.</string>
+    <string name="get_started">MULAI</string>
+
+    <!-- OTP -->
+    <string name="enter_the_otp">Masukkan kode OTP yang telah kami kirimkan ke email Anda</string>
+    <string name="verifikasi">Verifikasi</string>
+
+    <!-- Login -->
+    <string name="sign_in">Masuk</string>
+    <string name="we_have_already_met">Kita sudah pernah bertemu sebelumnya!</string>
+    <string name="forgot_password">Lupa Kata Sandi?</string>
+    <string name="masuk_dengan">Masuk dengan</string>
+    <string name="don_t_have_an_account">Belum punya akun?</string>
+    <string name="google">Google</string>
+
+    <!-- Register -->
+    <string name="sign_up">Daftar</string>
+    <string name="let_s_create_an_account">Mari membuat akun untuk Anda</string>
+    <string name="sign_up_with">Daftar dengan</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+
+    <!-- Custom EditText -->
+    <!-- email -->
+    <string name="email_label">Email</string>
+    <string name="email_empty">Silakan masukkan email Anda</string>
+    <string name="invalid_email">Silakan masukkan alamat email yang valid</string>
+    <!-- username -->
+    <string name="username_label">Nama Anda</string>
+    <string name="username_empty">Silakan masukkan nama Anda</string>
+    <!-- password -->
+    <string name="password_label">Kata Sandi</string>
+    <string name="pass_empty">Silakan masukkan kata sandi Anda</string>
+    <string name="input_under_min_length">Kata sandi harus terdiri dari 8 karakter atau lebih</string>
+    <string name="invalid_password">Kata sandi tidak valid</string>
+    <!-- confirm -->
+    <string name="cpassword_label">Konfirmasi Kata Sandi</string>
+    <string name="cpassword_required">Konfirmasi kata sandi diperlukan!!!</string>
+    <string name="cpassword_not_match">Konfirmasi Kata Sandi tidak cocok</string>
+    <!-- Telepon -->
+    <string name="label_telp">Nomor Telepon</string>
+    <string name="telp_empty">Silakan masukkan nomor telepon Anda</string>
+    <string name="phone_must_be">Nomor telepon harus terdiri dari lebih dari 9 digit</string>
+
+    <!-- Default -->
+    <string name="error_test">Tidak dapat menemukan Akun Google Anda</string>
+    <string name="default_required">Wajib diisi*</string>
+    <string name="input_beyond_max_length">Input Anda melebihi batas yang ditentukan</string>
+
+    <!-- OTP -->
+    <string name="resend_verification_code">Kirim ulang kode verifikasi</string>
+    <string name="verify_email">Verifikasi Email Anda</string>
+    <string name="check_inbox">Silakan periksa kotak masuk Anda untuk menemukan email verifikasi.</string>
+    <string name="resend_timer">Kode verifikasi dapat dikirimkan kembali dalam</string>
+    <string name="resend_code">Kirim ulang kode</string>
+    <string name="enter_otp">Masukkan OTP</string>
+    <string name="verification_successful">Verifikasi Berhasil</string>
+    <string name="welcome_back">Selamat datang kembali!</string>
+
+    <!-- Dashboard -->
+    <string name="home">Beranda</string>
+    <string name="profile">Profil</string>
+    <string name="logout">Keluar</string>
+
+    <!-- Profile -->
+    <string name="edit_profile">Edit Profil</string>
+    <string name="change_password">Ubah Kata Sandi</string>
+    <string name="view_donation_history">Lihat Riwayat Donor</string>
+    <string name="blood_group">Golongan Darah</string>
+    <string name="last_donated">Terakhir Donor</string>
+    <string name="donor_type">Jenis Donor</string>
+    <string name="complete_profile">Lengkapi Profil Anda</string>
+
+    <!-- Change Password -->
+    <string name="current_password">Kata Sandi Saat Ini</string>
+    <string name="new_password">Kata Sandi Baru</string>
+    <string name="confirm_new_password">Konfirmasi Kata Sandi Baru</string>
+    <string name="password_changed">Kata Sandi Berhasil Diubah</string>
+
+    <!-- Donation History -->
+    <string name="donation_history">Riwayat Donor</string>
+    <string name="no_donation_history">Tidak ada riwayat donor yang ditemukan</string>
+    <string name="donation_date">Tanggal Donor</string>
+    <string name="location">Lokasi</string>
+    <string name="donation_type">Jenis Donor</string>
+    <string name="donation_status">Status Donor</string>
+
+    <!-- Permission -->
+    <string name="permission_needed">Izin Diperlukan</string>
+    <string name="permission_denied">Izin ditolak</string>
+    <string name="permission_denied_text">Untuk menggunakan fitur ini, Anda perlu memberikan izin yang diperlukan.</string>
+    <string name="open_settings">Buka Pengaturan</string>
+
+    <!-- Blood Request -->
+    <string name="request_blood">Permintaan Darah</string>
+    <string name="request_sent">Permintaan Terkirim</string>
+    <string name="request_sent_text">Permintaan donor darah Anda telah terkirim. Terima kasih atas partisipasinya!</string>
+    <string name="back_to_home">Kembali ke Beranda</string>
+
+    <!-- Empty States -->
+    <string name="empty_state_title">Tidak ada data</string>
+    <string name="empty_state_subtitle">Data tidak ditemukan</string>
+
+    <!-- Dialogs -->
+    <string name="confirm_logout">Konfirmasi Logout</string>
+    <string name="logout_message">Apakah Anda yakin ingin keluar dari akun ini?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="cancel">Batal</string>
+    <string name="enter_otp_code">"Masukkan kode OTP "</string>
+    <string name="invalid_otp">OTP invalid</string>
+    <string name="empty_otp">Masukkan kode OTP anda</string>
+    <string name="expired_otp">Kode OTP sudah invalid</string>
+    <string name="must_be_otp">Kode OTP harus 6 digit</string>
+    <string name="history_request">Riwayat Permintaan</string>
+    <string name="about_us">Tentang Kami</string>
+    <string name="contact_us">Hubungi Kami</string>
+    <string name="last_donor">Tanggal Terakhir Donor</string>
+    <string name="setting">Pengaturan</string>
+    <string name="unauthorized_email">Email tidak terdaftar!</string>
+    <string name="unauthorized_pass">Password invalid!</string>
+    <string name="email_not_verified">Email belum terverfikasi! Mohon verfikasi akun anda</string>
+    <string name="email_already_exists">Email sudah terdaftar! Jika ini akun anda. silahkan login</string>
+    <string name="email_already_exists_error">Email sudah terdaftar!</string>
+    <string name="logout_confirm">Anda yakin ingin logout?</string>
+    <string name="welcome">Selamat Datang,  %1$s</string>
+    <string name="stock_nav">Stok</string>
+    <string name="table_nav">Tabel</string>
+    <string name="donate_nav">Donasi</string>
+    <string name="request_nav">Permintaan</string>
+    <string name="faq_nav">FAQ</string>
+    <string name="blood_request_title">Permintaan Darah</string>
+    <string name="more_blood"><![CDATA[Lainnya>>]]></string>
+    <string name="more_event"><![CDATA[Lainnya>>]]></string>
+    <string name="more_news"><![CDATA[Lainnya>>]]></string>
+    <string name="title_event">Merayakan Hari Jadi ke-352 Kota Padang, Departemen Perdagangan Mengadakan Donor Darah</string>
+    <string name="faq_desc">Darah Rhesus Negatif adalah jenis darah yang langka. Pemilik darah Rhesus negatif hanya sekitar 15% dari total penduduk dunia, dan di Indonesia hanya sekitar 1% dari total penduduk.</string>
+    <string name="faq_title">Seberapa penting mengetahui rhesus darah anda?</string>
+    <string name="help_and_save_others">Bantu dan Selamatkan Orang Lain</string>
+    <string name="your_blood_means_a_lot">Donor anda sangat berarti dan dapat menyelamatkan orang lain</string>
+    <string name="help_people">Tolong orang lain yang membutuhkan donor</string>
+    <string name="news_title_list">BPKP Riau Bersama dengan UTD PMI Pekanbaru Kota Mengadakan Layanan Sosial untuk Meningkatkan Kesejahteraan Masyarakat...</string>
+    <string name="posted_list_news_item">Di post : %1$s</string>
+    <string name="on_going">Sedang Berlangsung</string>
+    <string name="close">Tutup</string>
+    <string name="done">Selesai</string>
+    <string name="waiting">Menunggu</string>
+    <string name="select_text">pilih foto untuk di-upload</string>
+    <string name="change_image">UBAH FOTO</string>
+    <string name="title_uploud">Upload Foto Anda</string>
+    <string name="btn_continue">LANJUTKAN</string>
+    <string name="empty_image_select">Mohon pilih foto terlebih dahulu</string>
+    <string name="compress_and_uploud">Menunggu proses kompresi dan upload foto</string>
+    <string name="user_not_found">User tidak ditemukan!</string>
+    <string name="invalid_ktp">Pastikan KTP yang anda upload jelas!</string>
+    <string name="timeout_ktp">Pastikan anda meng-upload KTP dan coba lagi!</string>
+    <string name="timeout">Maaf, permintaan Anda tidak dapat diselesaikan dalam batas waktu yang ditentukan. Silakan coba lagi nanti atau hubungi tim dukungan teknis untuk bantuan lebih lanjut.</string>
+    <string name="internal_server_err">Maaf atas ketidaknyamanannya. Server kami mengalami kesalahan internal yang menghentikan pemrosesan permintaan Anda. Kami sedang bekerja untuk memperbaikinya.</string>
+    <string name="uploud_photo_succes">Foto profil berhasil diubah</string>
+    <string name="edit_foto_profile">Ubah</string>
+    <string name="desc">Mendonorkan darah secara rutin dapat mengurangi risiko serangan jantung hingga 88 persen. Tidak hanya itu, mendonorkan darah juga dapat meminimalkan risiko kanker, stroke, dan serangan jantung. Yang menarik, manfaat dari donor darah juga dapat menstabilkan kadar zat besi dalam darah.  \"Darah yang Anda sumbangkan memberikan seseorang kesempatan lain untuk hidup. Suatu hari, orang tersebut mungkin menjadi kerabat dekat, teman, orang yang Anda cintai, atau bahkan Anda sendiri.\" - redcrossblood.org  Anda dapat menjadi pahlawan hanya dengan mendonorkan darah! Anda dapat memberikan darah secara sukarela melalui transfusi darah bagi mereka yang membutuhkannya.</string>
+    <string name="taukah_kamu">Apakah anda tahu?</string>
+    <string name="can_donate">Dapat Mendonorkan:</string>
+    <string name="regency_city">Kota/Kabupaten</string>
+    <string name="hospital">Rumah Sakit</string>
+    <string name="banyak_yang_dibutuhkan">Jumlah Yang Dibutuhkan:</string>
+    <string name="address">Alamat</string>
+    <string name="description">Deskripsi</string>
+    <string name="example_request_description">Perlu bantuan, tuan/nyonya. Membutuhkan darah untuk istri seorang teman yang pingsan setelah keguguran.</string>
+    <string name="close_family">Keluarga Dekat</string>
+    <string name="tittle_form_req">Form Permintaan Donor</string>
+    <string name="patient_s_name">Nama PAsien</string>
+    <string name="number_of_blood_bags">Jumlah Kantong Darah</string>
+    <string name="family_contact">Kontak Keluarga</string>
+    <string name="family_name">Nama Keluarga</string>
+    <string name="positif">Postive</string>
+    <string name="negatif">Negative</string>
+    <string name="unknown">Tidak Tahu</string>
+    <string name="province">Provinsi</string>
+    <string name="regency_or_city">Kota/Kabupaten</string>
+    <string name="discription">Deskripsi</string>
+    <string name="send">KIRIM</string>
+    <string name="blood_bags">kantong darah</string>
+    <string name="blood_stock">Stok Darah</string>
+    <string name="title_blood_table">Kecocokan Darah</string>
+    <string name="content_desc1_table">Setiap orang yang memenuhi syarat dapat mendonorkan darah, tetapi tergantung pada golongan darah Anda, Anda hanya dapat menerima jenis-jenis tertentu dari darah, plasma, atau trombosit. Apakah Anda mengetahui golongan darah Anda? Penting untuk mengetahuinya karena golongan darah dapat kompatibel atau tidak kompatibel satu sama lain.</string>
+    <string name="content_desc2_table">Terdapat delapan jenis golongan darah yang berbeda, dan mereka tidak selalu cocok satu sama lain. Menariknya, orang dengan golongan darah O-negatif dianggap sebagai pendonor universal untuk seluruh populasi karena mereka dapat mendonorkan darah kepada semua jenis golongan darah.  Terdapat empat jenis golongan darah utama: A, B, AB, dan O. Kombinasi protein dan gula, yang disebut antigen, yang terdapat pada permukaan sel darah merah, adalah yang membuat golongan darah tersebut kompatibel atau tidak kompatibel dengan golongan darah lain.  • Misalnya, jika Anda memiliki golongan darah A, Anda hanya dapat menerima darah dengan golongan darah A atau golongan darah O. Anda tidak dapat menerima golongan darah B atau golongan darah AB. • Jika Anda memiliki golongan darah B, Anda hanya dapat menerima darah dengan golongan darah B atau golongan darah O. Anda tidak dapat menerima golongan darah A atau golongan darah AB. • Jika Anda memiliki golongan darah AB, Anda dapat menerima semua golongan darah. • Jika Anda memiliki golongan darah O, Anda hanya dapat menerima darah dengan golongan darah O.</string>
+    <string name="understand">Mengerti</string>
+    <string name="content_pop_up">Data anda akan ke-update setelah proses selesai</string>
+    <string name="patient_name_message">Mohon masukkan nama pasien</string>
+    <string name="blood_bags_message">Mohon masukkan jumlah kantong darah</string>
+    <string name="family_name_message">Mohon masukkan nama keluarga</string>
+    <string name="phone_number_message">Mohon masukkan nomor hp keluarga</string>
+    <string name="gender_message">Mohon pilih jenis kelamin</string>
+    <string name="blood_type_message">Mohon pilih tipe darah</string>
+    <string name="province_message">Mohon pilih provinsi</string>
+    <string name="city_message">Mohon pilih kabupaten/kota</string>
+    <string name="hospital_message">Mohon pilih rumah sakit</string>
+    <string name="rhesus_message">Mohon pilih rhesus darah</string>
+    <string name="lastdate_message">Mohon masukkan tanggal terakhir donor</string>
+    <string name="did_not_get_permit">Tidak punya akses..</string>
+    <string name="place_of_birth_hint">Tempat Lahir</string>
+    <string name="home_btn">Beranda</string>
+    <string name="news_btn">Berita</string>
+    <string name="profile_btn">Profil</string>
+    <string name="date_of_birth_label">Tanggal Lahir</string>
+    <string name="blood_type">Tipe Darah</string>
+    <string name="pick_date_btn">Pilih Tanggal</string>
+    <string name="gender_hint">Jenis Kelamin</string>
+    <string name="address_hint">Alamat</string>
+    <string name="blood_rhesus">Rhesus Darah</string>
+    <string name="last_donor_date">Tanggal Donor Terakhir</string>
+    <string name="pick_date">Pilih Tanggal</string>
+    <string name="save">Simpan</string>
+    <string name="nik_message_err">Mohon isi NIK</string>
+    <string name="address_message_err">Mohon isi alamat</string>
+    <string name="date_birth_err_message">Mohon masukkan tanggal lahir</string>
+</resources>
