@@ -117,6 +117,10 @@
     <string name="title_event">Celebrating the 352nd Anniversary of the City of Padang, the Department of Commerce Holds a Blood Donation</string>
     <string name="content_image_for_event">Content Image For Event</string>
 
+    // FAQ
+    <string name="faq_desc">Rhesus Negative is a rare blood. Rhesus negative blood voters are only 15% in the world and Indonesia only has 1% of them</string>
+    <string name="faq_title">What is the importance of knowing your blood Rhesus?</string>
+
     // Maps
     <string name="help_and_save_others">Help and Save Others</string>
     <string name="your_blood_means_a_lot">Your blood means a lot and can save the lives of others</string>

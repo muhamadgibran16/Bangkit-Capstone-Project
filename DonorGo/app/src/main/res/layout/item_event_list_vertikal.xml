@@ -84,17 +84,19 @@
             app:layout_constraintStart_toStartOf="@id/card_photo"/>
 
         <TextView
-            android:id="@+id/tv_hospital"
+            android:id="@+id/tv_location"
             style="@style/semi_black"
             android:layout_width="0dp"
-            android:layout_marginStart="2dp"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:textSize="11sp"
-            android:maxLines="1"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="@dimen/spacing_8"
             android:alpha="0.5"
-            app:layout_constraintStart_toEndOf="@id/img_hospital"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="@id/img_hospital"
+            app:layout_constraintEnd_toStartOf="@+id/status_card"
+            app:layout_constraintStart_toEndOf="@id/img_hospital"
             app:layout_constraintTop_toTopOf="@id/img_hospital"
             tools:text="RS Umum Daerah Murangan" />
 

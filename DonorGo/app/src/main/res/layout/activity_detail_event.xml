@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.event.DetailEventActivity"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@color/background_app"
+            android:paddingStart="@dimen/margin_start_toolbar"
+            android:paddingEnd="@dimen/margin_start_end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_back"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="3dp"
+                android:backgroundTint="@color/white"
+                android:drawableTop="@drawable/bt_back_arrow"
+                android:paddingTop="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_toolbarTitle"
+                android:text="@string/event_title"
+                style="@style/extra_bold_black"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="20sp"
+                android:paddingStart="8dp"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+        </androidx.appcompat.widget.Toolbar>
+
+        <RelativeLayout
+            android:id="@+id/layout_atas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_item_photo"
+                android:layout_width="match_parent"
+                android:layout_height="205dp"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                style="@style/regular_white"
+                android:text="status"
+                android:padding="5dp"
+                android:background="@drawable/button_red"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/btn_share"
+                    style="@style/bold_black"
+                    android:padding="16dp"
+                    android:text="Judul"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btn_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/button_custom_share"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:background="#D1D1D1"/>
+
+            <TextView
+                android:id="@+id/tv_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="detail"
+                android:textSize="16sp"
+                style="@style/regular_black"
+                android:justificationMode="inter_word"
+                android:textAlignment="gravity"
+                android:padding="16dp"/>
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="location"
+                android:textSize="16sp"
+                style="@style/regular_black"
+                android:justificationMode="inter_word"
+                android:textAlignment="gravity"
+                android:drawableStart="@drawable/ic_marker"
+                android:drawablePadding="@dimen/spacing_8"
+                android:padding="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/regular_black"
+                android:text="Tanggal Publish:"
+                android:textSize="14sp"
+                android:paddingTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:textAlignment="center"
+                />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2 Mei 2020"
+                style="@style/regular_black"
+                android:textSize="14sp"
+                android:textAlignment="center"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

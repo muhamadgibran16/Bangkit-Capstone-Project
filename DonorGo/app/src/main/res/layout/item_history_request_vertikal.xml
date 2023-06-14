@@ -86,7 +86,7 @@
             android:src="@drawable/ic_marker"/>
 
         <TextView
-            android:id="@+id/tv_hospital"
+            android:id="@+id/tv_location"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             style="@style/semi_black"
