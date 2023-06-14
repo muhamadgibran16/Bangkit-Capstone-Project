@@ -6,7 +6,8 @@
     android:layout_gravity="center_horizontal"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="20dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="7dp"
     app:cardElevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout

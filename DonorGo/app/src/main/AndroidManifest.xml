@@ -80,6 +80,10 @@
             android:name=".activity.detail_request.DetailRequestActivity"
             android:exported="false"
             android:launchMode="singleTop" />
+        <activity
+            android:name=".activity.event.DetailEventActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
 
         <!--    Dialog Page    -->
         <activity

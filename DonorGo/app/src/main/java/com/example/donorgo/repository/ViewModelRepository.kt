@@ -405,6 +405,7 @@ class ViewModelRepository constructor(
             ) {
                 _isLoading.value = false
                 _isError.value = !response.isSuccessful
+                Log.w("uploud", "sukses: ${response.isSuccessful}")
                 if (response.isSuccessful) {
                     val data = response.body()
                     _message.value = data?.message
@@ -413,6 +414,7 @@ class ViewModelRepository constructor(
                 } else {
                     _message.value = response.message()
                 }
+                Log.w("uploud", "code: ${response.code()}, message: ${response.body()?.message}")
             }
 
             override fun onFailure(call: Call<ResponseUploudPhotoProfile>, t: Throwable) {
@@ -433,21 +435,29 @@ class ViewModelRepository constructor(
             ) {
                 _isLoading.value = false
                 _isError.value = !response.isSuccessful
-                if (response.code() == 404) {
-                    val errorBody = response.errorBody()?.string()
-                    try {
-                        val json = errorBody?.let { JSONObject(it) }
-                        val errorMessage = json?.getString("message")
-                        _message.value = errorMessage
-                    } catch (e: JSONException) {
-                        _message.value = e.message.toString()
-                    }
-                } else if (response.code() == 500) {
-                    _message.value = "Internal Server Error"
+                Log.w("uploud", "sukses: ${response.isSuccessful}")
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                    Log.w("uploud", "ktp berhasil")
                 } else {
-                    _message.value = response.message()
-                    Log.w("uploud", "hmmm ${response.code()}")
+                    if (response.code() == 404) {
+                        val errorBody = response.errorBody()?.string()
+                        try {
+                            val json = errorBody?.let { JSONObject(it) }
+                            val errorMessage = json?.getString("message")
+                            _message.value = errorMessage
+                        } catch (e: JSONException) {
+                            _message.value = e.message.toString()
+                        }
+                    } else if (response.code() == 500) {
+                        _message.value = "Internal Server Error"
+                    } else {
+                        _message.value = response.message()
+                        Log.w("uploud", "hmmm ${response.code()}")
+                    }
                 }
+                Log.w("uploud", "code: ${response.code()}, message: ${response.body()?.message}")
             }
 
             override fun onFailure(call: Call<ResponseMessage>, t: Throwable) {

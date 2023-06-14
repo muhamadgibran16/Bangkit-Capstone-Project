@@ -69,11 +69,6 @@ class LastDonorActivity : AppCompatActivity(), View.OnClickListener, DatePickerD
 
     }
 
-    private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility =
-            if (isLoading) View.VISIBLE else View.GONE
-    }
-
     private fun init() {
         with(binding) {
             btnPickLastDate.setOnClickListener(this@LastDonorActivity)
@@ -163,6 +158,11 @@ class LastDonorActivity : AppCompatActivity(), View.OnClickListener, DatePickerD
         binding.valueLastDate.text = dateFormatToDisplay
 
         this.lastDate = dateFormatToDisplay?.let { DateFormater.formatDateToISO(it).toString() } as String
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility =
+            if (isLoading) View.VISIBLE else View.GONE
     }
 
     private fun showMessage(message: String, isError: Boolean) {
