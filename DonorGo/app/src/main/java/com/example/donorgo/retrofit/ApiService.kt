@@ -86,6 +86,7 @@ interface ApiService {
         @Header("Authorization") token: String
     ): Call<ResponseUploudPhotoProfile>
 
+    // Uploud KTP
     @Multipart
     @PATCH("upload-ktp/{uid}")
     fun uploudKtp(
@@ -93,9 +94,15 @@ interface ApiService {
         @Part file: MultipartBody.Part
     ): Call<ResponseMessage>
 
+    //
+
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
     // History Request
     @GET("blood-history")
-    fun getAllHistory(@Header ("Authorization")token: String): Call<HistoryResponse>
+    fun getAllHistory(
+        @Header ("Authorization")token: String
+    ): Call<HistoryResponse>
 
 //    //Uploud Image DataStory_Schema
 //    @Multipart

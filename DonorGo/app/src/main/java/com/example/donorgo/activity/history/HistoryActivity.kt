@@ -3,13 +3,17 @@ package com.example.donorgo.activity.history
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowInsets
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.donorgo.R
+import com.example.donorgo.databinding.ActivityHistoryBinding
 import com.example.donorgo.retrofit.ApiConfig
 import com.example.donorgo.retrofit.ApiService
 import retrofit2.Call
@@ -17,14 +21,17 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class HistoryActivity : AppCompatActivity() {
-
+    private lateinit var binding: ActivityHistoryBinding
     private lateinit var historyAdapter: HistoryAdapter
     private lateinit var apiService: ApiService
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_history)
+        binding = ActivityHistoryBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setupView()
+        init()
 
         // Inisialisasi ApiService
         apiService = ApiConfig.getApiService()
@@ -41,6 +48,10 @@ class HistoryActivity : AppCompatActivity() {
 
         // Panggil method untuk mengambil data berita dari ApiService
         fetchHistoryData()
+    }
+
+    private fun init() {
+
     }
 
     private fun fetchHistoryData() {
@@ -88,5 +99,18 @@ class HistoryActivity : AppCompatActivity() {
                     ).show()
                 }
             })
+    }
+
+    private fun setupView() {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+        supportActionBar?.hide()
     }
 }

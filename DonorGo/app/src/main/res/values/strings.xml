@@ -159,21 +159,6 @@
     <string name="unverified_user">Unverified User</string>
     <string name="scan_ktp">SCAN KTP</string>
 
-    // Edit Profile
-    <string name="natasya_salsabila">Natasya Salsabila</string>
-    <string name="nik_hint">NIK</string>
-    <string name="place_of_birth_hint">Place of Birth</string>
-    <string name="icon_image_calender">Icon Image Calender</string>
-    <string name="date_of_birth_label">Date of Birth</string>
-    <string name="blood_type">Blood Type</string>
-    <string name="pick_date_btn">Pick Date</string>
-    <string name="gender_hint">Gender</string>
-    <string name="address_hint">Address</string>
-    <string name="blood_rhesus">Blood Rhesus</string>
-    <string name="last_donor_date">Last Donor Date</string>
-    <string name="pick_date">Pick Date</string>
-    <string name="save">Save</string>
-
     // Voluntary Donor
     <string name="desc">Diligently donating blood can reduce the risk of heart attack by up to 88 percent. Not only that, donating blood can also minimize the risk of cancer, stroke, and heart attack. Interestingly, the benefits of blood donation can also stabilize iron levels in the blood.\n\n\"The blood you donate gives someone another chance to live. One day, that someone may be a close relative, friend, loved one or even you. .\" - redcrossblood.org\n\nYou can be a hero just by donating blood! You can give blood voluntarily through blood transfusions for those in need.</string>
     <string name="taukah_kamu">Do you know?</string>
@@ -241,5 +226,26 @@
 
     // LastDonor Dialog
     <string name="initial_date">-</string>
+
+    // Edit Profile
+    <string name="natasya_salsabila">Natasya Salsabila</string>
+    <string name="nik_hint">NIK</string>
+    <string name="place_of_birth_hint">Place of Birth</string>
+    <string name="icon_image_calender">Icon Image Calender</string>
+    <string name="date_of_birth_label">Date of Birth</string>
+    <string name="blood_type">Blood Type</string>
+    <string name="pick_date_btn">Pick Date</string>
+    <string name="gender_hint">Gender</string>
+    <string name="address_hint">Address</string>
+    <string name="blood_rhesus">Blood Rhesus</string>
+    <string name="last_donor_date">Last Donor Date</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="save">Save</string>
+    <string name="nik_message_err">Please fill in the NIK input field</string>
+    <string name="address_message_err">Please fill in the Address input field</string>
+    <string name="date_birth_err_message">Please enter your date of birth</string>
+
+    // ============================================================== //
+    <string name="date_of_birth">Date of Birth</string>
 
 </resources>

@@ -114,14 +114,19 @@ class UploudActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.bt_lets_uploud -> {
-                userAction = true
                 when (getFile) {
                     null -> {
-                        val text = resources.getString(R.string.empty_image_select)
-                        showMessage(text, false)
-                    }
-                    else -> {
-                        showMessage(getString(R.string.compress_and_uploud), false)
+                        Toast.makeText(
+                            this,
+                            resources.getString(R.string.empty_image_select),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else -> {
+                        Toast.makeText(
+                            this,
+                            resources.getString(R.string.compress_and_uploud),
+                            Toast.LENGTH_LONG
+                        ).show()
                         lifecycleScope.launch {
                             val reducedFile = async { reduceFileImage(getFile as File) }
 

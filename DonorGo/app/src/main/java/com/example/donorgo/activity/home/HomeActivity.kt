@@ -62,6 +62,20 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             this.myToken = it
             Log.w("token", it)
             profileViewModel.getUserProfile(myToken)
+        // Udah manggil profile terus lempar
+            // Manggil getEvent terus lempar
+            // Manggil getNews terus lempar jangan lupa di set
+            // Manggil blood Maps (pagination) masukin DB terus ambil dari DB lalu di set
+            // Manggil stock terus lempar
+            // Manggil history
+        // Lempar userDataProfile ke Donate >>> check kurang dari tiga bulan sama kalok gak cocok gak bisa donate
+
+            // Boleh loading dari awal
+            // 1) Stock
+            // 2) Home
+            // 3) Event
+            // 4) News, History
+            // Maps
         }
         sessionViewModel.getIsOpenFirstDialog().observe(this) {
             this.openFirstDialog = it
@@ -93,13 +107,17 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             profileBtn.setOnClickListener(this@HomeActivity)
 
             // Button Category
-            newsBtn.setOnClickListener(this@HomeActivity)
+            btnStock.setOnClickListener(this@HomeActivity)
             btnTable.setOnClickListener(this@HomeActivity)
-            btnRequest.setOnClickListener(this@HomeActivity)
             btnDonate.setOnClickListener(this@HomeActivity)
+            btnRequest.setOnClickListener(this@HomeActivity)
             btnFaq.setOnClickListener(this@HomeActivity)
 
             notifIcon.setOnClickListener(this@HomeActivity)
+            bloodMore.setOnClickListener(this@HomeActivity)
+            imgEvent.setOnClickListener(this@HomeActivity)
+            eventMore.setOnClickListener(this@HomeActivity)
+            newsMore.setOnClickListener(this@HomeActivity)
         }
     }
 
@@ -107,9 +125,18 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         when(v?.id) {
             // Button Navigation
             R.id.home_btn -> {}
-            R.id.event_btn -> { startActivity(Intent(this@HomeActivity, EventActivity::class.java)) }
-            R.id.list_request_maps_btn -> { startActivity(Intent(this@HomeActivity, MapsRequestActivity::class.java)) }
-            R.id.news_btn -> { startActivity(Intent(this@HomeActivity, NewsActivity::class.java)) }
+            R.id.event_btn -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, EventActivity::class.java))
+            }
+            R.id.list_request_maps_btn -> {
+                //////// Pagination
+                startActivity(Intent(this@HomeActivity, MapsRequestActivity::class.java))
+            }
+            R.id.news_btn -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, NewsActivity::class.java))
+            }
             R.id.profile_btn -> {
                 val intent = Intent(this@HomeActivity, ProfileActivity::class.java)
                 intent.putExtra(ProfileActivity.EXTRA_DATA, userProfileData)
@@ -117,13 +144,35 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             // Button Category
-            R.id.btn_stock -> { startActivity(Intent(this@HomeActivity, StockActivity::class.java)) }
+            R.id.btn_stock -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, StockActivity::class.java))
+            }
             R.id.btn_table -> { startActivity(Intent(this@HomeActivity, TableActivity::class.java)) }
             R.id.btn_request -> { startActivity(Intent(this@HomeActivity, RequestActivity::class.java)) }
-            R.id.btn_donate -> { startActivity(Intent(this@HomeActivity, VoluntaryActivity::class.java)) }
+            R.id.btn_donate -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, VoluntaryActivity::class.java))
+            }
             R.id.btn_faq -> { startActivity(Intent(this@HomeActivity, FaqActivity::class.java)) }
 
-            R.id.notif_icon -> { }
+            R.id.notif_icon -> {}
+            R.id.blood_more -> {
+                //////// Pagination
+                startActivity(Intent(this@HomeActivity, MapsRequestActivity::class.java))
+            }
+            R.id.event_more -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, EventActivity::class.java))
+            }
+            R.id.img_event -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, EventActivity::class.java))
+            }
+            R.id.news_more -> {
+                ////////
+                startActivity(Intent(this@HomeActivity, NewsActivity::class.java))
+            }
         }
     }
 

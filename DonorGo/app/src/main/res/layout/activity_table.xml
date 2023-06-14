@@ -83,6 +83,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:outlineProvider="bounds"
                 android:paddingBottom="20dp"
+                android:layout_marginBottom="30dp"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:background="@drawable/bg_page_two"
@@ -99,24 +100,12 @@
                     android:textSize="14sp"
                     android:text="@string/content_desc2_table" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/page_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
-                android:layout_marginHorizontal="20dp"
-                android:outlineProvider="bounds"
-                android:layout_marginBottom="30dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@color/white"
-                android:elevation="13dp">
-
                 <Button
-                    android:id="@+id/donor"
+                    android:id="@+id/btn_understand"
                     style="@style/bold_white"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginHorizontal="26dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_pick_date"
