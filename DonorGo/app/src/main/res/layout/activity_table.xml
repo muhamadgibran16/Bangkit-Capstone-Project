@@ -103,7 +103,7 @@
                 <Button
                     android:id="@+id/btn_understand"
                     style="@style/bold_white"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginHorizontal="26dp"
                     android:layout_width="match_parent"

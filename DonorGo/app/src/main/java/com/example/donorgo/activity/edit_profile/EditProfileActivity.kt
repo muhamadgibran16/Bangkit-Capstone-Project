@@ -107,10 +107,12 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, DatePicke
             val ttlString = data.ttl
             val parts = ttlString?.split(", ")
             val placeBirth = parts?.get(0) ?: ""
-            val dateBirth = parts?.get(1) ?: ""
+            if (parts?.size == 2) {
+                val dateBirth = parts?.get(1) ?: ""
+                valueBirthDate.text = dateBirth
+            }
 
             inputPlaceBirth.text = Editable.Factory.getInstance().newEditable(placeBirth)
-            valueBirthDate.text = dateBirth
             inputGender.text = Editable.Factory.getInstance().newEditable(data.gender)
             inputGoldar.text = Editable.Factory.getInstance().newEditable(data.golDarah)
             when (data.rhesus) {

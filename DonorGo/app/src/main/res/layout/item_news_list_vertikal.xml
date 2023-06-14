@@ -2,7 +2,6 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list_news"
     android:layout_width="match_parent"
     android:layout_height="170dp"
@@ -18,6 +17,7 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/img_news"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:src="@drawable/img_news"
