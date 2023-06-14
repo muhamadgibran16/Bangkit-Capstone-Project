@@ -220,4 +220,5 @@
     <string name="nik_message_err">Mohon isi NIK</string>
     <string name="address_message_err">Mohon isi alamat</string>
     <string name="date_birth_err_message">Mohon masukkan tanggal lahir</string>
+    <string name="date_of_birth">Tanggal Lahir</string>
 </resources>
