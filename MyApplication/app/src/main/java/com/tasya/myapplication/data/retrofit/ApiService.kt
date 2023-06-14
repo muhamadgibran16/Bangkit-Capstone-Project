@@ -1,5 +1,4 @@
-import android.util.JsonToken
-import com.tasya.myapplication.data.BloodRequestRequest
+import com.tasya.myapplication.data.RequestBloodRequest
 import com.tasya.myapplication.data.response.*
 import retrofit2.Call
 import retrofit2.http.*
@@ -19,5 +18,5 @@ interface ApiService {
     fun getCityByProvId(@Path("id") idProv: Int): Call<CityResponse>
 
     @POST("request")
-    fun postBloodRequest(@Body bloodRequestRequest: BloodRequestRequest, @Header ("Authorization") token: String): Call<BloodRequestResponse>
+    fun postBloodRequest(@Body bloodRequestRequest: RequestBloodRequest, @Header ("Authorization") token: String): Call<BloodRequestResponse>
 }

@@ -63,7 +63,6 @@ class NewsActivity : AppCompatActivity(), View.OnClickListener  {
             R.id.list_request_maps_btn -> { startActivity(Intent(this@NewsActivity, MapsRequestActivity::class.java)) }
             R.id.news_btn -> {}
             R.id.profile_btn -> { startActivity(Intent(this@NewsActivity, ProfileActivity::class.java)) }
-
             R.id.bt_back -> { startActivity(Intent(this@NewsActivity, HomeActivity::class.java)) }
         }
     }

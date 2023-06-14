@@ -263,18 +263,18 @@
                                 android:text="@string/negatif"
                                 style="@style/bold_black" />
 
-                            <RadioButton
-                                android:id="@+id/blank"
-                                android:layout_width="95dp"
-                                android:layout_height="50dp"
-                                android:background="@drawable/rhesus_selector"
-                                android:button="@drawable/null_radio_button"
-                                android:elevation="2dp"
-                                android:layout_margin="5dp"
-                                android:gravity="center"
-                                android:outlineAmbientShadowColor="@color/red_blood"
-                                android:text="@string/unknown"
-                                style="@style/bold_black" />
+<!--                            <RadioButton-->
+<!--                                android:id="@+id/blank"-->
+<!--                                android:layout_width="95dp"-->
+<!--                                android:layout_height="50dp"-->
+<!--                                android:background="@drawable/rhesus_selector"-->
+<!--                                android:button="@drawable/null_radio_button"-->
+<!--                                android:elevation="2dp"-->
+<!--                                android:layout_margin="5dp"-->
+<!--                                android:gravity="center"-->
+<!--                                android:outlineAmbientShadowColor="@color/red_blood"-->
+<!--                                android:text="@string/unknown"-->
+<!--                                style="@style/bold_black" />-->
                         </RadioGroup>
 
                     </GridLayout>
