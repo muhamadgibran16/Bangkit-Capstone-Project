@@ -144,7 +144,7 @@
     <string name="help_and_save_others">Bantu dan Selamatkan Orang Lain</string>
     <string name="your_blood_means_a_lot">Donor anda sangat berarti dan dapat menyelamatkan orang lain</string>
     <string name="help_people">Tolong orang lain yang membutuhkan donor</string>
-    <string name="news_title_list">BPKP Riau Bersama dengan UTD PMI Pekanbaru Kota Mengadakan Layanan Sosial untuk Meningkatkan Kesejahteraan Masyarakat...</string>
+    <string name="news_title_list">BPKP Riau Bersama dengan UTD PMI Pekanbaru Kota Mengadakan Layanan Sosial untuk Meningkatkan Kesejahteraan Masyarakat…</string>
     <string name="posted_list_news_item">Di post : %1$s</string>
     <string name="on_going">Sedang Berlangsung</string>
     <string name="close">Tutup</string>
@@ -178,8 +178,8 @@
     <string name="number_of_blood_bags">Jumlah Kantong Darah</string>
     <string name="family_contact">Kontak Keluarga</string>
     <string name="family_name">Nama Keluarga</string>
-    <string name="positif">Postive</string>
-    <string name="negatif">Negative</string>
+    <string name="positif">Positif</string>
+    <string name="negatif">Negatif</string>
     <string name="unknown">Tidak Tahu</string>
     <string name="province">Provinsi</string>
     <string name="regency_or_city">Kota/Kabupaten</string>

@@ -500,7 +500,7 @@ class ViewModelRepository constructor(
 
     fun getAllBloodRequest(token: String) {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getAllListBloodRequest("Bearer $token")
+        val client = ApiConfig.getApiService().getAllBloodRequest("Bearer $token")
         client.enqueue(object : Callback<ResponseListAllBloodRequest> {
             override fun onResponse(
                 call: Call<ResponseListAllBloodRequest>,
@@ -512,7 +512,7 @@ class ViewModelRepository constructor(
                 if (response.isSuccessful) {
                     val data = response.body()
                     _message.value = data?.message
-                    _listRequest.value = data?.payload?.rows
+                    _listRequest.value = data?.payload
                 } else {
                     _message.value = response.message()
                 }

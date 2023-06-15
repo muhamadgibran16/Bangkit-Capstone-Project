@@ -35,10 +35,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                app:boxCornerRadiusBottomEnd="30dp"
-                app:boxCornerRadiusBottomStart="30dp"
-                app:boxCornerRadiusTopEnd="30dp"
-                app:boxCornerRadiusTopStart="30dp"
+                app:boxCornerRadiusBottomEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusTopStart="5dp"
                 android:layout_marginHorizontal="20dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
@@ -73,6 +73,7 @@
                 android:rowCount="1">
 
                 <RadioGroup
+                    android:id="@+id/rg_rhesus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -83,11 +84,10 @@
 
                     <RadioButton
                         android:id="@+id/positif"
-                        android:layout_width="120dp"
+                        android:layout_width="95dp"
                         android:layout_height="50dp"
-                        android:layout_marginVertical="5dp"
-                        android:layout_marginEnd="20dp"
-                        android:background="@drawable/rb_stock_rhesus_selector"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/rhesus_selector"
                         android:button="@drawable/null_radio_button"
                         android:elevation="2dp"
                         android:gravity="center"
@@ -97,13 +97,12 @@
 
                     <RadioButton
                         android:id="@+id/negatif"
-                        android:layout_width="120dp"
+                        android:layout_width="95dp"
                         android:layout_height="50dp"
-                        android:background="@drawable/rb_stock_rhesus_selector"
+                        android:background="@drawable/rhesus_selector"
                         android:button="@drawable/null_radio_button"
                         android:elevation="2dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginVertical="5dp"
+                        android:layout_margin="5dp"
                         android:gravity="center"
                         android:outlineAmbientShadowColor="@color/red_blood"
                         android:text="@string/negatif"
@@ -116,6 +115,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_stock"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="5dp"

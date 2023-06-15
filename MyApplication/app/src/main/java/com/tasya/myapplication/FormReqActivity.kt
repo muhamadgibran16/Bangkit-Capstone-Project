@@ -8,7 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
-import com.tasya.myapplication.data.BloodRequestRequest
+import com.tasya.myapplication.data.RequestBloodRequest
 import com.tasya.myapplication.data.response.BloodRequestResponse
 import com.tasya.myapplication.data.response.CityResponse
 import com.tasya.myapplication.data.response.HospitalResponse
@@ -121,7 +121,7 @@ class FormReqActivity : AppCompatActivity() {
             namaKeluarga = binding.inputDesc.text?.trim().toString()
             nomorHp = binding.inputDesc.text?.trim().toString()
 
-            val formRequest = BloodRequestRequest(
+            val formRequest = RequestBloodRequest(
                 namaPasien,
                 rhesusSelected,
                 citySelected,
@@ -242,7 +242,7 @@ class FormReqActivity : AppCompatActivity() {
         })
     }
 
-    private fun postFormRequest(request: BloodRequestRequest) {
+    private fun postFormRequest(request: RequestBloodRequest) {
         val api = ApiConfig.getApiService()
         api.postBloodRequest(
             request,

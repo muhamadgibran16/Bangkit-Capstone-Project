@@ -1,6 +1,7 @@
 package com.example.donorgo.retrofit
 
 import com.example.donorgo.activity.history.HistoryResponse
+import com.example.donorgo.activity.stock.StockResponse
 import com.example.donorgo.dataclass.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -103,16 +104,43 @@ interface ApiService {
         @Header("Authorization") token: String
     ): Call<ResponseMessage>
 
-    @GET("list/all-request")
-    fun getAllListBloodRequest(
-        @Header("Authorization") token: String
-    ): Call<ResponseListAllBloodRequest>
-
     // History Request
     @GET("blood-history")
     fun getAllHistory(
         @Header ("Authorization")token: String
     ): Call<HistoryResponse>
+
+    // Stock
+    @GET("list/all-stock")
+    fun getAllStock(
+        @Header ("Authorization")token: String
+    ): Call<StockResponse>
+
+    @GET("list/stock/{id}")
+    fun getStockByTypeId(
+        @Header ("Authorization") token: String,
+        @Path("id") idType: Int
+    ): Call<StockResponse>
+
+    @GET("list/stock/{type}/rhesus/{rhesus}")
+    fun getStockByTypeIdAndRhesusId(
+        @Header ("Authorization")token: String,
+        @Path("type") idType: Int,
+        @Path("rhesus") idRhesus: Int,
+    ): Call<StockResponse>
+
+    @GET("list/filter-all-data")
+    fun getAllBloodRequest(
+        @Header ("Authorization") token: String
+    ): Call<ResponseListAllBloodRequest>
+
+    @GET("list/filter-data/{nama_rs}")
+    fun getBloodRequestByRSName(
+        @Path("nama_rs") namaRs: String,
+        @Header ("Authorization")token: String,
+    ): Call<ResponseListAllBloodRequest>
+
+
 
 //    //Uploud Image DataStory_Schema
 //    @Multipart

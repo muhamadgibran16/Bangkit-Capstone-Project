@@ -401,7 +401,7 @@ data class ResponseUploudPhotoProfile(
 data class ResponseListAllBloodRequest(
 
     @field:SerializedName("payload")
-    val payload: PayloadBlood,
+    val payload: List<BloodRequestItem>,
 
     @field:SerializedName("success")
     val success: Boolean,
@@ -413,6 +413,9 @@ data class ResponseListAllBloodRequest(
 @Parcelize
 data class BloodRequestItem(
 
+    @field:SerializedName("alamat_rs")
+    val alamatRs: String,
+
     @field:SerializedName("nama_pasien")
     val namaPasien: String,
 
@@ -421,6 +424,9 @@ data class BloodRequestItem(
 
     @field:SerializedName("gender")
     val gender: String,
+
+    @field:SerializedName("latitude")
+    val latitude: String,
 
     @field:SerializedName("telp_keluarga")
     val telpKeluarga: String,
@@ -450,17 +456,11 @@ data class BloodRequestItem(
     val jmlKantong: Int,
 
     @field:SerializedName("prov")
-    val prov: String
+    val prov: String,
+
+    @field:SerializedName("longitude")
+    val longitude: String
 ) : Parcelable
-
-data class PayloadBlood(
-
-    @field:SerializedName("count")
-    val count: Int,
-
-    @field:SerializedName("rows")
-    val rows: List<BloodRequestItem>
-)
 
 @Parcelize
 data class DataToOTP(

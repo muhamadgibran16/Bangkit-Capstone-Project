@@ -17,10 +17,20 @@ import com.example.donorgo.dataclass.BloodRequestItem
 import com.example.donorgo.dataclass.UserProfileData
 import com.example.donorgo.helper.DateFormater
 import com.example.donorgo.helper.ValidationLastDate
+import android.content.Intent
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.donorgo.activity.home.HomeActivity
+import java.util.*
+
 
 class DetailRequestActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityDetailRequestBinding
+
+    private lateinit var recyclerViewSyarat: RecyclerView
+    private var mListSyarat = ArrayList<SyaratDetail>()
+    private lateinit var adapterSyarat: SyaratDetailAdapter
     private lateinit var data: BloodRequestItem
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailRequestBinding.inflate(layoutInflater)
@@ -31,14 +41,14 @@ class DetailRequestActivity : AppCompatActivity(), View.OnClickListener {
         catchExtraData()
     }
 
-    private fun catchExtraData(){
+    private fun catchExtraData() {
         val dataParcelable = if (Build.VERSION.SDK_INT >= 33) {
             intent.getParcelableExtra(DETAIL_DATA, BloodRequestItem::class.java)
         } else {
             @Suppress("DEPRECATION")
             intent.getParcelableExtra(DETAIL_DATA)
         }
-        if (dataParcelable != null){
+        if (dataParcelable != null) {
             this.data = dataParcelable
             displayUserProfile(data)
         }
@@ -51,7 +61,7 @@ class DetailRequestActivity : AppCompatActivity(), View.OnClickListener {
             goldar.text = data.tipeDarah
             rhesus.text = data.rhesus
             locationValue.text = data.namaRs
-            addressValue.text = "-----"
+            addressValue.text = data.alamatRs
             descriptionValue.text = data.deskripsi
             closeFamilyValue.text = data.namaKeluarga
             phone.text = getString(R.string.number_phone, data.telpKeluarga)
@@ -59,12 +69,36 @@ class DetailRequestActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun init () {
+    private fun init() {
+        recyclerViewSyarat = binding.rvTermsAndConditions
 
+        recyclerViewSyarat.setHasFixedSize(true)
+        recyclerViewSyarat.layoutManager = LinearLayoutManager(this)
+
+        mListSyarat.addAll(SyaratDetailData.listData)
+        addDataToList()
+
+        adapterSyarat = SyaratDetailAdapter(mListSyarat)
+        recyclerViewSyarat.adapter = adapterSyarat
+
+        with(binding) {
+            btBack.setOnClickListener(this@DetailRequestActivity)
+        }
     }
 
+
     override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+        when (v?.id) {
+            R.id.bt_back -> {
+                startActivity(Intent(this@DetailRequestActivity, HomeActivity::class.java))
+            }
+        }
+    }
+
+    private fun addDataToList() {
+        recyclerViewSyarat.layoutManager = LinearLayoutManager(this)
+        adapterSyarat = SyaratDetailAdapter(mListSyarat)
+        recyclerViewSyarat.adapter = adapterSyarat
     }
 
     private fun setupView() {
@@ -85,3 +119,6 @@ class DetailRequestActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 }
+
+
+
