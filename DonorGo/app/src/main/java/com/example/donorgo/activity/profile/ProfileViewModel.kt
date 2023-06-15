@@ -24,8 +24,4 @@ class ProfileViewModel(private val mViewModelRepository: ViewModelRepository) : 
         mViewModelRepository.getDataUserProfile(token)
     }
 
-    fun editUserProfile(request: RequestEditUserProfile, token: String) {
-        mViewModelRepository.editUserProfile(request, token)
-    }
-
 }

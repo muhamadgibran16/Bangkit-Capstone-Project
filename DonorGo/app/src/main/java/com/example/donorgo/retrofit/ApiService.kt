@@ -97,6 +97,16 @@ interface ApiService {
     //
 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @POST("donor")
+    fun postBloodDonation(
+        @Body requestBloodDonation: RequestBloodDonation,
+        @Header("Authorization") token: String
+    ): Call<ResponseMessage>
+
+    @GET("list/all-request")
+    fun getAllListBloodRequest(
+        @Header("Authorization") token: String
+    ): Call<ResponseListAllBloodRequest>
 
     // History Request
     @GET("blood-history")

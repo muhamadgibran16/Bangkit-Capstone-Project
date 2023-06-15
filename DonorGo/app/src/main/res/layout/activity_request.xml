@@ -380,11 +380,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="17dp"
                     android:layout_marginHorizontal="32dp"
-                    android:outlineProvider="bounds"
                     android:layout_marginBottom="40dp"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:background="@color/white"
+                    android:background="@android:color/transparent"
                     android:elevation="13dp">
 
                     <Button

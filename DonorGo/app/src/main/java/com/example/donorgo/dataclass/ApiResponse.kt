@@ -137,43 +137,37 @@ data class RequestEditLastDonor(
 
 )
 
-data class RequestDonor(
+data class RequestBloodDonation(
+
+    @field:SerializedName("alamat_rs")
+    val alamatRs: String,
+
+    @field:SerializedName("uid")
+    val uid: String,
 
     @field:SerializedName("nama_pasien")
     val namaPasien: String,
 
+    @field:SerializedName("telp")
+    val telp: String,
+
     @field:SerializedName("rhesus")
     val rhesus: String,
 
-    @field:SerializedName("kota")
-    val kota: String,
+    @field:SerializedName("gol_darah")
+    val golDarah: String,
 
-    @field:SerializedName("gender")
-    val gender: String,
-
-    @field:SerializedName("nama_keluarga")
-    val namaKeluarga: String,
-
-    @field:SerializedName("createdBy")
-    val createdBy: String,
+    @field:SerializedName("last_donor")
+    val lastDonor: String,
 
     @field:SerializedName("nama_rs")
     val namaRs: String,
 
-    @field:SerializedName("tipe_darah")
-    val tipeDarah: String,
+    @field:SerializedName("nama_pendonor")
+    val namaPendonor: String,
 
-    @field:SerializedName("deskripsi")
-    val deskripsi: String,
-
-    @field:SerializedName("telp_keluarga")
-    val telpKeluarga: String,
-
-    @field:SerializedName("jml_kantong")
-    val jmlKantong: Int,
-
-    @field:SerializedName("prov")
-    val prov: String
+    @field:SerializedName("alamat")
+    val alamat: String
 )
 
 // For ResponseMessage
@@ -401,6 +395,71 @@ data class ResponseUploudPhotoProfile(
     @field:SerializedName("url")
     val url: String
 
+)
+
+// GET ALL BLOOD REQUEST
+data class ResponseListAllBloodRequest(
+
+    @field:SerializedName("payload")
+    val payload: PayloadBlood,
+
+    @field:SerializedName("success")
+    val success: Boolean,
+
+    @field:SerializedName("message")
+    val message: String
+)
+
+@Parcelize
+data class BloodRequestItem(
+
+    @field:SerializedName("nama_pasien")
+    val namaPasien: String,
+
+    @field:SerializedName("kota")
+    val kota: String,
+
+    @field:SerializedName("gender")
+    val gender: String,
+
+    @field:SerializedName("telp_keluarga")
+    val telpKeluarga: String,
+
+    @field:SerializedName("createdAt")
+    val createdAt: String,
+
+    @field:SerializedName("id_request")
+    val idRequest: String,
+
+    @field:SerializedName("rhesus")
+    val rhesus: String,
+
+    @field:SerializedName("nama_keluarga")
+    val namaKeluarga: String,
+
+    @field:SerializedName("nama_rs")
+    val namaRs: String,
+
+    @field:SerializedName("tipe_darah")
+    val tipeDarah: String,
+
+    @field:SerializedName("deskripsi")
+    val deskripsi: String,
+
+    @field:SerializedName("jml_kantong")
+    val jmlKantong: Int,
+
+    @field:SerializedName("prov")
+    val prov: String
+) : Parcelable
+
+data class PayloadBlood(
+
+    @field:SerializedName("count")
+    val count: Int,
+
+    @field:SerializedName("rows")
+    val rows: List<BloodRequestItem>
 )
 
 @Parcelize

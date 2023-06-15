@@ -40,6 +40,9 @@ class ViewModelRepository constructor(
     private val _photoProfile = MutableLiveData<String>()
     val photoProfile: LiveData<String> = _photoProfile
 
+    private val _listRequest = MutableLiveData<List<BloodRequestItem>>()
+    val listRequest: LiveData<List<BloodRequestItem>> = _listRequest
+
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
@@ -466,6 +469,62 @@ class ViewModelRepository constructor(
                 _message.value = t.message.toString()
                 Log.w("uploud", "ktp gagal2")
             }
+        })
+    }
+
+    fun postBloodDonation(request: RequestBloodDonation, token: String) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().postBloodDonation(request, "Bearer $token")
+        client.enqueue(object : Callback<ResponseMessage> {
+            override fun onResponse(
+                call: Call<ResponseMessage>,
+                response: Response<ResponseMessage>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseMessage>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+            }
+        })
+    }
+
+    fun getAllBloodRequest(token: String) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().getAllListBloodRequest("Bearer $token")
+        client.enqueue(object : Callback<ResponseListAllBloodRequest> {
+            override fun onResponse(
+                call: Call<ResponseListAllBloodRequest>,
+                response: Response<ResponseListAllBloodRequest>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                Log.w("home", "na $response.isSuccessful")
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                    _listRequest.value = data?.payload?.rows
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseListAllBloodRequest>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+                Log.w("home", "hehehhe")
+            }
+
         })
     }
 

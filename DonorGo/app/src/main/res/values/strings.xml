@@ -245,7 +245,7 @@
     <string name="date_birth_err_message">Please enter your date of birth</string>
     <string name="cancel">cancel</string>
     <string name="verify_email">Verify Your Email</string>
-    <string name="welcome">Welcome,  %1$s</string>
+    <string name="welcome">Welcome,\n%1$s</string>
     <string name="check_inbox">Please check your inbox to find the verification email.</string>
     <string name="resend_timer">The verification code can be resent within</string>
     <string name="resend_code">Resend the code.</string>
@@ -284,5 +284,8 @@
 
     // ============================================================== //
     <string name="date_of_birth">Date of Birth</string>
+    <string name="cant_donate">You can only donate after uploading your KTP</string>
+    <string name="can_donate_again">Can Donate Again at %1$s</string>
+    <string name="faq_header">Frequently Asked Questions</string>
 
 </resources>

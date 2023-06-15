@@ -53,11 +53,14 @@ class NewsActivity : AppCompatActivity(), View.OnClickListener  {
             listRequestMapsBtn.setOnClickListener(this@NewsActivity)
             newsBtn.setOnClickListener(this@NewsActivity)
             profileBtn.setOnClickListener(this@NewsActivity)
+
+            btBack.setOnClickListener(this@NewsActivity)
         }
     }
 
     override fun onClick(v: View?) {
         when(v?.id) {
+            // Button Navigation
             R.id.home_btn -> { startActivity(Intent(this@NewsActivity, HomeActivity::class.java)) }
             R.id.event_btn -> { startActivity(Intent(this@NewsActivity, EventActivity::class.java)) }
             R.id.list_request_maps_btn -> { startActivity(Intent(this@NewsActivity, MapsRequestActivity::class.java)) }

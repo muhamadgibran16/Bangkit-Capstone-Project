@@ -293,7 +293,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:layout_marginTop="7dp"
-                android:layout_marginStart="32dp"
                 android:orientation="horizontal"
                 tools:listitem="@layout/item_request_list_home"
                 app:layout_constraintTop_toBottomOf="@id/blood_title"
@@ -393,7 +392,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:layout_marginTop="7dp"
-                android:layout_marginStart="32dp"
                 android:orientation="horizontal"
                 tools:listitem="@layout/item_news_list_home"
                 app:layout_constraintTop_toBottomOf="@id/news_title"
@@ -405,6 +403,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rv_news"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/ProggressBarStyle"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

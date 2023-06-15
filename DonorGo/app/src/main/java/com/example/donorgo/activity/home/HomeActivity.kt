@@ -10,20 +10,24 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.donorgo.R
 import com.example.donorgo.activity.profile.ProfileActivity
 import com.example.donorgo.activity.dataStore
+import com.example.donorgo.activity.detail_request.DetailRequestActivity
 import com.example.donorgo.activity.donor.VoluntaryActivity
 import com.example.donorgo.activity.event.EventActivity
 import com.example.donorgo.activity.faq.FaqActivity
 import com.example.donorgo.activity.lastdonor.LastDonorActivity
 import com.example.donorgo.activity.maps.MapsRequestActivity
-import com.example.donorgo.activity.news.NewsActivity
+import com.example.donorgo.activity.news.*
 import com.example.donorgo.activity.profile.ProfileViewModel
 import com.example.donorgo.activity.request_form.RequestActivity
 import com.example.donorgo.activity.stock.StockActivity
 import com.example.donorgo.activity.table.TableActivity
 import com.example.donorgo.databinding.ActivityHomeBinding
+import com.example.donorgo.dataclass.BloodRequestItem
 import com.example.donorgo.dataclass.UserProfileData
 import com.example.donorgo.datastore.SessionViewModel
 import com.example.donorgo.factory.RepoViewModelFactory
@@ -37,10 +41,18 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     private val profileViewModel: ProfileViewModel by viewModels {
         RepoViewModelFactory.getInstance(this)
     }
+    private val homeViewModel: HomeViewModel by viewModels {
+        RepoViewModelFactory.getInstance(this)
+    }
     private var myUsername: String = ""
     private var myToken: String = ""
     private var openFirstDialog: Boolean = false
+    private var isUserVerified: Boolean = false
     private lateinit var userProfileData: UserProfileData
+    private var userAction: Boolean = true
+    private lateinit var adapterHome: ListHomeAdapter
+    private lateinit var rvNewss: RecyclerView
+    private val list = ArrayList<News>()
     // DONOR BY BLOOD REQUEST && BLOOAD REQUEST LIST
     // REQUEST FORM??,
     // VOLUNTARY DONOR &&
@@ -52,6 +64,12 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         setupView()
         init()
 
+        rvNewss = binding.rvNews
+        rvNewss.setHasFixedSize(true)
+
+        list.addAll(NewsData.listData)
+        showRecyclerList()
+
         userProfileData = UserProfileData()
         // SessionViewModel
         sessionViewModel.getUsername().observe(this) {
@@ -62,6 +80,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             this.myToken = it
             Log.w("token", it)
             profileViewModel.getUserProfile(myToken)
+            homeViewModel.getBloodListRequest(myToken)
         // Udah manggil profile terus lempar
             // Manggil getEvent terus lempar
             // Manggil getNews terus lempar jangan lupa di set
@@ -86,15 +105,56 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         profileViewModel.userProfile.observe(this) { data ->
             this.openFirstDialog = data.lastDonor.isNullOrEmpty() == true
             this.userProfileData = data
+            if (data.ktp && data.otp) { isUserVerified = true }
             Log.w("profil", "openFirstDialog? $openFirstDialog")
             if (openFirstDialog) startActivity(Intent(this@HomeActivity, LastDonorActivity::class.java))
         }
 
+
+        // HomeViewModel
+        homeViewModel.listBloodRequest.observe(this) { list ->
+            Log.w("home", list.toString())
+            setDataToAdapter(list)
+        }
+        homeViewModel.isLoading.observe(this) {
+            showLoading(it)
+        }
+        homeViewModel.messageBloodRequest.observe(this) { message ->
+            if (message != null) homeViewModel.isError?.value?.let { it1 -> showMessage(message, it1) }
+        }
         // LIST BLOOD REQUEST (Pagination) && NEWS LIST
         // ADAPTER
 
         // KIRIM DATA KE DONOR SUKARELA
 
+    }
+
+    private fun showRecyclerList() {
+        rvNewss.layoutManager =
+            LinearLayoutManager(this@HomeActivity,
+            LinearLayoutManager.HORIZONTAL,
+            false)
+        val academyAdapter = HomeNewsAdapter(list)
+        rvNewss.adapter = academyAdapter
+    }
+
+    private fun setDataToAdapter(list: List<BloodRequestItem>) {
+        if (list.isNotEmpty()) {
+            adapterHome = ListHomeAdapter(list) { item ->
+                val intent = Intent(this@HomeActivity, DetailRequestActivity::class.java)
+                intent.putExtra(DetailRequestActivity.DETAIL_DATA, item)
+                startActivity(intent)
+            }
+            binding.rvBlood.apply {
+                setHasFixedSize(true)
+                layoutManager = LinearLayoutManager(
+                    this@HomeActivity,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                )
+                adapter = adapterHome
+            }
+        }
     }
 
     private fun init() {
@@ -119,6 +179,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             eventMore.setOnClickListener(this@HomeActivity)
             newsMore.setOnClickListener(this@HomeActivity)
         }
+    }
+
+    private fun showNoData(isNoData: Boolean) {
+//        binding.rvStoryMaps.visibility = if (isNoData) View.GONE else View.VISIBLE
+//        binding.tvErrorText.visibility = if (isNoData) View.VISIBLE else View.GONE
     }
 
     override fun onClick(v: View?) {
@@ -151,12 +216,17 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_table -> { startActivity(Intent(this@HomeActivity, TableActivity::class.java)) }
             R.id.btn_request -> { startActivity(Intent(this@HomeActivity, RequestActivity::class.java)) }
             R.id.btn_donate -> {
-                ////////
-                startActivity(Intent(this@HomeActivity, VoluntaryActivity::class.java))
+                if (isUserVerified) {
+                    val intent = Intent(this@HomeActivity, VoluntaryActivity::class.java)
+                    intent.putExtra(VoluntaryActivity.EXTRA_DONOR, userProfileData)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this, getString(R.string.cant_donate), Toast.LENGTH_LONG).show()
+                }
             }
             R.id.btn_faq -> { startActivity(Intent(this@HomeActivity, FaqActivity::class.java)) }
 
-            R.id.notif_icon -> {}
+            R.id.notif_icon -> { startActivity(Intent(this@HomeActivity, LastDonorActivity::class.java)) }
             R.id.blood_more -> {
                 //////// Pagination
                 startActivity(Intent(this@HomeActivity, MapsRequestActivity::class.java))
@@ -174,6 +244,33 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(Intent(this@HomeActivity, NewsActivity::class.java))
             }
         }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility =
+            if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun showMessage(message: String, isError: Boolean) {
+        Log.w("check", "activity $isError")
+        if (!isError) {
+            if (userAction) {
+                if (message == "News retrieved successfully!"
+                    || message == "Requests retrieved successfully!") {
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                }
+            }
+        } else {
+            if (userAction) {
+                Toast.makeText(
+                    this,
+                    "${getString(R.string.error_message_tag)} $message",
+                    Toast.LENGTH_LONG
+                ).show()
+                Log.w("home", message)
+            }
+        }
+        userAction = false
     }
 
     private fun setupView() {

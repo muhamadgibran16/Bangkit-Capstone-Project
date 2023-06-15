@@ -115,6 +115,11 @@
             android:exported="false"
             android:launchMode="singleTask" />
 
+        <activity
+            android:name=".activity.event.DetailEventActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
+
         <!--    Starter Page    -->
         <activity
             android:name=".activity.SplashActivity"

@@ -8,67 +8,65 @@
     tools:context=".activity.edit_profile.EditProfileActivity">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/page_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginHorizontal="32dp"
-                android:paddingBottom="20dp"
-                android:outlineProvider="bounds"
                 android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/bg_page_one"
-                android:elevation="13dp">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
-                <TextView
-                    android:id="@+id/title"
-                    style="@style/extra_bold_black"
+                <LinearLayout
+                    android:id="@+id/page_one"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:layout_marginHorizontal="28dp"
-                    android:text="@string/taukah_kamu"
-                    android:textSize="32sp" />
+                    android:layout_marginHorizontal="25dp"
+                    android:paddingBottom="20dp"
+                    android:outlineProvider="bounds"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_page_one"
+                    android:elevation="13dp">
 
-                <TextView
-                    android:id="@+id/content_desc"
-                    style="@style/regular_black"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="30dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/desc" />
+                    <TextView
+                        android:id="@+id/title"
+                        style="@style/extra_bold_black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginHorizontal="28dp"
+                        android:text="@string/taukah_kamu"
+                        android:textSize="32sp" />
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/content_desc"
+                        style="@style/regular_black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/desc" />
 
-            <LinearLayout
-                android:id="@+id/page_two"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginHorizontal="32dp"
-                android:outlineProvider="bounds"
-                android:paddingBottom="20dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/bg_page_two"
-                android:elevation="13dp">
+                </LinearLayout>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_donor_detail"
-                    style="@style/cardViewStyle"
                     android:layout_width="match_parent"
+                    android:elevation="13dp"
+                    app:cardElevation="13dp"
+                    android:layout_marginHorizontal="25dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="5dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/layout_info_donor"
@@ -81,11 +79,15 @@
 
                         <TextView
                             android:id="@+id/username"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             style="@style/extra_bold_black"
-                            android:textSize="18sp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
                             android:text="@string/natasya_salsabila"
+                            android:textSize="18sp"
+                            app:layout_constraintEnd_toStartOf="@id/border"
+                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -136,7 +138,7 @@
                             android:id="@+id/border"
                             android:layout_width="3dp"
                             android:layout_height="0dp"
-                            android:layout_marginEnd="70dp"
+                            android:layout_marginEnd="60dp"
                             android:background="@color/red_blood"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -169,99 +171,120 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/province_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    app:boxCornerRadiusBottomEnd="5dp"
-                    app:boxCornerRadiusBottomStart="5dp"
-                    app:boxCornerRadiusTopEnd="5dp"
-                    app:boxCornerRadiusTopStart="5dp"
-                    android:layout_marginHorizontal="20dp"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/input_province"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:hint="@string/province"
-                        style="@style/regular_black"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/layout_gender"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="5dp"
-                    app:boxCornerRadiusBottomEnd="5dp"
-                    app:boxCornerRadiusBottomStart="5dp"
-                    app:boxCornerRadiusTopEnd="5dp"
-                    app:boxCornerRadiusTopStart="5dp"
-                    android:layout_marginHorizontal="20dp"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/input_gender"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:hint="@string/regency_city"
-                        style="@style/regular_black"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/type_blood"
+                <LinearLayout
+                    android:id="@+id/page_two"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:boxCornerRadiusBottomEnd="5dp"
-                    app:boxCornerRadiusBottomStart="5dp"
-                    app:boxCornerRadiusTopEnd="5dp"
-                    app:boxCornerRadiusTopStart="5dp"
-                    android:layout_marginHorizontal="20dp"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                    android:layout_marginHorizontal="25dp"
+                    android:outlineProvider="bounds"
+                    android:paddingBottom="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_page_two"
+                    android:elevation="13dp">
 
-                    <AutoCompleteTextView
-                        android:id="@+id/input_goldar"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/province_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:hint="@string/hospital"
-                        style="@style/regular_black"/>
+                        android:layout_marginTop="15dp"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp"
+                        android:layout_marginHorizontal="20dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <AutoCompleteTextView
+                            android:id="@+id/input_province"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:hint="@string/province"
+                            style="@style/regular_black"/>
 
-            </LinearLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:id="@+id/page_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
-                android:layout_marginHorizontal="32dp"
-                android:outlineProvider="bounds"
-                android:layout_marginBottom="40dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@color/white"
-                android:elevation="13dp">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layout_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="5dp"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp"
+                        android:layout_marginHorizontal="20dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
-                <Button
+                        <AutoCompleteTextView
+                            android:id="@+id/input_city"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:hint="@string/regency_city"
+                            style="@style/regular_black"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/hospital"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp"
+                        android:layout_marginHorizontal="20dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/input_hospital"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:hint="@string/hospital"
+                            style="@style/regular_black"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/announcement"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/can_donate_again"
+                    android:textColor="@color/red_blood"/>
+
+                <com.example.donorgo.customview.MyCustomButton
                     android:id="@+id/btn_donor"
-                    style="@style/bold_white"
+                    android:elevation="13dp"
+                    android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_pick_date"
-                    android:text="@string/donor"
-                    android:layout_gravity="center" />
+                    android:layout_marginHorizontal="25dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="DONOR"
+                    android:enabled="true"/>
 
             </LinearLayout>
 
-        </LinearLayout>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/ProggressBarStyle"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 

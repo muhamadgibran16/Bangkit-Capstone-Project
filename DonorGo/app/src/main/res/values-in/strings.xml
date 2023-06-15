@@ -8,7 +8,7 @@
     <string name="get_started">MULAI</string>
 
     <!-- OTP -->
-    <string name="enter_the_otp">Masukkan kode OTP yang telah kami kirimkan ke email Anda</string>
+    <string name="enter_the_otp">Masukkan kode OTP yang telah kami kirimkan</string>
     <string name="verifikasi">Verifikasi</string>
 
     <!-- Login -->
@@ -72,7 +72,7 @@
     <string name="change_password">Ubah Kata Sandi</string>
     <string name="view_donation_history">Lihat Riwayat Donor</string>
     <string name="blood_group">Golongan Darah</string>
-    <string name="last_donated">Terakhir Donor</string>
+    <string name="last_donated">Terakhir Donor:</string>
     <string name="donor_type">Jenis Donor</string>
     <string name="complete_profile">Lengkapi Profil Anda</string>
 
@@ -120,7 +120,7 @@
     <string name="history_request">Riwayat Permintaan</string>
     <string name="about_us">Tentang Kami</string>
     <string name="contact_us">Hubungi Kami</string>
-    <string name="last_donor">Tanggal Terakhir Donor</string>
+    <string name="last_donor">Terakhir Donor:</string>
     <string name="setting">Pengaturan</string>
     <string name="unauthorized_email">Email tidak terdaftar!</string>
     <string name="unauthorized_pass">Password invalid!</string>
@@ -128,7 +128,7 @@
     <string name="email_already_exists">Email sudah terdaftar! Jika ini akun anda. silahkan login</string>
     <string name="email_already_exists_error">Email sudah terdaftar!</string>
     <string name="logout_confirm">Anda yakin ingin logout?</string>
-    <string name="welcome">Selamat Datang,  %1$s</string>
+    <string name="welcome">Selamat Datang,\n%1$s</string>
     <string name="stock_nav">Stok</string>
     <string name="table_nav">Tabel</string>
     <string name="donate_nav">Donasi</string>
@@ -174,7 +174,7 @@
     <string name="example_request_description">Perlu bantuan, tuan/nyonya. Membutuhkan darah untuk istri seorang teman yang pingsan setelah keguguran.</string>
     <string name="close_family">Keluarga Dekat</string>
     <string name="tittle_form_req">Form Permintaan Donor</string>
-    <string name="patient_s_name">Nama PAsien</string>
+    <string name="patient_s_name">Nama Pasien</string>
     <string name="number_of_blood_bags">Jumlah Kantong Darah</string>
     <string name="family_contact">Kontak Keluarga</string>
     <string name="family_name">Nama Keluarga</string>
@@ -210,15 +210,19 @@
     <string name="profile_btn">Profil</string>
     <string name="date_of_birth_label">Tanggal Lahir</string>
     <string name="blood_type">Tipe Darah</string>
-    <string name="pick_date_btn">Pilih Tanggal</string>
+    <string name="pick_date_btn">Pilih</string>
     <string name="gender_hint">Jenis Kelamin</string>
     <string name="address_hint">Alamat</string>
     <string name="blood_rhesus">Rhesus Darah</string>
-    <string name="last_donor_date">Tanggal Donor Terakhir</string>
-    <string name="pick_date">Pilih Tanggal</string>
+    <string name="last_donor_date">Donor Terakhir</string>
+    <string name="pick_date">Pilih</string>
     <string name="save">Simpan</string>
     <string name="nik_message_err">Mohon isi NIK</string>
     <string name="address_message_err">Mohon isi alamat</string>
     <string name="date_birth_err_message">Mohon masukkan tanggal lahir</string>
     <string name="date_of_birth">Tanggal Lahir</string>
+
+    //==============================================
+    <string name="cant_donate">You can only donate after uploading your KTP</string>
+    <string name="can_donate_again">Can Donate Again at %1$s</string>
 </resources>

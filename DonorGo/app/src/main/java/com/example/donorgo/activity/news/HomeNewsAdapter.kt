@@ -11,13 +11,13 @@ import com.bumptech.glide.Glide
 import com.example.donorgo.R
 import com.example.donorgo.activity.web_view.WebViewNewsActivity
 
-class ListNewsAdapter(private val listNews: ArrayList<News>)
-    : RecyclerView.Adapter<ListNewsAdapter.ListViewHolder>() {
+class HomeNewsAdapter(private val listNews: ArrayList<News>)
+    : RecyclerView.Adapter<HomeNewsAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             ListViewHolder {
         val view: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_news_list_vertikal, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_news_list_home, parent, false)
         return ListViewHolder(view)
     }
 
@@ -36,7 +36,7 @@ class ListNewsAdapter(private val listNews: ArrayList<News>)
         holder.itemView.setOnClickListener {
             val moveDetail = Intent(mContext, WebViewNewsActivity::class.java)
             moveDetail.putExtra(WebViewNewsActivity.NEWS_EXTRA_DATA, news)
-            moveDetail.putExtra(WebViewNewsActivity.SOURCE_PAGE, NEWS_PAGE)
+            moveDetail.putExtra(WebViewNewsActivity.SOURCE_PAGE, HOME_PAGE)
             mContext.startActivity(moveDetail)
         }
     }
@@ -52,6 +52,6 @@ class ListNewsAdapter(private val listNews: ArrayList<News>)
     }
 
     companion object {
-        const val NEWS_PAGE = "news_page"
+        const val HOME_PAGE = "home_page"
     }
 }

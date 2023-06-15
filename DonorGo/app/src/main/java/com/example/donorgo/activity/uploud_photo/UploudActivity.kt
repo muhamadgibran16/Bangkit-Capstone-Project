@@ -13,6 +13,7 @@ import androidx.activity.viewModels
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.lifecycleScope
 import com.example.donorgo.R
+import com.example.donorgo.activity.camera.SelectImageActivity
 import com.example.donorgo.activity.camera.SelectImageViewModel
 import com.example.donorgo.activity.dataStore
 import com.example.donorgo.activity.home.HomeActivity
@@ -165,6 +166,11 @@ class UploudActivity : AppCompatActivity(), View.OnClickListener {
                     message == "File uploaded successfully and URL is inserted into the database!") {
                     val customMessage = if (uploudType == ProfileActivity.UPLOUD_PHOTO)  getString(R.string.uploud_photo_succes) else message
                     Toast.makeText(this, customMessage, Toast.LENGTH_LONG).show()
+                    if (uploudType == ProfileActivity.UPLOUD_PHOTO) {
+                        val resultIntent = Intent()
+                        resultIntent.putExtra(EXTRA_FILE, getFile?.path)
+                        setResult(UPLOUD_RESULT, resultIntent)
+                    }
                     finish()
                 }
             }
@@ -217,5 +223,7 @@ class UploudActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         const val UPLOUD_TYPE = "uploud_type"
+        const val UPLOUD_RESULT = 200
+        const val EXTRA_FILE = "extra_file"
     }
 }

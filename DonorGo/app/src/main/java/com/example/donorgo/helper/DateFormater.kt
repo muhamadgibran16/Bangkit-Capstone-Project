@@ -36,7 +36,7 @@ object DateFormater {
     fun formatDateToISO(currentDate: String): String? {
         val outputFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
-        val currentFormat = SimpleDateFormat("dd MMMM yyyy", Locale.US)
+        val currentFormat = SimpleDateFormat("dd MMM yyyy", Locale.US)
         val targetFormatter = SimpleDateFormat(outputFormat, Locale.US)
 
         val date = currentFormat.parse(currentDate)
@@ -45,7 +45,7 @@ object DateFormater {
 
     fun countingTheNextThreeMonths(currentDate: String): String? {
         val currentFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        val targetFormat = "dd MMMM yyyy"
+        val targetFormat = "dd MMM yyyy"
         val timezone = "GMT"
         val currentDf: DateFormat = SimpleDateFormat(currentFormat, Locale.US)
         currentDf.timeZone = TimeZone.getTimeZone(timezone)
@@ -73,7 +73,7 @@ object DateFormater {
     fun formatNumberMonthToString(currentDate: String): String? {
         val currentFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy")
         val date = LocalDate.parse(currentDate, currentFormat)
-        val targetFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.US)
+        val targetFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.US)
         return date.format(targetFormatter)
     }
 

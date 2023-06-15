@@ -130,13 +130,6 @@ class RequestActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    private fun showLoading(isLoading: Boolean) {
-        if (userAction) {
-            binding.progressBar.visibility =
-                if (isLoading && userAction) View.VISIBLE else View.GONE
-        }
-    }
-
     private fun init() {
         with(binding) {
             btnSend.setOnClickListener(this@RequestActivity)
@@ -165,7 +158,8 @@ class RequestActivity : AppCompatActivity(), View.OnClickListener {
                 userAction = true
                 rhesusSelected = if (binding.negatif.isChecked) "-" else "+"
                 patientname = binding.inputPatientsName.text?.trim().toString()
-                numberOfBloodBags = binding.inputBloodBag.text?.trim().toString().toInt()
+                val number = binding.inputBloodBag.text?.trim().toString()
+                if (number.isNotEmpty()) numberOfBloodBags = number.toInt() else 0
                 description = binding.inputDescription.text?.trim().toString()
                 familyName = binding.inputFamilyName.text?.trim().toString()
                 phoneNumber = binding.inputPhone.text?.trim().toString()
@@ -190,7 +184,6 @@ class RequestActivity : AppCompatActivity(), View.OnClickListener {
                     )
                     requestViewModel.postBloodRequest(formRequest, myToken)
                 }
-
             }
         }
     }
@@ -244,6 +237,11 @@ class RequestActivity : AppCompatActivity(), View.OnClickListener {
                 isInputValid = true
             }
         }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility =
+            if (isLoading && userAction) View.VISIBLE else View.GONE
     }
 
     private fun showMessage(message: String, isError: Boolean) {

@@ -4,6 +4,7 @@ import android.content.Context
 import android.provider.ContactsContract
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.donorgo.activity.donor.VoluntaryViewModel
 import com.example.donorgo.activity.edit_profile.EditProfileViewModel
 import com.example.donorgo.activity.home.HomeViewModel
 import com.example.donorgo.activity.lastdonor.LastDonorViewModel
@@ -40,6 +41,8 @@ class RepoViewModelFactory private constructor
             return EditProfileViewModel(mViewModelRepository) as T
         } else if (modelClass.isAssignableFrom(UploudViewModel::class.java)) {
             return UploudViewModel(mViewModelRepository) as T
+        } else if (modelClass.isAssignableFrom(VoluntaryViewModel::class.java)) {
+            return VoluntaryViewModel(mViewModelRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }

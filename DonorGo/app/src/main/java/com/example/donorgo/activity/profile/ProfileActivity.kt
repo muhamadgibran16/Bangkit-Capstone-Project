@@ -1,6 +1,7 @@
 package com.example.donorgo.activity.profile
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +12,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat.startActivity
@@ -18,6 +20,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.donorgo.R
+import com.example.donorgo.activity.camera.SelectImageActivity
 import com.example.donorgo.activity.dataStore
 import com.example.donorgo.activity.edit_profile.EditProfileActivity
 import com.example.donorgo.activity.event.EventActivity
@@ -40,6 +43,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.io.File
 
 class ProfileActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityProfileBinding
@@ -199,7 +203,7 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
                 userAction = true
                 val intent = Intent(this@ProfileActivity, UploudActivity::class.java)
                 intent.putExtra(UploudActivity.UPLOUD_TYPE, UPLOUD_PHOTO)
-                startActivity(intent)
+                launcherIntentUploud.launch(intent)
             }
             R.id.btn_scan_ktp -> {
                 userAction = true
@@ -217,11 +221,23 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun showLoading(isLoading: Boolean) {
-        if (userAction) {
-            binding.progressBar.visibility =
-                if (isLoading && userAction) View.VISIBLE else View.GONE
+    @Suppress("DEPRECATION")
+    private val launcherIntentUploud = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.data != null) {
+            if (it.resultCode == UploudActivity.UPLOUD_RESULT) {
+                val path = it.data?.getStringExtra(UploudActivity.EXTRA_FILE)
+                if (!path.isNullOrEmpty()) File(path).let { file ->
+                    binding.imgPhotoProfile.setImageBitmap(BitmapFactory.decodeFile(file.path))
+                }
+            }
         }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility =
+            if (isLoading && userAction) View.VISIBLE else View.GONE
     }
 
     private fun showMessage(message: String, isError: Boolean) {
