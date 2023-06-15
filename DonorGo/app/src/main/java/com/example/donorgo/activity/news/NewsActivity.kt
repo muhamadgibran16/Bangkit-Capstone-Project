@@ -8,11 +8,14 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import com.example.donorgo.R
+import com.example.donorgo.activity.event.EventActivity
+import com.example.donorgo.activity.home.HomeActivity
+import com.example.donorgo.activity.maps.MapsRequestActivity
+import com.example.donorgo.activity.profile.ProfileActivity
+import com.example.donorgo.databinding.ActivityNewsBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.donorgo.R
-import com.example.donorgo.activity.home.HomeActivity
-import com.example.donorgo.databinding.ActivityNewsBinding
 
 class NewsActivity : AppCompatActivity(), View.OnClickListener  {
     private lateinit var binding: ActivityNewsBinding
@@ -26,7 +29,6 @@ class NewsActivity : AppCompatActivity(), View.OnClickListener  {
         super.onCreate(savedInstanceState)
         binding = ActivityNewsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setupView()
         init()
 
@@ -45,7 +47,23 @@ class NewsActivity : AppCompatActivity(), View.OnClickListener  {
 
     private fun init() {
         with(binding) {
-            btBack.setOnClickListener(this@NewsActivity)
+            // Button Navigation
+            homeBtn.setOnClickListener(this@NewsActivity)
+            eventBtn.setOnClickListener(this@NewsActivity)
+            listRequestMapsBtn.setOnClickListener(this@NewsActivity)
+            newsBtn.setOnClickListener(this@NewsActivity)
+            profileBtn.setOnClickListener(this@NewsActivity)
+        }
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id) {
+            R.id.home_btn -> { startActivity(Intent(this@NewsActivity, HomeActivity::class.java)) }
+            R.id.event_btn -> { startActivity(Intent(this@NewsActivity, EventActivity::class.java)) }
+            R.id.list_request_maps_btn -> { startActivity(Intent(this@NewsActivity, MapsRequestActivity::class.java)) }
+            R.id.news_btn -> {}
+            R.id.profile_btn -> { startActivity(Intent(this@NewsActivity, ProfileActivity::class.java)) }
+            R.id.bt_back -> { startActivity(Intent(this@NewsActivity, HomeActivity::class.java)) }
         }
     }
 
@@ -62,9 +80,4 @@ class NewsActivity : AppCompatActivity(), View.OnClickListener  {
         supportActionBar?.hide()
     }
 
-    override fun onClick(v: View?) {
-        when(v?.id) {
-            R.id.bt_back -> { startActivity(Intent(this@NewsActivity, HomeActivity::class.java)) }
-        }
-    }
 }

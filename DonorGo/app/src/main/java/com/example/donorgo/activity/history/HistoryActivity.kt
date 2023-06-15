@@ -1,18 +1,22 @@
 package com.example.donorgo.activity.history
 
 
+import HistoryAdapter
 import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.donorgo.R
+import com.example.donorgo.activity.home.HomeActivity
 import com.example.donorgo.databinding.ActivityHistoryBinding
 import com.example.donorgo.retrofit.ApiConfig
 import com.example.donorgo.retrofit.ApiService
@@ -20,7 +24,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HistoryActivity : AppCompatActivity() {
+class HistoryActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityHistoryBinding
     private lateinit var historyAdapter: HistoryAdapter
     private lateinit var apiService: ApiService
@@ -51,7 +55,9 @@ class HistoryActivity : AppCompatActivity() {
     }
 
     private fun init() {
-
+        with(binding) {
+            btBack.setOnClickListener(this@HistoryActivity)
+        }
     }
 
     private fun fetchHistoryData() {
@@ -112,5 +118,11 @@ class HistoryActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id) {
+            R.id.bt_back -> { startActivity(Intent(this@HistoryActivity, HomeActivity::class.java)) }
+        }
     }
 }

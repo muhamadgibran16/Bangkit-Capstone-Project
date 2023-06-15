@@ -1,6 +1,7 @@
 package com.example.donorgo.retrofit
 
 import com.example.donorgo.activity.history.HistoryResponse
+import com.example.donorgo.activity.stock.StockResponse
 import com.example.donorgo.dataclass.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -103,6 +104,27 @@ interface ApiService {
     fun getAllHistory(
         @Header ("Authorization")token: String
     ): Call<HistoryResponse>
+
+    // Stock
+    @GET("list/all-stock")
+    fun getAllStock(
+        @Header ("Authorization")token: String
+    ): Call<StockResponse>
+
+    @GET("list/stock/{id}")
+    fun getStockByTypeId(
+        @Header ("Authorization")token: String,
+        @Path("id") idType: Int
+    ): Call<StockResponse>
+
+    @GET("list/stock/{type}/rhesus/{rhesus}")
+    fun getStockByTypeIdAndRhesusId(
+        @Header ("Authorization")token: String,
+        @Path("type") idType: Int,
+        @Path("rhesus") idRhesus: Int,
+    ): Call<StockResponse>
+
+
 
 //    //Uploud Image DataStory_Schema
 //    @Multipart

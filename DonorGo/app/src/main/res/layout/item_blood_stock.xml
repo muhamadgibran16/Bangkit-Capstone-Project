@@ -1,150 +1,159 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="120dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="5dp"
-    android:layout_gravity="center_horizontal"
-    android:elevation="2dp"
-    app:cardElevation="17dp"
-    app:cardCornerRadius="20dp"
-    android:layout_marginHorizontal="15dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="itemStock"
+            type="com.example.donorgo.activity.stock.ItemStock" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_stock_item">
+        android:layout_height="120dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center_horizontal"
+        android:elevation="2dp"
+        app:cardElevation="17dp"
+        app:cardCornerRadius="20dp"
+        android:layout_marginHorizontal="15dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_blood_type"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="32dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_stock_item">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_blood_type"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="32dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp">
 
-                    <TextView
-                        android:id="@+id/goldar"
-                        style="@style/bold_black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        tools:text="AB"
-                        android:textSize="30sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
 
-                    <TextView
-                        android:id="@+id/rhesus"
-                        style="@style/bold_black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="0dp"
-                        tools:text="+"
-                        android:textSize="30sp" />
+                        <TextView
+                            android:id="@+id/goldar"
+                            style="@style/bold_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            tools:text="@{itemStock.tipeDarah}"
+                            android:textSize="30sp" />
 
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/rhesus"
+                            style="@style/bold_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="0dp"
+                            tools:text="@{itemStock.rhesus}"
+                            android:textSize="30sp" />
 
-            </RelativeLayout>
+                    </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+                </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/layout_jumlah"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="15dp"
-            android:gravity="center"
-            android:paddingVertical="2dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/cv_blood_type"
-            android:layout_marginStart="20dp"
-            android:paddingHorizontal="15dp"
-            android:background="@drawable/bg_bags_stock_pingky"
-            android:orientation="horizontal">
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/layout_jumlah"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:paddingVertical="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cv_blood_type"
+                android:layout_marginStart="20dp"
+                android:paddingHorizontal="15dp"
+                android:background="@drawable/bg_bags_stock_pingky"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/jml_kantong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/akrobat_extrabold"
+                    android:textColor="@color/pingky"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    tools:text="@{String.valueOf(itemStock.stock)}"/>
+
+                <TextView
+                    android:id="@+id/tv_kantong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/akrobat_extrabold"
+                    android:textColor="@color/pingky"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:text="@string/blood_bags"
+                    android:layout_marginStart="@dimen/spacing_8"/>
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/jml_kantong"
-                android:layout_width="wrap_content"
+                android:id="@+id/nama_rs"
+                style="@style/extra_bold_black"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/akrobat_extrabold"
-                android:textColor="@color/pingky"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                tools:text="2" />
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="14sp"
+                tools:text="@{itemStock.namaRs}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/cv_blood_type"
+                app:layout_constraintTop_toTopOf="@+id/cv_blood_type" />
+
+            <ImageView
+                android:id="@+id/img_hospital"
+                android:layout_width="12dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginBottom="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/cv_blood_type"
+                app:layout_constraintTop_toBottomOf="@+id/nama_rs"
+                android:src="@drawable/ic_marker"/>
 
             <TextView
-                android:id="@+id/tv_kantong"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_location"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/akrobat_extrabold"
-                android:textColor="@color/pingky"
+                style="@style/semi_black"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="20dp"
+                android:maxLines="1"
                 android:textSize="11sp"
-                android:textStyle="bold"
-                android:text="@string/blood_bags"
-                android:layout_marginStart="@dimen/spacing_8"/>
+                android:scrollHorizontally="true"
+                app:layout_constraintStart_toEndOf="@id/img_hospital"
+                app:layout_constraintTop_toTopOf="@id/img_hospital"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="@{itemStock.alamatRs}" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/nama_rs"
-            style="@style/extra_bold_black"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:maxLines="2"
-            android:ellipsize="end"
-            android:textSize="14sp"
-            tools:text="RSUD Kecamatan Mandau Kecamatan Sleman"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/cv_blood_type"
-            app:layout_constraintTop_toTopOf="@+id/cv_blood_type" />
-
-        <ImageView
-            android:id="@+id/img_hospital"
-            android:layout_width="12dp"
-            android:layout_height="14dp"
-            android:layout_marginStart="17dp"
-            android:layout_marginBottom="17dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/cv_blood_type"
-            app:layout_constraintTop_toBottomOf="@+id/nama_rs"
-            android:src="@drawable/ic_marker"/>
-
-        <TextView
-            android:id="@+id/tv_location"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/semi_black"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="20dp"
-            android:maxLines="1"
-            android:textSize="11sp"
-            android:scrollHorizontally="true"
-            app:layout_constraintStart_toEndOf="@id/img_hospital"
-            app:layout_constraintTop_toTopOf="@id/img_hospital"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="Jl Murangan Km 27 Bhayangkara Sleman" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

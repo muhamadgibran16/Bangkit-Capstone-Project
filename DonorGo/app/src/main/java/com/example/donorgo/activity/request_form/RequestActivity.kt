@@ -32,7 +32,7 @@ class RequestActivity : AppCompatActivity(), View.OnClickListener {
         RepoViewModelFactory.getInstance(this)
     }
     private val bloodType = listOf("A", "B", "AB", "O")
-    private val gender = listOf("Male", "Female")
+    private val gender = listOf("Laki - laki ", "Perempuan")
     private var userAction: Boolean = false
     private var isInputValid: Boolean = false
     private var myToken: String = ""
