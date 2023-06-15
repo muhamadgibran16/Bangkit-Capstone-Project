@@ -65,7 +65,7 @@ class StockActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun fetchStockData() {
-        apiService.getAllStock("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ1c2VyLUZHNkRYY1g5YWgiLCJuYW1lIjoiQklMTFkgQlVNQkxFQkVFIFNJRlVMQU5cblxmIiwiZW1haWwiOiJha3V5dXN1ZmZmMTJAZ21haWwuY29tIiwiaWF0IjoxNjg2NjkwODk0LCJleHAiOjE2ODY3NzcyOTR9.hFo6tTaR-2ZeRwbNi-fNHa29fKBDNBK7PhejrwJmSTE")
+        apiService.getAllStock("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ1c2VyLXd6b0toakhZcXciLCJuYW1lIjoiQklMTFkgQlVNQkxFQkVFIFNJRlVMQU5cblxmIiwiZW1haWwiOiJ6ZXJvYWxwaGEwMTAyQGdtYWlsLmNvbSIsImlhdCI6MTY4NjgwNjU3MywiZXhwIjoxNjg2ODkyOTczfQ.ABkZ9jvNDRHQuW-mk3pRSVGAcGy_6zIjanXHnjzq8lw")
             .enqueue(object : Callback<StockResponse> {
                 override fun onResponse(call: Call<StockResponse>, response: Response<StockResponse>) {
                     if (response.isSuccessful) {
@@ -119,7 +119,7 @@ class StockActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun fetchStockDataByTypeId() {
         goldarSelected?.let {
-            apiService.getStockByTypeId("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ1c2VyLXd6b0toakhZcXciLCJuYW1lIjoiQklMTFkgQlVNQkxFQkVFIFNJRlVMQU5cblxmIiwiZW1haWwiOiJ6ZXJvYWxwaGEwMTAyQGdtYWlsLmNvbSIsImlhdCI6MTY4Njc3NzQxNSwiZXhwIjoxNjg2ODYzODE1fQ.nFuKT0yQYG1gDRGPLG9ud3qyhIABP0vRHoL1lU4uoss",
+            apiService.getStockByTypeId("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ1c2VyLXd6b0toakhZcXciLCJuYW1lIjoiQklMTFkgQlVNQkxFQkVFIFNJRlVMQU5cblxmIiwiZW1haWwiOiJ6ZXJvYWxwaGEwMTAyQGdtYWlsLmNvbSIsImlhdCI6MTY4NjgwNjU3MywiZXhwIjoxNjg2ODkyOTczfQ.ABkZ9jvNDRHQuW-mk3pRSVGAcGy_6zIjanXHnjzq8lw",
                 it
             )
                 .enqueue(object : Callback<StockResponse> {
@@ -153,8 +153,8 @@ class StockActivity : AppCompatActivity(), View.OnClickListener {
                                 stockAdapter.setStockList(stockList)
 
                                 // Enable the radio buttons
-                                binding.positif.isEnabled = true
-                                binding.negatif.isEnabled = true
+                               /* binding.positif.isEnabled = true
+                                binding.negatif.isEnabled = true*/
                             }
 
                         } else {
@@ -184,7 +184,7 @@ class StockActivity : AppCompatActivity(), View.OnClickListener {
         goldarSelected?.let { goldar ->
             rhesusSelected?.let { rhesus ->
                 apiService.getStockByTypeIdAndRhesusId(
-                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ1c2VyLXd6b0toakhZcXciLCJuYW1lIjoiQklMTFkgQlVNQkxFQkVFIFNJRlVMQU5cblxmIiwiZW1haWwiOiJ6ZXJvYWxwaGEwMTAyQGdtYWlsLmNvbSIsImlhdCI6MTY4Njc3NzQxNSwiZXhwIjoxNjg2ODYzODE1fQ.nFuKT0yQYG1gDRGPLG9ud3qyhIABP0vRHoL1lU4uoss",
+                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ1c2VyLXd6b0toakhZcXciLCJuYW1lIjoiQklMTFkgQlVNQkxFQkVFIFNJRlVMQU5cblxmIiwiZW1haWwiOiJ6ZXJvYWxwaGEwMTAyQGdtYWlsLmNvbSIsImlhdCI6MTY4NjgwNjU3MywiZXhwIjoxNjg2ODkyOTczfQ.ABkZ9jvNDRHQuW-mk3pRSVGAcGy_6zIjanXHnjzq8lw",
                     goldar,
                     rhesus
                 ).enqueue(object : Callback<StockResponse> {
@@ -247,11 +247,6 @@ class StockActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-
-
-
-
-
 
     private fun init() {
         with(binding) {

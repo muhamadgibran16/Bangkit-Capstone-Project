@@ -1,4 +1,6 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -10,8 +12,6 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_gravity="center_horizontal"
@@ -75,17 +75,16 @@
                 android:id="@+id/layout_jumlah"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="15dp"
-                android:gravity="center"
-                android:paddingVertical="2dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/cv_blood_type"
                 android:layout_marginStart="20dp"
-                android:paddingHorizontal="15dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/bg_bags_stock_pingky"
-                android:orientation="horizontal">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cv_blood_type"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cv_blood_type">
 
                 <TextView
                     android:id="@+id/jml_kantong"
@@ -95,18 +94,18 @@
                     android:textColor="@color/pingky"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    tools:text="@{String.valueOf(itemStock.stock)}"/>
+                    tools:text="@{String.valueOf(itemStock.stock)}" />
 
                 <TextView
                     android:id="@+id/tv_kantong"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_8"
                     android:fontFamily="@font/akrobat_extrabold"
+                    android:text="@string/blood_bags"
                     android:textColor="@color/pingky"
                     android:textSize="11sp"
-                    android:textStyle="bold"
-                    android:text="@string/blood_bags"
-                    android:layout_marginStart="@dimen/spacing_8"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
