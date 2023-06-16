@@ -77,22 +77,13 @@ For application development, I used Android Studio as the IDE and wrote all the 
 Dependencies
 Here are all the dependencies I used in the DonorGo application:
 
-Firebase
-We decided to use Firebase for authentication, storage, and real-time database.
-```
-implementation 'com.google.firebase:firebase-auth:19.2.0'
-implementation 'com.google.firebase:firebase-database:20.0.5'
-implementation 'com.google.firebase:firebase-firestore-ktx:24.1.1'
-implementation 'com.google.firebase:firebase-database-ktx:20.0.5'
-implementation 'com.google.firebase:firebase-auth-ktx:21.0.4'
-implementation platform('com.google.firebase:firebase-bom:30.0.0')
-implementation 'com.google.firebase:firebase-storage-ktx'
-```
 Image
-These are two libraries I used as image loaders.
+These are four libraries I used as image loaders.
 ```
 implementation 'de.hdodenhof:circleimageview:3.1.0'
-implementation 'com.github.bumptech.glide:glide:4.12.0'
+implementation 'com.github.bumptech.glide:glide:4.15.1'
+androidTestImplementation project(path: ':app')
+kapt 'com.github.bumptech.glide:compiler:4.15.1'
 ```
 Maps
 In our app, especially on the detail donation event page, you can see a mini-map showing the event location. To enable this feature, I used the Google Maps API and implemented these dependencies.
@@ -114,11 +105,12 @@ implementation 'androidx.room:room-runtime:2.4.2'
 kapt 'androidx.room:room-compiler:2.4.2'
 ```
 Retrofit
-For province and city data, the CC team provided me with endpoints, so I used Retrofit as the REST client. Additionally, we use an API to send the email address to get an OTP code and to send the ID card image for verification.
+For province, city, and donor data, the CC team provided me with endpoints, so I used Retrofit as the REST client. Additionally, we use an API to send the email address to get an OTP code and to send the ID card image for verification.
 ```
 implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11'
+implementation 'com.google.code.gson:gson:2.9.0'
 ```
 Loader
 I used this dependency to show animation loading.
