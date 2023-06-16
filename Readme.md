@@ -1,9 +1,9 @@
 # MOBILE DEVELOPMENT
-The Mobile Development (MD) team is responsible for creating a functional Android application. The DonorGo application will have five main menus: Home, Search Requests, Events, Articles, and Profile.
+The MD section is responsible for creating a functional android application. The DonorGo app will have 5 main menus. These menus are Home, Search Requests, Events, Articles, and profile.
 
-On the Home page, there will be five main features: Stock, Blood Type Compatibility Table, Blood Donor, Create Donation Request, and FAQ (Frequently Asked Questions). In the Stock page, users will see information about blood types, Rh factors, and the available stock of blood bags in a hospital. On the Blood Donor page, users can choose to "Look for Blood Donor Request" or "Donate Blood for the Hospital."
+On the home page, there will be 5 main features namely, Stock, Blood match table, Blood Donor, Create Donor Request and FaQ (Frequently Asked Questions). On the stock page, users will see information on the type of blood type and its rhesus along with the number of blood bag stocks available at a hospital. On the blood donor page, there will be an option to Look for Blood Donor Request or donate blood for the hospital.
 
-The Profile page will include a menu for scanning ID cards to complete personal data, a history of blood donor requests to manage fulfilled requests, and an About Us section that provides information about the development team and stakeholders involved in the application.
+On the profile page, there is an ID card scan menu to complete personal data, a history of blood donor requests to manage if the request has been fulfilled, an about us menu which includes information about the development team and the parties who are stakeholders in this application.
 
 ### Home
 - Voluntary Blood Donation
@@ -21,12 +21,10 @@ The Profile page will include a menu for scanning ID cards to complete personal 
 - Table (displayed as a pop-up image)
 
 ### LOGO
-To align with the purpose of our application, we created a logo that incorporates a blood drop.
---photo--
+To align with the purpose of our app, we created a logo that involves drops of blood.
+![logon and icon](https://github.com/muhamadgibran16/Bangkit-Capstone-Project/assets/91604932/4c1dc42d-1100-4980-8f80-46f7739a786a)
 Deliverable Logo
-After several design and revision processes, below is the final logo design along with the application icon design.
---photo--
-The logo carries its own meaning, starting with the blood drop connected by curved lines that follow the shape of the blood drop. This symbolizes the symbolism of life, where the red blood drop can represent life, energy, and vitality. The tying of the blood drop represents the symbolism of sacrifice, where strong commitment or bonds to certain values or goals may require sacrifices or struggles. It also signifies the symbolism of solidarity or unity, representing diversity, unity, and complementarity.
+So that the logo has its own meaning, starting from the blood droplets that are bound with a curved line that follows the shape of the blood droplets which means the Symbolism of life, that red blood droplets can symbolize life, energy, and vitality. The rope that binds the blood drops symbolizes the Symbolism of sacrifice where a strong bond or commitment to certain values or goals may require sacrifice or struggle. It also has a symbolic meaning of solidarity or unity which symbolizes diversity, unity, and complementarity.
 
 ### User Experinces
 To ensure that users have the best experience when using our application, I designed user flows and use cases. There are two actors in the DonorGo system: blood donors and individuals in need of blood donation. Blood donors are volunteers who are willing to donate their blood, while individuals in need of blood donation are those who require blood donation.
@@ -34,22 +32,22 @@ To ensure that users have the best experience when using our application, I desi
 For more details, please click on this Figma link. [FIGMA DONORGO](https://www.figma.com/file/XGrvSqCM5Gk5rqVHZTAOwp/Donor-Go---Blood-Donation-Bangkit-Capstone-Project?type=design&node-id=0%3A1&t=R5oENuinMlfvXMHA-1)
 
 ### USER INTERFACE
-For this part, most of my work was done in Figma, so please check the link for detailed modes. Here, I will briefly explain the design process. First, I created low-fidelity designs for the Home, Blood Donor, Blood Donation Event, and Donation Request pages. Below, you can see the designs.
---photo--
-After that, I immediately moved on to the next step, which is creating high-fidelity designs to save time. The first three pages I designed were the splash screen, login screen, and registration screen. Initially, I intended to create designs with a soft tone, as seen below. After considering for a while, I decided to redesign these pages because the soft tone color palette did not match our logo design.
---photos before major changes--
---photos before major changes--
+For this part, most of the work I did in [FIGMA](https://www.figma.com/file/XGrvSqCM5Gk5rqVHZTAOwp/Donor-Go---Blood-Donation-Bangkit-Capstone-Project?type=design&node-id=0%3A1&t=R5oENuinMlfvXMHA-1), so please check the link for fashion details. Below you can see a preview of the design I first created.
+Next I move on to the design, which is the centerpiece of this application
+Blood Request Form            Request Details	  	        Find Request
+![request page](https://github.com/muhamadgibran16/Bangkit-Capstone-Project/assets/91604932/e265b51b-c89a-4531-aa3d-a21ef46db48e)
+Stock			   Donate Blood From
+![stok dan donasi](https://github.com/muhamadgibran16/Bangkit-Capstone-Project/assets/91604932/9a39be12-858a-437b-b350-a5114b973c06)
 
 ### RESOURCES
-Here are all the resources I used in our application. For assets that I did not create myself, I have provided links to where I obtained them.
+Here are all the resources I used in our application. For assets that I didn't create myself, I've attached below the links where I got them. 
 Component Photo
 - https://www.svgrepo.com/unsplash.com
 - https://fontawesome.com/
 - https://www.flaticon.com/
 
 ### DATA
-In our application, we need various data such as FAQ data, fun facts about blood donation or blood in general, and blood donation requests. Here are the links where I obtained this data:
-
+In our application, we need some data such as FaQ data, funfacts data about blood donation in general, blood requirements along with patient data which is our case study. Here is the link where I got the data:
 Sample Patient Data
 - https://web.facebook.com/groups/195327283847883
 
@@ -88,6 +86,7 @@ testImplementation 'junit:junit:4.13.2'
 androidTestImplementation 'androidx.test.ext:junit:1.1.5'
 androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 ```
+
 Image
 These are four libraries I used as image loaders.
 ```
