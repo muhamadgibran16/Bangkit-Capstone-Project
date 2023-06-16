@@ -2,11 +2,8 @@ package com.example.donorgo.activity.profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.donorgo.dataclass.RequestEditUserProfile
-import com.example.donorgo.dataclass.RequestRegister
 import com.example.donorgo.dataclass.UserProfileData
 import com.example.donorgo.repository.ViewModelRepository
-import okhttp3.MultipartBody
 
 class ProfileViewModel(private val mViewModelRepository: ViewModelRepository) : ViewModel() {
 

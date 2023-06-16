@@ -43,7 +43,8 @@ class FaqActivity : AppCompatActivity(), View.OnClickListener {
         adapterFAQ = FaqAdapter(mListFAQ)
         recyclerViewFAQ.adapter = adapterFAQ
 
-        searchViewFAQ.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+        searchViewFAQ.setOnQueryTextListener(object :
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
@@ -92,7 +93,7 @@ class FaqActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun init() {
-        with(binding){
+        with(binding) {
             btBack.setOnClickListener(this@FaqActivity)
         }
     }

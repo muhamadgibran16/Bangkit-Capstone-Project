@@ -31,7 +31,7 @@ object NewsData {
         R.drawable.news7,
         R.drawable.news8,
         R.drawable.news4
-        )
+    )
 
     private val newsDate = arrayOf(
         "05 Juni 2023",

@@ -11,13 +11,14 @@ import com.bumptech.glide.Glide
 import com.example.donorgo.R
 import com.example.donorgo.activity.web_view.WebViewNewsActivity
 
-class ListNewsAdapter(private val listNews: ArrayList<News>)
-    : RecyclerView.Adapter<ListNewsAdapter.ListViewHolder>() {
+class ListNewsAdapter(private val listNews: ArrayList<News>) :
+    RecyclerView.Adapter<ListNewsAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             ListViewHolder {
         val view: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_news_list_vertikal, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_news_list_vertikal, parent, false)
         return ListViewHolder(view)
     }
 

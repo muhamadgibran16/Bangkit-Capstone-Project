@@ -2,7 +2,6 @@ package com.example.donorgo.activity.otp
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -12,10 +11,11 @@ import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.donorgo.R
-import com.example.donorgo.activity.home.HomeActivity
 import com.example.donorgo.activity.dataStore
+import com.example.donorgo.activity.home.HomeActivity
 import com.example.donorgo.activity.login.LoginViewModel
 import com.example.donorgo.databinding.ActivityOtpBinding
 import com.example.donorgo.dataclass.DataToOTP
@@ -75,8 +75,13 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                 sessionViewModel.saveStateSession(true)
             }
         }
-        loginViewModel.messageLogin.observe(this)  { message ->
-            if (message != null) loginViewModel.isError?.value?.let { it1 -> showMessage(message, it1) }
+        loginViewModel.messageLogin.observe(this) { message ->
+            if (message != null) loginViewModel.isError?.value?.let { it1 ->
+                showMessage(
+                    message,
+                    it1
+                )
+            }
         }
 
         // Request To OTP API End Point
@@ -84,7 +89,12 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
             showLoading(it)
         }
         otpViewModel.messageOTP.observe(this) { message ->
-            if (message != null) otpViewModel.isError.value?.let { it1 -> showMessage(message, it1) }
+            if (message != null) otpViewModel.isError.value?.let { it1 ->
+                showMessage(
+                    message,
+                    it1
+                )
+            }
         }
 
         countDownTimer = object : CountDownTimer(120000, 1000) {
@@ -104,13 +114,6 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
             delay(DELAY_COUNTDOWN)
             countDownTimer.start()
         }
-
-        // NGAMBIL DATA OTP KIRIM KE CC
-        // BIKIN OTP FIELD KAYAK KAK MON
-        // NGE-RUN APP NYA KAK MON
-        // NGAMBIL TOAST SUCCESS SAMA DIALOG SUCCESS-NYA KAK MON
-        // PERGI KE HALAMAN HOME KALOK BERHASIL
-        // KALOK GAGAL NAMPILIN
     }
 
     private fun init() {
@@ -134,7 +137,7 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v?.id) {
+        when (v?.id) {
             R.id.btn_verify -> {
                 otpInput.clearFocus()
                 if (otpInput.text.toString().isEmpty()) binding.layoutOtp.validationOTP()

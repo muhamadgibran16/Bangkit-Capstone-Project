@@ -28,7 +28,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_donorgo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.DonorGo"
@@ -38,13 +38,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCGexNcgquCWl2KhX37SujcpGNnfi3T94E" />
 
-        <activity
-            android:name=".activity.aboutUs.AboutActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <!-- Child from Home Page -->
         <activity
             android:name=".activity.stock.StockActivity"

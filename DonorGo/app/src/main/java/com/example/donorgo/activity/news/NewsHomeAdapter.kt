@@ -11,8 +11,8 @@ import com.bumptech.glide.Glide
 import com.example.donorgo.R
 import com.example.donorgo.activity.web_view.WebViewNewsActivity
 
-class NewsHomeAdapter(private val listNews: ArrayList<News>)
-    : RecyclerView.Adapter<NewsHomeAdapter.ListViewHolder>() {
+class NewsHomeAdapter(private val listNews: ArrayList<News>) :
+    RecyclerView.Adapter<NewsHomeAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             ListViewHolder {

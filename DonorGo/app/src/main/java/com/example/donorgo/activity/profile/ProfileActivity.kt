@@ -3,24 +3,20 @@ package com.example.donorgo.activity.profile
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat.startActivity
-import androidx.lifecycle.lifecycleScope
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.donorgo.R
-import com.example.donorgo.activity.camera.SelectImageActivity
 import com.example.donorgo.activity.dataStore
 import com.example.donorgo.activity.edit_profile.EditProfileActivity
 import com.example.donorgo.activity.event.EventActivity
@@ -31,7 +27,6 @@ import com.example.donorgo.activity.maps.MapsRequestActivity
 import com.example.donorgo.activity.news.NewsActivity
 import com.example.donorgo.activity.uploud_photo.UploudActivity
 import com.example.donorgo.databinding.ActivityProfileBinding
-import com.example.donorgo.dataclass.RequestEditUserProfile
 import com.example.donorgo.dataclass.UserProfileData
 import com.example.donorgo.datastore.SessionViewModel
 import com.example.donorgo.factory.RepoViewModelFactory
@@ -41,8 +36,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import java.io.File
 
 class ProfileActivity : AppCompatActivity(), View.OnClickListener {
@@ -92,7 +85,12 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
             displayUserProfile(data)
         }
         profileViewModel.messagePhoto.observe(this) { message ->
-            if (message != null) profileViewModel.isError?.value?.let { it1 -> showMessage(message, it1) }
+            if (message != null) profileViewModel.isError?.value?.let { it1 ->
+                showMessage(
+                    message,
+                    it1
+                )
+            }
         }
         profileViewModel.isLoading.observe(this) {
             showLoading(it)
@@ -103,14 +101,14 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    private fun catchExtraData(){
+    private fun catchExtraData() {
         val dataParcelable = if (Build.VERSION.SDK_INT >= 33) {
             intent.getParcelableExtra(EXTRA_DATA, UserProfileData::class.java)
         } else {
             @Suppress("DEPRECATION")
             intent.getParcelableExtra(EXTRA_DATA)
         }
-        if (dataParcelable != null){
+        if (dataParcelable != null) {
             this.userProfileData = dataParcelable
             displayUserProfile(userProfileData)
         }
@@ -122,23 +120,29 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
             data.name?.let { sessionViewModel.saveUsername(it) }
             phoneUser.text = data.telp ?: "-"
             lastDonorDate.text = data.lastDonor?.let { DateFormater.formatDate(it) } ?: "-"
-            canDonoteDate.text = data.lastDonor?.let { DateFormater.countingTheNextThreeMonths(it) } ?: "-"
+            canDonoteDate.text =
+                data.lastDonor?.let { DateFormater.countingTheNextThreeMonths(it) } ?: "-"
             typeBlood.text = data.golDarah ?: "-"
             reshusDar.text = data.rhesus ?: ""
-            statusVerify.text = if (data.otp && data.ktp) resources.getString(R.string.verified_user)
-                                else resources.getString(R.string.unverified_user)
+            statusVerify.text =
+                if (data.otp && data.ktp) resources.getString(R.string.verified_user)
+                else resources.getString(R.string.unverified_user)
             Log.w("goldar", "goldar ${data.golDarah}")
         }
         if (!data.photo.isNullOrEmpty()) {
             setUserPhotoProfile(data.photo, false)
         } else {
             if (data.gender == "Male") setUserPhotoProfile(R.drawable.avatar_cowok.toString(), true)
-            if (data.gender == "Female") setUserPhotoProfile(R.drawable.avatar_cewek.toString(), true)
+            if (data.gender == "Female") setUserPhotoProfile(
+                R.drawable.avatar_cewek.toString(),
+                true
+            )
         }
     }
 
     private fun setUserPhotoProfile(photo: String, isDrawable: Boolean) {
-        val placeholder = if (userProfileData.gender == "Male") R.drawable.avatar_cowok else R.drawable.avatar_cewek
+        val placeholder =
+            if (userProfileData.gender == "Male") R.drawable.avatar_cowok else R.drawable.avatar_cewek
         if (isDrawable) {
             val drawablePhoto = photo.toInt()
             Glide.with(this)
@@ -181,22 +185,36 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v?.id) {
+        when (v?.id) {
             // Button Navigation
             R.id.profile_btn -> {}
-            R.id.home_btn -> { startActivity(Intent(this@ProfileActivity, HomeActivity::class.java)) }
-            R.id.event_btn -> { startActivity(Intent(this@ProfileActivity, EventActivity::class.java)) }
-            R.id.list_request_maps_btn -> { startActivity(Intent(this@ProfileActivity, MapsRequestActivity::class.java)) }
-            R.id.news_btn -> { startActivity(Intent(this@ProfileActivity, NewsActivity::class.java)) }
+            R.id.home_btn -> {
+                startActivity(Intent(this@ProfileActivity, HomeActivity::class.java))
+            }
+            R.id.event_btn -> {
+                startActivity(Intent(this@ProfileActivity, EventActivity::class.java))
+            }
+            R.id.list_request_maps_btn -> {
+                startActivity(Intent(this@ProfileActivity, MapsRequestActivity::class.java))
+            }
+            R.id.news_btn -> {
+                startActivity(Intent(this@ProfileActivity, NewsActivity::class.java))
+            }
 
             // BUTTON PROFILE PAGE
             R.id.btn_about_us -> {}
             R.id.btn_contact_us -> {}
-            R.id.btn_history_req -> { startActivity(Intent(this@ProfileActivity, HistoryActivity::class.java)) }
+            R.id.btn_history_req -> {
+                startActivity(Intent(this@ProfileActivity, HistoryActivity::class.java))
+            }
             // CUSTOM ALERT
-            R.id.btn_logout -> { showAlertDialog() }
+            R.id.btn_logout -> {
+                showAlertDialog()
+            }
             // SETTING LANGUAGE
-            R.id.btn_setting -> { startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS)) }
+            R.id.btn_setting -> {
+                startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+            }
 
             // Uploud Foto
             R.id.cv_profile -> {
@@ -244,7 +262,9 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
         Log.w("check", "activity $isError")
         if (!isError) {
             // KALOK MESSAGE KTP BERHASIL LANGSUNG VERIFIED USER
-            if (userAction && message != "Fetch user data successfully!") { Toast.makeText(this, message, Toast.LENGTH_LONG).show() }
+            if (userAction && message != "Fetch user data successfully!") {
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+            }
             if (message == "Upload KTP Successfully") profileViewModel.getUserProfile(myToken)
         } else {
             if (userAction) {
@@ -270,7 +290,9 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun logout() {
-        if (firebaseUser != null) { auth.signOut() }
+        if (firebaseUser != null) {
+            auth.signOut()
+        }
         sessionViewModel.apply {
             saveUsername("")
             saveUserToken("")

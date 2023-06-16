@@ -3,7 +3,6 @@ package com.example.donorgo.activity.edit_profile
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.donorgo.dataclass.RequestEditUserProfile
-import com.example.donorgo.dataclass.RequestRegister
 import com.example.donorgo.repository.ViewModelRepository
 
 class EditProfileViewModel(private val mViewModelRepository: ViewModelRepository) : ViewModel() {

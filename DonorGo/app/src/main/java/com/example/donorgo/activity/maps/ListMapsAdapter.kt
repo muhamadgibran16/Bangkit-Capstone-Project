@@ -32,7 +32,11 @@ class ListMapsAdapter(
         parent: ViewGroup,
         viewType: Int
     ): ListMapsAdapter.ListViewHolder {
-        binding = ItemRequestListVertikalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding = ItemRequestListVertikalBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return ListViewHolder(binding)
     }
 
@@ -60,12 +64,18 @@ class ListMapsAdapter(
     companion object {
         val DIFF_CALLBACK: DiffUtil.ItemCallback<BloodRequestItem> =
             object : DiffUtil.ItemCallback<BloodRequestItem>() {
-                override fun areItemsTheSame(oldItem: BloodRequestItem, newItem: BloodRequestItem): Boolean {
+                override fun areItemsTheSame(
+                    oldItem: BloodRequestItem,
+                    newItem: BloodRequestItem
+                ): Boolean {
                     return oldItem.idRequest == newItem.idRequest
                 }
 
                 @SuppressLint("DiffUtilEquals")
-                override fun areContentsTheSame(oldItem: BloodRequestItem, newItem: BloodRequestItem): Boolean {
+                override fun areContentsTheSame(
+                    oldItem: BloodRequestItem,
+                    newItem: BloodRequestItem
+                ): Boolean {
                     return oldItem.deskripsi == newItem.deskripsi && oldItem.createdAt == newItem.createdAt
                 }
             }

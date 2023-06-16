@@ -8,7 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.donorgo.R
 
-class FaqAdapter (private var mList: List<Faq>) :
+class FaqAdapter(private var mList: List<Faq>) :
     RecyclerView.Adapter<FaqAdapter.LanguageViewHolder>() {
 
     inner class LanguageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -16,7 +16,7 @@ class FaqAdapter (private var mList: List<Faq>) :
         val faqDesc: TextView = itemView.findViewById(R.id.descFAQ)
         val constraintLayout: ConstraintLayout = itemView.findViewById(R.id.constraintLayoutFAQ)
 
-        fun collapseExpandedView(){
+        fun collapseExpandedView() {
             faqDesc.visibility = View.GONE
         }
     }
@@ -27,7 +27,8 @@ class FaqAdapter (private var mList: List<Faq>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_faq, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_list_faq, parent, false)
         return LanguageViewHolder(view)
     }
 
@@ -43,18 +44,18 @@ class FaqAdapter (private var mList: List<Faq>) :
         holder.constraintLayout.setOnClickListener {
             isAnyItemExpanded(position)
             faqData.isExpandable = !faqData.isExpandable
-            notifyItemChanged(position , Unit)
+            notifyItemChanged(position, Unit)
         }
 
     }
 
-    private fun isAnyItemExpanded(position: Int){
+    private fun isAnyItemExpanded(position: Int) {
         val temp = mList.indexOfFirst {
             it.isExpandable
         }
-        if (temp >= 0 && temp != position){
+        if (temp >= 0 && temp != position) {
             mList[temp].isExpandable = false
-            notifyItemChanged(temp , 0)
+            notifyItemChanged(temp, 0)
         }
     }
 
@@ -64,9 +65,9 @@ class FaqAdapter (private var mList: List<Faq>) :
         payloads: MutableList<Any>
     ) {
 
-        if(payloads.isNotEmpty() && payloads[0] == 0){
+        if (payloads.isNotEmpty() && payloads[0] == 0) {
             holder.collapseExpandedView()
-        }else{
+        } else {
             super.onBindViewHolder(holder, position, payloads)
 
         }

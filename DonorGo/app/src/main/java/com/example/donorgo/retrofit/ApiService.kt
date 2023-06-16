@@ -2,7 +2,6 @@ package com.example.donorgo.retrofit
 
 import com.example.donorgo.dataclass.*
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -54,27 +53,27 @@ interface ApiService {
     @POST("request")
     fun postBloodRequest(
         @Body requestBloodRequest: RequestBloodRequest,
-        @Header ("Authorization") token: String
+        @Header("Authorization") token: String
     ): Call<ResponseMessage>
 
     // Get User Profile
     @GET("users")
     fun getUserProfile(
-        @Header ("Authorization") token: String
+        @Header("Authorization") token: String
     ): Call<UserProfileResponse>
 
     // Edit User Profile
     @PATCH("update-profile")
     fun editUserProfile(
         @Body request: RequestEditUserProfile,
-        @Header ("Authorization") token: String
+        @Header("Authorization") token: String
     ): Call<ResponseMessage>
 
     // First Time Dialog at Home Page
     @PATCH("update-dialog")
     fun setLastDonor(
         @Body request: RequestEditLastDonor,
-        @Header ("Authorization") token: String
+        @Header("Authorization") token: String
     ): Call<ResponseMessage>
 
     // Uploud Photo Profile
@@ -105,20 +104,20 @@ interface ApiService {
     // All Stock
     @GET("list/all-stock")
     fun getAllStock(
-        @Header ("Authorization")token: String
+        @Header("Authorization") token: String
     ): Call<ResponseListStock>
 
     // List Stock by BloodType
     @GET("list/stock/{id}")
     fun getStockByTypeId(
-        @Header ("Authorization") token: String,
+        @Header("Authorization") token: String,
         @Path("id") idType: Int
     ): Call<ResponseListStock>
 
     // List Stick by Blood Type and Rhesus
     @GET("list/stock/type/{typeid}/rhesus/{rhesusid}")
     fun getStockByTypeIdAndRhesusId(
-        @Header ("Authorization") token: String,
+        @Header("Authorization") token: String,
         @Path("typeid") idBloodType: Int,
         @Path("rhesusid") idRhesus: Int,
     ): Call<ResponseListStock>
@@ -126,20 +125,20 @@ interface ApiService {
     // Get All List Blood Request
     @GET("list/filter-all-data")
     fun getAllBloodRequest(
-        @Header ("Authorization") token: String
+        @Header("Authorization") token: String
     ): Call<ResponseListAllBloodRequest>
 
     // Filter Blood Request by RS Name
     @GET("list/filter-data/{nama_rs}")
     fun getBloodRequestByRSName(
         @Path("nama_rs") namaRs: String,
-        @Header ("Authorization")token: String,
+        @Header("Authorization") token: String,
     ): Call<ResponseListAllBloodRequest>
 
     // History Request
     @GET("blood-history")
     fun getAllHistory(
-        @Header ("Authorization") token: String
+        @Header("Authorization") token: String
     ): Call<HistoryResponse>
 
 

@@ -6,8 +6,6 @@ import android.location.Geocoder
 import android.util.Log
 import com.example.donorgo.R
 import com.google.android.gms.maps.model.LatLng
-import java.lang.Exception
-import java.lang.StringBuilder
 
 class LocationConverter {
     companion object {
@@ -45,7 +43,8 @@ class LocationConverter {
                                     .toString()
                             } else if (state != null && country != null) {
                                 StringBuilder(state).append(", $country").toString()
-                            } else country ?: context.resources.getString(R.string.location_name_unknown)
+                            } else country
+                                ?: context.resources.getString(R.string.location_name_unknown)
                     }
 
                 }

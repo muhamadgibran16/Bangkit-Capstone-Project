@@ -8,18 +8,20 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.example.donorgo.R
 
 
-class ListEventAdapter (private val listEvent : ArrayList<Event>) : RecyclerView.Adapter<ListEventAdapter.ListViewHolder>() {
+class ListEventAdapter(private val listEvent: ArrayList<Event>) :
+    RecyclerView.Adapter<ListEventAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             ListViewHolder {
         val view: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_event_list_vertikal, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_event_list_vertikal, parent, false)
         return ListViewHolder(view)
     }
+
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val event = listEvent[position]
 

@@ -16,6 +16,7 @@ object Injection {
         val appExecutors = AppExecutors()
         return ViewModelRepository.getInstance(apiService, database, appExecutors)
     }
+
     fun providePreferences(dataStore: DataStore<Preferences>): SessionPreferences {
         return SessionPreferences.getInstance(dataStore)
     }

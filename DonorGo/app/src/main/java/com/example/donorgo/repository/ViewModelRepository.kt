@@ -1,8 +1,6 @@
 package com.example.donorgo.repository
 
-import android.content.ContentValues
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,6 +9,7 @@ import com.example.donorgo.database.LocalRoomDatabase
 import com.example.donorgo.database.TabelBloodRequest
 import com.example.donorgo.dataclass.*
 import com.example.donorgo.helper.AppExecutors
+import com.example.donorgo.helper.Result
 import com.example.donorgo.retrofit.ApiConfig
 import com.example.donorgo.retrofit.ApiService
 import okhttp3.MultipartBody
@@ -19,7 +18,6 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import com.example.donorgo.helper.Result
 
 class ViewModelRepository constructor(
     private val apiService: ApiService,
@@ -545,7 +543,8 @@ class ViewModelRepository constructor(
     }
 
     // To get Story User From Database
-    fun getTabelBloodRequestFromDB(): LiveData<Int> = database.requestBloodDao().getTabelRequestSize()
+    fun getTabelBloodRequestFromDB(): LiveData<Int> =
+        database.requestBloodDao().getTabelRequestSize()
 
     fun getAllBloodRequestIntoDB(token: String): MediatorLiveData<Result<List<TabelBloodRequest>>> {
         result.value = Result.Loading
@@ -660,7 +659,8 @@ class ViewModelRepository constructor(
 
     fun fetchStockDataByTypeIdAndRhesusId(token: String, idBloodType: Int, idRhesus: Int) {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getStockByTypeIdAndRhesusId("Bearer $token", idBloodType, idRhesus)
+        val client = ApiConfig.getApiService()
+            .getStockByTypeIdAndRhesusId("Bearer $token", idBloodType, idRhesus)
         client.enqueue(object : Callback<ResponseListStock> {
             override fun onResponse(
                 call: Call<ResponseListStock>,
@@ -696,7 +696,7 @@ class ViewModelRepository constructor(
         })
     }
 
-   fun fetchHistoryData(token: String) {
+    fun fetchHistoryData(token: String) {
         _isLoading.value = true
         val client = ApiConfig.getApiService().getAllHistory("Bearer $token")
         client.enqueue(object : Callback<HistoryResponse> {

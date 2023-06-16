@@ -2,7 +2,6 @@ package com.example.donorgo.activity.history
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.donorgo.dataclass.BloodRequestItem
 import com.example.donorgo.dataclass.ItemHistory
 import com.example.donorgo.repository.ViewModelRepository
 

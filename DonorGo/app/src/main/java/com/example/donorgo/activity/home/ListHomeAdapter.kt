@@ -32,7 +32,8 @@ class ListHomeAdapter(
         parent: ViewGroup,
         viewType: Int
     ): ListHomeAdapter.ListViewHolder {
-        binding = ItemRequestListHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding =
+            ItemRequestListHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(binding)
     }
 
@@ -60,12 +61,18 @@ class ListHomeAdapter(
     companion object {
         val DIFF_CALLBACK: DiffUtil.ItemCallback<BloodRequestItem> =
             object : DiffUtil.ItemCallback<BloodRequestItem>() {
-                override fun areItemsTheSame(oldItem: BloodRequestItem, newItem: BloodRequestItem): Boolean {
+                override fun areItemsTheSame(
+                    oldItem: BloodRequestItem,
+                    newItem: BloodRequestItem
+                ): Boolean {
                     return oldItem.idRequest == newItem.idRequest
                 }
 
                 @SuppressLint("DiffUtilEquals")
-                override fun areContentsTheSame(oldItem: BloodRequestItem, newItem: BloodRequestItem): Boolean {
+                override fun areContentsTheSame(
+                    oldItem: BloodRequestItem,
+                    newItem: BloodRequestItem
+                ): Boolean {
                     return oldItem.deskripsi == newItem.deskripsi && oldItem.createdAt == newItem.createdAt
                 }
             }

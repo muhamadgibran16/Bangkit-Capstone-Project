@@ -2,7 +2,6 @@ package com.example.donorgo.activity.lastdonor
 
 import android.app.DatePickerDialog
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -14,6 +13,7 @@ import android.widget.DatePicker
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.example.donorgo.R
 import com.example.donorgo.activity.dataStore
 import com.example.donorgo.databinding.ActivityLastDonorBinding
@@ -22,9 +22,10 @@ import com.example.donorgo.datastore.SessionViewModel
 import com.example.donorgo.factory.RepoViewModelFactory
 import com.example.donorgo.helper.DateFormater
 import com.example.storyapp.factory.SessionViewModelFactory
-import java.util.Calendar
+import java.util.*
 
-class LastDonorActivity : AppCompatActivity(), View.OnClickListener, DatePickerDialog.OnDateSetListener {
+class LastDonorActivity : AppCompatActivity(), View.OnClickListener,
+    DatePickerDialog.OnDateSetListener {
     private lateinit var binding: ActivityLastDonorBinding
     private val bloodType = listOf("A", "B", "AB", "O")
     private val gender = listOf("Male", "Female")
@@ -64,7 +65,12 @@ class LastDonorActivity : AppCompatActivity(), View.OnClickListener, DatePickerD
         }
 
         lastDonorViewModel.messageLastDonor.observe(this) { message ->
-            if (message != null) lastDonorViewModel.isError?.value?.let { it1 -> showMessage(message, it1) }
+            if (message != null) lastDonorViewModel.isError?.value?.let { it1 ->
+                showMessage(
+                    message,
+                    it1
+                )
+            }
         }
 
     }
@@ -83,7 +89,8 @@ class LastDonorActivity : AppCompatActivity(), View.OnClickListener, DatePickerD
                 }
 
             // Dropdown BloodType
-            val adapter2 = ArrayAdapter(this@LastDonorActivity, R.layout.list_item_dropdown, bloodType)
+            val adapter2 =
+                ArrayAdapter(this@LastDonorActivity, R.layout.list_item_dropdown, bloodType)
             inputBloodType.setAdapter(adapter2)
             inputBloodType.onItemClickListener =
                 AdapterView.OnItemClickListener { adapterView, _, i, _ ->
@@ -93,7 +100,7 @@ class LastDonorActivity : AppCompatActivity(), View.OnClickListener, DatePickerD
     }
 
     override fun onClick(v: View?) {
-        when(v?.id) {
+        when (v?.id) {
             R.id.btn_pick_lastDate -> {
                 takeCurrentDate()
                 DatePickerDialog(this, this, year, month, date).show()
@@ -123,7 +130,7 @@ class LastDonorActivity : AppCompatActivity(), View.OnClickListener, DatePickerD
     }
 
     private fun checkFillAllInput() {
-        if (lastDate == "" ) {
+        if (lastDate == "") {
             showMessage(getString(R.string.lastdate_message), false)
         } else if (bloodTypeSelected == "") {
             binding.inputBloodType.requestFocus()
@@ -157,7 +164,8 @@ class LastDonorActivity : AppCompatActivity(), View.OnClickListener, DatePickerD
         val dateFormatToDisplay = DateFormater.formatNumberMonthToString(currentDateFormat)
         binding.valueLastDate.text = dateFormatToDisplay
 
-        this.lastDate = dateFormatToDisplay?.let { DateFormater.formatDateToISO(it).toString() } as String
+        this.lastDate =
+            dateFormatToDisplay?.let { DateFormater.formatDateToISO(it).toString() } as String
     }
 
     private fun showLoading(isLoading: Boolean) {
@@ -171,7 +179,9 @@ class LastDonorActivity : AppCompatActivity(), View.OnClickListener, DatePickerD
             // Login Success
             if (userAction) {
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-                if (message == "Data updated successfully!") { finish() }
+                if (message == "Data updated successfully!") {
+                    finish()
+                }
             }
         } else {
             if (userAction) {

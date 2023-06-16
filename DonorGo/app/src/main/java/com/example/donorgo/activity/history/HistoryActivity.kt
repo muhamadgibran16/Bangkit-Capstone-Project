@@ -2,11 +2,8 @@ package com.example.donorgo.activity.history
 
 
 import HistoryAdapter
-import android.annotation.SuppressLint
-import android.content.ContentValues
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -14,21 +11,15 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.donorgo.R
 import com.example.donorgo.activity.dataStore
 import com.example.donorgo.activity.home.HomeActivity
-import com.example.donorgo.activity.stock.StockViewModel
 import com.example.donorgo.databinding.ActivityHistoryBinding
 import com.example.donorgo.datastore.SessionViewModel
 import com.example.donorgo.factory.RepoViewModelFactory
-import com.example.donorgo.retrofit.ApiConfig
-import com.example.donorgo.retrofit.ApiService
 import com.example.storyapp.factory.SessionViewModelFactory
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class HistoryActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityHistoryBinding
@@ -72,7 +63,12 @@ class HistoryActivity : AppCompatActivity(), View.OnClickListener {
             showLoading(it)
         }
         historyViewModel.messageHistory.observe(this) { message ->
-            if (message != null) historyViewModel.isError?.value?.let { it1 -> showMessage(message, it1) }
+            if (message != null) historyViewModel.isError?.value?.let { it1 ->
+                showMessage(
+                    message,
+                    it1
+                )
+            }
         }
 
     }
@@ -84,8 +80,10 @@ class HistoryActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v?.id) {
-            R.id.bt_back -> { startActivity(Intent(this@HistoryActivity, HomeActivity::class.java)) }
+        when (v?.id) {
+            R.id.bt_back -> {
+                startActivity(Intent(this@HistoryActivity, HomeActivity::class.java))
+            }
         }
     }
 

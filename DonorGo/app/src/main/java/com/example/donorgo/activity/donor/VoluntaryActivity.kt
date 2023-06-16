@@ -13,11 +13,9 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.donorgo.R
 import com.example.donorgo.activity.dataStore
-import com.example.donorgo.activity.profile.ProfileActivity
 import com.example.donorgo.activity.profile.ProfileViewModel
 import com.example.donorgo.databinding.ActivityVoluntaryBinding
 import com.example.donorgo.dataclass.RequestBloodDonation
-import com.example.donorgo.dataclass.RequestBloodRequest
 import com.example.donorgo.dataclass.UserProfileData
 import com.example.donorgo.datastore.SessionViewModel
 import com.example.donorgo.factory.RepoViewModelFactory

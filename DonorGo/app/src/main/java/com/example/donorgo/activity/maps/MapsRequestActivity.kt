@@ -79,7 +79,6 @@ class MapsRequestActivity : AppCompatActivity(), View.OnClickListener, OnMapRead
         setSupportActionBar(toolbar)
         setContentView(binding.root)
         setupView()
-        init()
 
         sessionViewModel.getUserToken().observe(this) { token ->
             this.myToken = token
@@ -159,17 +158,6 @@ class MapsRequestActivity : AppCompatActivity(), View.OnClickListener, OnMapRead
                 .placeholder(placeholder)
                 .diskCacheStrategy(DiskCacheStrategy.ALL) // menggunakan cache untuk gambar
                 .into(bindingInclude.profilUser)
-        }
-    }
-
-    private fun init() {
-        with(binding) {
-            // Button Navigation
-//            homeBtn.setOnClickListener(this@MapsRequestActivity)
-//            eventBtn.setOnClickListener(this@MapsRequestActivity)
-//            listRequestMapsBtn.setOnClickListener(this@MapsRequestActivity)
-//            newsBtn.setOnClickListener(this@MapsRequestActivity)
-//            profileBtn.setOnClickListener(this@MapsRequestActivity)
         }
     }
 

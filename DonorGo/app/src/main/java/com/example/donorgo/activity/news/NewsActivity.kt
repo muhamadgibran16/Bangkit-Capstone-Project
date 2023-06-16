@@ -3,21 +3,21 @@ package com.example.donorgo.activity.news
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.donorgo.R
 import com.example.donorgo.activity.event.EventActivity
 import com.example.donorgo.activity.home.HomeActivity
 import com.example.donorgo.activity.maps.MapsRequestActivity
 import com.example.donorgo.activity.profile.ProfileActivity
 import com.example.donorgo.databinding.ActivityNewsBinding
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
-class NewsActivity : AppCompatActivity(), View.OnClickListener  {
+class NewsActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityNewsBinding
     private lateinit var rvNewss: RecyclerView
     private val list = ArrayList<News>()
@@ -59,14 +59,24 @@ class NewsActivity : AppCompatActivity(), View.OnClickListener  {
     }
 
     override fun onClick(v: View?) {
-        when(v?.id) {
+        when (v?.id) {
             // Button Navigation
-            R.id.home_btn -> { startActivity(Intent(this@NewsActivity, HomeActivity::class.java)) }
-            R.id.event_btn -> { startActivity(Intent(this@NewsActivity, EventActivity::class.java)) }
-            R.id.list_request_maps_btn -> { startActivity(Intent(this@NewsActivity, MapsRequestActivity::class.java)) }
+            R.id.home_btn -> {
+                startActivity(Intent(this@NewsActivity, HomeActivity::class.java))
+            }
+            R.id.event_btn -> {
+                startActivity(Intent(this@NewsActivity, EventActivity::class.java))
+            }
+            R.id.list_request_maps_btn -> {
+                startActivity(Intent(this@NewsActivity, MapsRequestActivity::class.java))
+            }
             R.id.news_btn -> {}
-            R.id.profile_btn -> { startActivity(Intent(this@NewsActivity, ProfileActivity::class.java)) }
-            R.id.bt_back -> { startActivity(Intent(this@NewsActivity, HomeActivity::class.java)) }
+            R.id.profile_btn -> {
+                startActivity(Intent(this@NewsActivity, ProfileActivity::class.java))
+            }
+            R.id.bt_back -> {
+                startActivity(Intent(this@NewsActivity, HomeActivity::class.java))
+            }
         }
     }
 

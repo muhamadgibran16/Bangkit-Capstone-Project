@@ -3,11 +3,11 @@ package com.example.donorgo.fragment
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.donorgo.R
 import com.example.donorgo.activity.camera.SelectImageActivity
@@ -37,7 +37,8 @@ class PickFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         binding.uploudCard.setOnClickListener(this)
 
-        selectImageViewModel = activity?.let { ViewModelProvider(it)[SelectImageViewModel::class.java] }!!
+        selectImageViewModel =
+            activity?.let { ViewModelProvider(it)[SelectImageViewModel::class.java] }!!
     }
 
     override fun onClick(v: View?) {

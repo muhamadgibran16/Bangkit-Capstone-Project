@@ -3,7 +3,6 @@ package com.example.donorgo.activity.login
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -13,17 +12,16 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import com.example.donorgo.R
+import com.example.donorgo.activity.dataStore
 import com.example.donorgo.activity.home.HomeActivity
 import com.example.donorgo.activity.otp.OtpActivity
-import com.example.donorgo.activity.dataStore
 import com.example.donorgo.activity.register.RegisterActivity
 import com.example.donorgo.databinding.ActivityLoginBinding
 import com.example.donorgo.dataclass.DataToOTP
 import com.example.donorgo.dataclass.RequestLogin
 import com.example.donorgo.dataclass.RequestResendOTP
-import com.example.donorgo.datastore.SessionPreferences
 import com.example.donorgo.datastore.SessionViewModel
 import com.example.donorgo.factory.RepoViewModelFactory
 import com.example.storyapp.factory.SessionViewModelFactory
@@ -87,8 +85,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 sessionViewModel.saveStateSession(true)
             }
         }
-        loginViewModel.messageLogin.observe(this)  { message ->
-            if (message != null) loginViewModel.isError?.value?.let { it1 -> showMessage(message, it1) }
+        loginViewModel.messageLogin.observe(this) { message ->
+            if (message != null) loginViewModel.isError?.value?.let { it1 ->
+                showMessage(
+                    message,
+                    it1
+                )
+            }
         }
         loginViewModel.uniqueID.observe(this) { uid ->
             this.userID = uid
@@ -201,7 +204,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
-        if (currentUser != null){
+        if (currentUser != null) {
             // MASUKKIN TOKEN KE USER PROPIL
             // Telepon, Nama, Email, PASS, CPASS, Token
             // Login Succes, Move to HomePage
@@ -220,7 +223,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         Log.w("check", "activity $isError")
         if (!isError) {
             // Login Success
-            if (userAction) { Toast.makeText(this, message, Toast.LENGTH_LONG).show() }
+            if (userAction) {
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+            }
         } else {
             if (userAction) {
                 when (message) {
@@ -238,7 +243,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         setMessage(getString(R.string.email_not_verified))
                         // Sending to OTP Page
                         val uid = loginViewModel.uniqueID.value
-                        uid?.let { RequestResendOTP(it, email) } ?.let { loginViewModel.resendOTP(it) }
+                        uid?.let { RequestResendOTP(it, email) }
+                            ?.let { loginViewModel.resendOTP(it) }
                         val intent = Intent(this@LoginActivity, OtpActivity::class.java)
                         val dataIntent = DataToOTP(email, password, userID)
                         intent.putExtra(OtpActivity.EXTRA_DATA_OTP, dataIntent)

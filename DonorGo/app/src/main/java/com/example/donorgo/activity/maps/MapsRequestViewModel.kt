@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.donorgo.dataclass.BloodRequestItem
 import com.example.donorgo.repository.ViewModelRepository
 
-class MapsRequestViewModel (private val mViewModelRepository: ViewModelRepository) : ViewModel() {
+class MapsRequestViewModel(private val mViewModelRepository: ViewModelRepository) : ViewModel() {
 
     val messageBloodRequest: LiveData<String?> = mViewModelRepository.message
 

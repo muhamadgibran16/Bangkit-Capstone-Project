@@ -3,7 +3,6 @@ package com.example.donorgo.activity.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.donorgo.dataclass.BloodRequestItem
-import com.example.donorgo.dataclass.UserProfileData
 import com.example.donorgo.repository.ViewModelRepository
 
 class HomeViewModel(private val mViewModelRepository: ViewModelRepository) : ViewModel() {
@@ -20,6 +19,7 @@ class HomeViewModel(private val mViewModelRepository: ViewModelRepository) : Vie
         mViewModelRepository.getAllBloodRequest(token)
     }
 
-    fun getBloodListRequestIntoDB(token: String) = mViewModelRepository.getAllBloodRequestIntoDB(token)
+    fun getBloodListRequestIntoDB(token: String) =
+        mViewModelRepository.getAllBloodRequestIntoDB(token)
 
 }
