@@ -177,5 +177,4 @@ Push the changes to the GitHub repository to trigger the workflow and initiate t
 
 By following this deployment process, the endpoint can efficiently receive an ID card image, extract the required data, securely store the image in a non-public cloud storage, and provide the extracted information as output while maintaining data privacy and security.
 
-
 Noted : [ocr model running on : https://github.com/muhamadgibran16/deploy-ocr-model](https://github.com/muhamadgibran16/deploy-ocr-model)
