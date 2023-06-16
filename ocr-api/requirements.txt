@@ -1,0 +1,16 @@
+mysqlclient
+Flask
+flask-sqlalchemy
+sqlalchemy
+google-cloud-storage
+pytesseract
+tesseract
+pandas
+numpy
+opencv-python
+tensorflow
+python-dotenv
+matplotlib
+Pillow
+gdown
+gunicorn

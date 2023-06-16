@@ -1,0 +1,17 @@
+deploy-ocr-model.zip
+
+./__pycache__
+
+.env
+
+credentials.json
+
+deploy-ocr-model.zip
+
+api.py
+main.py
+bekucupmodel.py
+test.py
+test11.py
+bounding_ktp03.h5
+Tesseract-OCR
