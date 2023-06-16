@@ -76,7 +76,18 @@ For application development, I used Android Studio as the IDE and wrote all the 
 
 Dependencies
 Here are all the dependencies I used in the DonorGo application:
-
+```
+implementation 'androidx.core:core-ktx:1.10.1'
+implementation 'androidx.appcompat:appcompat:1.6.1'
+implementation 'com.google.android.material:material:1.9.0'
+implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
+implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+testImplementation 'junit:junit:4.13.2'
+androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+```
 Image
 These are four libraries I used as image loaders.
 ```
@@ -85,24 +96,37 @@ implementation 'com.github.bumptech.glide:glide:4.15.1'
 androidTestImplementation project(path: ':app')
 kapt 'com.github.bumptech.glide:compiler:4.15.1'
 ```
-Maps
-In our app, especially on the detail donation event page, you can see a mini-map showing the event location. To enable this feature, I used the Google Maps API and implemented these dependencies.
+DataStore
 ```
-implementation 'com.google.android.gms:play-services-location:19.0.1'
-implementation 'com.google.android.gms:play-services-places:17.0.0'
-implementation 'com.google.android.gms:play-services-maps:18.0.2'
+implementation 'androidx.datastore:datastore-preferences:1.0.0'
 ```
-Toast
-To show fancy toasts, I used this dependency.
-implementation 'com.github.Spikeysanju:MotionToast:1.3.3.4'
-
+Coroutines
+```
+implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+``` 
+Android lifecycle
+```
+implementation 'androidx.activity:activity-ktx:1.7.2'
+implementation 'androidx.fragment:fragment-ktx:1.5.7'
+implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+```    
 Room
 After a user successfully logs in, the user data, fun fact data, and FAQ data will be saved in a Room database. This way, the application doesn't have to fetch the data from Firebase every time it is needed.
 ```
-annotationProcessor 'androidx.room:room-compiler:2.4.2'
-implementation 'androidx.room:room-ktx:2.4.2'
-implementation 'androidx.room:room-runtime:2.4.2'
-kapt 'androidx.room:room-compiler:2.4.2'
+implementation 'androidx.room:room-ktx:2.5.1'
+kapt 'androidx.room:room-compiler:2.5.1'
+```
+O-Auth
+```
+implementation 'com.google.android.gms:play-services-auth:20.5.0'
+implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
+```
+Google Play Service Location
+```
+implementation 'com.google.android.gms:play-services-maps:18.1.0'
+implementation 'com.google.android.gms:play-services-maps:18.1.0'
+implementation 'com.google.android.gms:play-services-location:21.0.1'
 ```
 Retrofit
 For province, city, and donor data, the CC team provided me with endpoints, so I used Retrofit as the REST client. Additionally, we use an API to send the email address to get an OTP code and to send the ID card image for verification.
@@ -112,8 +136,4 @@ implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11'
 implementation 'com.google.code.gson:gson:2.9.0'
 ```
-Loader
-I used this dependency to show animation loading.
-implementation "com.airbnb.android:lottie:3.4.0"
-
 That's the translation of the provided text. Let me know if you need any further assistance!
