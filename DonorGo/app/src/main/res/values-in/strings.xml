@@ -36,7 +36,7 @@
     <!-- password -->
     <string name="password_label">Kata Sandi</string>
     <string name="pass_empty">Silakan masukkan kata sandi Anda</string>
-    <string name="input_under_min_length">Kata sandi harus terdiri dari 8 karakter atau lebih</string>
+    <string name="input_under_min_length">Kata sandi harus terdiri dari 8 karakter</string>
     <string name="invalid_password">Kata sandi tidak valid</string>
     <!-- confirm -->
     <string name="cpassword_label">Konfirmasi Kata Sandi</string>
@@ -146,7 +146,7 @@
     <string name="help_people">Tolong orang lain yang membutuhkan donor</string>
     <string name="news_title_list">BPKP Riau Bersama dengan UTD PMI Pekanbaru Kota Mengadakan Layanan Sosial untuk Meningkatkan Kesejahteraan Masyarakat…</string>
     <string name="posted_list_news_item">Di post : %1$s</string>
-    <string name="on_going">Sedang Berlangsung</string>
+    <string name="on_going">Berlangsung</string>
     <string name="close">Tutup</string>
     <string name="done">Selesai</string>
     <string name="waiting">Menunggu</string>
@@ -223,6 +223,13 @@
     <string name="date_of_birth">Tanggal Lahir</string>
 
     //==============================================
-    <string name="cant_donate">You can only donate after uploading your KTP</string>
-    <string name="can_donate_again">Can Donate Again at %1$s</string>
+    <string name="faq_header">Pertanyaan yang Sering Diajukan</string>
+    <string name="cant_donate">Anda hanya dapat berdonasi setelah mengunggah KTP Anda</string>
+    <string name="can_donate_again">Dapat Menyumbang Lagi di %1$s</string>
+
+    // Maps
+    <string name="no_location">Tidak Ada Alamat Lokasi</string>
+    <string name="location_name_unknown">Nama lokasi tidak diketahui</string>
+    <string name="your_location">Lokasi Anda</string>
+
 </resources>

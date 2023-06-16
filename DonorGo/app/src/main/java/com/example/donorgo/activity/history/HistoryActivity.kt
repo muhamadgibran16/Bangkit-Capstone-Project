@@ -13,13 +13,19 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.donorgo.R
+import com.example.donorgo.activity.dataStore
 import com.example.donorgo.activity.home.HomeActivity
+import com.example.donorgo.activity.stock.StockViewModel
 import com.example.donorgo.databinding.ActivityHistoryBinding
+import com.example.donorgo.datastore.SessionViewModel
+import com.example.donorgo.factory.RepoViewModelFactory
 import com.example.donorgo.retrofit.ApiConfig
 import com.example.donorgo.retrofit.ApiService
+import com.example.storyapp.factory.SessionViewModelFactory
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,9 +33,14 @@ import retrofit2.Response
 class HistoryActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityHistoryBinding
     private lateinit var historyAdapter: HistoryAdapter
-    private lateinit var apiService: ApiService
-
-    @SuppressLint("MissingInflatedId")
+    private val sessionViewModel: SessionViewModel by viewModels {
+        SessionViewModelFactory.getInstance(dataStore)
+    }
+    private val historyViewModel: HistoryViewModel by viewModels {
+        RepoViewModelFactory.getInstance(this)
+    }
+    private var myToken: String = ""
+    private var userAction: Boolean = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHistoryBinding.inflate(layoutInflater)
@@ -37,21 +48,33 @@ class HistoryActivity : AppCompatActivity(), View.OnClickListener {
         setupView()
         init()
 
-        // Inisialisasi ApiService
-        apiService = ApiConfig.getApiService()
-
         // Inisialisasi HistoryAdapter
         historyAdapter = HistoryAdapter()
-
         // Inisialisasi RecyclerView
-        val recyclerView: RecyclerView = findViewById(R.id.rv_history)
-        recyclerView.apply {
+
+        binding.rvHistory.apply {
             layoutManager = LinearLayoutManager(this@HistoryActivity)
             adapter = historyAdapter
         }
 
-        // Panggil method untuk mengambil data berita dari ApiService
-        fetchHistoryData()
+        // SessionViewModel
+        sessionViewModel.getUserToken().observe(this) {
+            this.myToken = it
+            Log.w("token123", it)
+            historyViewModel.fetchHistoryData(myToken)
+        }
+        // StockViewModel
+        historyViewModel.listHistory.observe(this) { list ->
+            if (list != null) historyAdapter.setHistoryList(list)
+            Log.w("dataku", list.toString())
+        }
+        historyViewModel.isLoading.observe(this) {
+            showLoading(it)
+        }
+        historyViewModel.messageHistory.observe(this) { message ->
+            if (message != null) historyViewModel.isError?.value?.let { it1 -> showMessage(message, it1) }
+        }
+
     }
 
     private fun init() {
@@ -60,51 +83,35 @@ class HistoryActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun fetchHistoryData() {
-        apiService.getAllHistory("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ1c2VyLUZHNkRYY1g5YWgiLCJuYW1lIjoiQklMTFkgQlVNQkxFQkVFIFNJRlVMQU5cblxmIiwiZW1haWwiOiJha3V5dXN1ZmZmMTJAZ21haWwuY29tIiwiaWF0IjoxNjg2NjkwODk0LCJleHAiOjE2ODY3NzcyOTR9.hFo6tTaR-2ZeRwbNi-fNHa29fKBDNBK7PhejrwJmSTE")
-            .enqueue(object : Callback<HistoryResponse> {
-                override fun onResponse(call: Call<HistoryResponse>, response: Response<HistoryResponse>) {
-                    if (response.isSuccessful) {
-                        val historyResponse = response.body()
-                        val historyItems = historyResponse?.payload
+    override fun onClick(v: View?) {
+        when(v?.id) {
+            R.id.bt_back -> { startActivity(Intent(this@HistoryActivity, HomeActivity::class.java)) }
+        }
+    }
 
-                        historyItems?.let { items ->
-                            val historyList = items.mapNotNull { ItemHistory ->
-                                val tipeDarah = ItemHistory?.tipeDarah
-                                val rhesus = ItemHistory?.rhesus
-                                val kota = ItemHistory?.kota
-                                val namaPasien = ItemHistory?.namaPasien
-                                val namaRs = ItemHistory?.namaRs
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility =
+            if (isLoading) View.VISIBLE else View.GONE
+    }
 
-                                if (tipeDarah != null && rhesus != null && kota != null && namaPasien != null && namaRs != null) {
-                                    ItemHistory(tipeDarah = tipeDarah, rhesus = rhesus, kota = kota, namaPasien = namaPasien, namaRs = namaRs )
-                                } else {
-                                    null
-                                }
-                            }
-
-                            historyAdapter.setHistoryList(historyList)
-                        }
-                    } else {
-                        Toast.makeText(
-                            this@HistoryActivity,
-                            "Failed to retrieve news",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                    Log.d(ContentValues.TAG, "onFailure: ${response.message()}")
-                    val responseString = response.errorBody()?.string()
-                    Log.d(ContentValues.TAG, "Response dari server: $responseString")
+    private fun showMessage(message: String, isError: Boolean) {
+        Log.w("check", "activity $isError")
+        if (!isError) {
+            if (userAction) {
+                if (message == "History blood request retrieved successfully!") {
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
                 }
-
-                override fun onFailure(call: Call<HistoryResponse>, t: Throwable) {
-                    Toast.makeText(
-                        this@HistoryActivity,
-                        t.localizedMessage,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            })
+            }
+        } else {
+            if (userAction) {
+                Toast.makeText(
+                    this,
+                    "${getString(R.string.error_message_tag)} $message",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+        userAction = false
     }
 
     private fun setupView() {
@@ -120,9 +127,4 @@ class HistoryActivity : AppCompatActivity(), View.OnClickListener {
         supportActionBar?.hide()
     }
 
-    override fun onClick(v: View?) {
-        when(v?.id) {
-            R.id.bt_back -> { startActivity(Intent(this@HistoryActivity, HomeActivity::class.java)) }
-        }
-    }
 }

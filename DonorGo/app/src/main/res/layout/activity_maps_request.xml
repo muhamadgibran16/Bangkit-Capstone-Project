@@ -15,149 +15,169 @@
         android:layout_weight="1"
         android:layout_marginBottom="-90dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <include
-                layout="@layout/toolbar_maps"
-                android:id="@+id/toolbar_maps"/>
-
-            <FrameLayout
-                android:id="@+id/fragment_maps"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
-                android:layout_width="match_parent"
-                android:layout_marginTop="-5dp"
-                android:layout_marginBottom="-10dp"
-                android:layout_height="300dp"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="-15dp"
-                android:background="@drawable/bg_location_review"
-                android:backgroundTint="@color/pingky"
-                android:focusable="true"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
-                <RelativeLayout
+                <include
+                    layout="@layout/toolbar_maps"
+                    android:id="@+id/toolbar_maps"/>
+
+                <fragment
+                    android:id="@+id/fragment_maps"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp">
-
-                    <ImageView
-                        android:id="@+id/compass_icon"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/ic_compass" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@id/compass_icon"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/help_and_save_others"
-                            android:textColor="@android:color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/your_blood_means_a_lot"
-                            android:textColor="@android:color/white"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                </RelativeLayout>
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginBottom="-10dp"
+                    android:layout_height="300dp"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
                 <LinearLayout
-                    android:id="@+id/linear_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="510dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="-15dp"
                     android:background="@drawable/bg_location_review"
-                    android:backgroundTint="@color/background_app"
+                    android:backgroundTint="@color/pingky"
+                    android:focusable="true"
                     android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:text="@string/help_people"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp">
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
 
                         <ImageView
-                            android:id="@+id/icon_red_maps"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:id="@+id/compass_icon"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:layout_alignParentStart="true"
                             android:layout_centerInParent="true"
-                            android:layout_marginStart="20dp"
-                            android:src="@drawable/ic_marker"
-                            app:tint="@android:color/holo_red_light" />
+                            android:src="@drawable/ic_compass" />
 
                         <LinearLayout
-                            android:id="@+id/layout_my_location"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginEnd="20dp"
-                            android:layout_toEndOf="@id/icon_red_maps"
+                            android:layout_toEndOf="@id/compass_icon"
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/my_location"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Your Location"
-                                android:textColor="@android:color/black"
+                                android:text="@string/help_and_save_others"
+                                android:textColor="@android:color/white"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/tvAddress"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="No Location Address"
-                                android:textColor="@android:color/black"
+                                android:text="@string/your_blood_means_a_lot"
+                                android:textColor="@android:color/white"
                                 android:textSize="12sp" />
 
                         </LinearLayout>
 
                     </RelativeLayout>
 
-                    <androidx.recyclerview.widget.RecyclerView
+                    <LinearLayout
+                        android:id="@+id/linear_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="20dp"
-                        tools:listitem="@layout/item_request_list_vertikal"/>
+                        android:layout_height="510dp"
+                        android:background="@drawable/bg_location_review"
+                        android:backgroundTint="@color/background_app"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/help_people"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp">
+
+                            <ImageView
+                                android:id="@+id/icon_red_maps"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginStart="20dp"
+                                android:src="@drawable/ic_marker"
+                                app:tint="@android:color/holo_red_light" />
+
+                            <LinearLayout
+                                android:id="@+id/layout_my_location"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_toEndOf="@id/icon_red_maps"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/my_location"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Your Location"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvAddress"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="No Location Address"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="12sp" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_blood_request"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            tools:listitem="@layout/item_request_list_vertikal"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/ProggressBarStyle"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
@@ -177,7 +197,7 @@
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:layout_marginBottom="-103dp"
+        android:layout_marginBottom="-115dp"
         android:elevation="10dp">
 
         <com.google.android.material.bottomappbar.BottomAppBar

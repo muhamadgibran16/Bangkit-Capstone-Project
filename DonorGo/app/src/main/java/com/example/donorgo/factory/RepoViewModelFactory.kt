@@ -6,13 +6,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.donorgo.activity.donor.VoluntaryViewModel
 import com.example.donorgo.activity.edit_profile.EditProfileViewModel
+import com.example.donorgo.activity.history.HistoryViewModel
 import com.example.donorgo.activity.home.HomeViewModel
 import com.example.donorgo.activity.lastdonor.LastDonorViewModel
 import com.example.donorgo.activity.login.LoginViewModel
+import com.example.donorgo.activity.maps.MapsRequestViewModel
 import com.example.donorgo.activity.otp.OtpViewModel
 import com.example.donorgo.activity.profile.ProfileViewModel
 import com.example.donorgo.activity.register.RegisterViewModel
 import com.example.donorgo.activity.request_form.RequestViewModel
+import com.example.donorgo.activity.stock.StockViewModel
 import com.example.donorgo.activity.uploud_photo.UploudViewModel
 import com.example.donorgo.di.Injection
 import com.example.donorgo.repository.ViewModelRepository
@@ -43,6 +46,12 @@ class RepoViewModelFactory private constructor
             return UploudViewModel(mViewModelRepository) as T
         } else if (modelClass.isAssignableFrom(VoluntaryViewModel::class.java)) {
             return VoluntaryViewModel(mViewModelRepository) as T
+        } else if (modelClass.isAssignableFrom(StockViewModel::class.java)) {
+            return StockViewModel(mViewModelRepository) as T
+        } else if (modelClass.isAssignableFrom(HistoryViewModel::class.java)) {
+            return HistoryViewModel(mViewModelRepository) as T
+        } else if (modelClass.isAssignableFrom(MapsRequestViewModel::class.java)) {
+            return MapsRequestViewModel(mViewModelRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }

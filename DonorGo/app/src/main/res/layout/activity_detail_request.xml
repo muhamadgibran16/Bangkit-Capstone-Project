@@ -52,7 +52,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="40dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/wrapper"
@@ -70,8 +71,6 @@
                     android:id="@+id/atas"
                     android:layout_height="100dp"
                     android:layout_width="0dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginHorizontal="2.5dp"
                     android:background="@drawable/wrapper_detail_request"
                     android:padding="@dimen/spacing_8"
                     android:elevation="5dp"
@@ -312,13 +311,27 @@
                 android:id="@+id/rv_terms_and_conditions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingBottom="50dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="10dp"
+                android:minHeight="250dp"
                 android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/wrapper" />
+                app:layout_constraintTop_toBottomOf="@+id/wrapper"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/announcement"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:visibility="visible"
+                android:textSize="12sp"
+                android:layout_height="wrap_content"
+                android:text="@string/can_donate_again"
+                android:textColor="@color/red_blood"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_terms_and_conditions"/>
 
             <Button
                 android:id="@+id/btn_donor"
@@ -327,12 +340,13 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_pick_date"
                 android:text="@string/donor"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="32dp"
                 android:layout_gravity="center"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_terms_and_conditions" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/announcement" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

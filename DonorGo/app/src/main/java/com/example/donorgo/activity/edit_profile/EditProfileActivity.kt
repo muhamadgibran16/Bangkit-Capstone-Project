@@ -35,8 +35,8 @@ import java.util.*
 class EditProfileActivity : AppCompatActivity(), View.OnClickListener, DatePickerDialog.OnDateSetListener {
     private lateinit var binding: ActivityEditProfileBinding
     private lateinit var userProfileData: UserProfileData
-    private val bloodType = listOf("A", "B", "AB", "O")
-    private val gender = listOf("Male", "Female")
+    private var bloodType = listOf("A", "B", "AB", "O")
+    private var gender = emptyList<String>()
     private val sessionViewModel: SessionViewModel by viewModels {
         SessionViewModelFactory.getInstance(dataStore)
     }
@@ -46,6 +46,8 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, DatePicke
     private lateinit var calendar: Calendar
     private var userAction: Boolean = false
     private var isInputValid: Boolean = false
+    private var initialIndexBloodType: Int = 0
+    private var initialIndexGender: Int = 0
     private var myToken: String = ""
     private var date: Int = 0
     private var month: Int = 0
@@ -66,10 +68,9 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, DatePicke
         super.onCreate(savedInstanceState)
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        catchExtraData()
         setupView()
         init()
-
-        catchExtraData()
         // SessionViewModel
         sessionViewModel.getUserToken().observe(this) { this.myToken = it }
 
@@ -97,6 +98,32 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, DatePicke
         }
     }
 
+    private fun init() {
+        with(binding) {
+            binding.btnSave.setOnClickListener(this@EditProfileActivity)
+            binding.btnPickBirthDate.setOnClickListener(this@EditProfileActivity)
+
+            // Dropdown Gender
+            val adapter = ArrayAdapter(this@EditProfileActivity, R.layout.list_item_dropdown, gender)
+            inputGender.setAdapter(adapter)
+            inputGender.setText(adapter.getItem(initialIndexGender).toString(), false)
+            inputGender.onItemClickListener =
+                AdapterView.OnItemClickListener { adapterView, _, i, _ ->
+                    fiksGender = adapterView.getItemAtPosition(i).toString()
+                }
+
+            // Dropdown BloodType
+            val adapter2 = ArrayAdapter(this@EditProfileActivity, R.layout.list_item_dropdown, bloodType)
+            inputGoldar.setAdapter(adapter2)
+            inputGoldar.setText(adapter2.getItem(initialIndexBloodType).toString(), false)
+            inputGoldar.onItemClickListener =
+                AdapterView.OnItemClickListener { adapterView, _, i, _ ->
+                    fiksbloodType = adapterView.getItemAtPosition(i).toString()
+                }
+        }
+
+    }
+
     private fun displayUserProfile(data: UserProfileData) {
         with(binding) {
             tvNama.text = data.name
@@ -108,13 +135,18 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, DatePicke
             val parts = ttlString?.split(", ")
             val placeBirth = parts?.get(0) ?: ""
             if (parts?.size == 2) {
-                val dateBirth = parts?.get(1) ?: ""
+                val dateBirth = parts[1] ?: ""
                 valueBirthDate.text = dateBirth
             }
 
+            if (listOf("LAKI-LAKI", "PEREMPUAN").contains(data.gender)) gender = listOf("LAKI-LAKI", "PEREMPUAN")
+            else if (listOf("Male", "Female").contains(data.gender)) gender = listOf("Male", "Female")
+            initialIndexGender = gender.indexOf(data.gender)
+            gender = if ("in" == Locale.getDefault().language) listOf("LAKI-LAKI", "PEREMPUAN")
+            else listOf("Male", "Female")
+
+            initialIndexBloodType = bloodType.indexOf(data.golDarah)
             inputPlaceBirth.text = Editable.Factory.getInstance().newEditable(placeBirth)
-            inputGender.text = Editable.Factory.getInstance().newEditable(data.gender)
-            inputGoldar.text = Editable.Factory.getInstance().newEditable(data.golDarah)
             when (data.rhesus) {
                 "+" -> positif.isChecked = true
                 "-" -> negatif.isChecked = true
@@ -147,30 +179,6 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, DatePicke
                 .diskCacheStrategy(DiskCacheStrategy.ALL) // menggunakan cache untuk gambar
                 .into(binding.ivProfile)
         }
-    }
-
-    private fun init() {
-        with(binding) {
-            binding.btnSave.setOnClickListener(this@EditProfileActivity)
-            binding.btnPickBirthDate.setOnClickListener(this@EditProfileActivity)
-
-            // Dropdown Gender
-            val adapter = ArrayAdapter(this@EditProfileActivity, R.layout.list_item_dropdown, gender)
-            inputGender.setAdapter(adapter)
-            inputGender.onItemClickListener =
-                AdapterView.OnItemClickListener { adapterView, _, i, _ ->
-                    fiksGender = adapterView.getItemAtPosition(i).toString()
-                }
-
-            // Dropdown BloodType
-            val adapter2 = ArrayAdapter(this@EditProfileActivity, R.layout.list_item_dropdown, bloodType)
-            inputGoldar.setAdapter(adapter2)
-            inputGoldar.onItemClickListener =
-                AdapterView.OnItemClickListener { adapterView, _, i, _ ->
-                    fiksbloodType = adapterView.getItemAtPosition(i).toString()
-                }
-        }
-
     }
 
     override fun onClick(v: View?) {

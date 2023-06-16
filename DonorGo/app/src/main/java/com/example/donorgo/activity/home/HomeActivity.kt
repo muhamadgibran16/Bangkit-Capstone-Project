@@ -10,6 +10,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.donorgo.R
@@ -26,12 +27,14 @@ import com.example.donorgo.activity.profile.ProfileViewModel
 import com.example.donorgo.activity.request_form.RequestActivity
 import com.example.donorgo.activity.stock.StockActivity
 import com.example.donorgo.activity.table.TableActivity
+import com.example.donorgo.database.TabelBloodRequest
 import com.example.donorgo.databinding.ActivityHomeBinding
 import com.example.donorgo.dataclass.BloodRequestItem
 import com.example.donorgo.dataclass.UserProfileData
 import com.example.donorgo.datastore.SessionViewModel
 import com.example.donorgo.factory.RepoViewModelFactory
 import com.example.storyapp.factory.SessionViewModelFactory
+import com.example.donorgo.helper.Result
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityHomeBinding
@@ -81,20 +84,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             Log.w("token", it)
             profileViewModel.getUserProfile(myToken)
             homeViewModel.getBloodListRequest(myToken)
-        // Udah manggil profile terus lempar
-            // Manggil getEvent terus lempar
-            // Manggil getNews terus lempar jangan lupa di set
-            // Manggil blood Maps (pagination) masukin DB terus ambil dari DB lalu di set
-            // Manggil stock terus lempar
-            // Manggil history
-        // Lempar userDataProfile ke Donate >>> check kurang dari tiga bulan sama kalok gak cocok gak bisa donate
 
-            // Boleh loading dari awal
-            // 1) Stock
-            // 2) Home
-            // 3) Event
-            // 4) News, History
-            // Maps
         }
         sessionViewModel.getIsOpenFirstDialog().observe(this) {
             this.openFirstDialog = it
@@ -122,6 +112,24 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         homeViewModel.messageBloodRequest.observe(this) { message ->
             if (message != null) homeViewModel.isError?.value?.let { it1 -> showMessage(message, it1) }
         }
+//        homeViewModel.getBloodListRequestIntoDB(myToken).observe(this) { result ->
+//            if (result != null) {
+//                when (result) {
+//                    is Result.Loading -> {
+//                        binding?.progressBar?.visibility = View.VISIBLE
+//                    }
+//                    is Result.Success -> {
+//                        binding?.progressBar?.visibility = View.GONE
+//                        val newsData = result.data
+//                        setDataToAdapter(newsData)
+//                    }
+//                    is Result.Error -> {
+//                        binding?.progressBar?.visibility = View.GONE
+//                        showMessage(result.error, true)
+//                    }
+//                }
+//            }
+//        }
         // LIST BLOOD REQUEST (Pagination) && NEWS LIST
         // ADAPTER
 
@@ -134,7 +142,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             LinearLayoutManager(this@HomeActivity,
             LinearLayoutManager.HORIZONTAL,
             false)
-        val academyAdapter = HomeNewsAdapter(list)
+        val academyAdapter = NewsHomeAdapter(list)
         rvNewss.adapter = academyAdapter
     }
 
@@ -181,11 +189,6 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun showNoData(isNoData: Boolean) {
-//        binding.rvStoryMaps.visibility = if (isNoData) View.GONE else View.VISIBLE
-//        binding.tvErrorText.visibility = if (isNoData) View.VISIBLE else View.GONE
-    }
-
     override fun onClick(v: View?) {
         when(v?.id) {
             // Button Navigation
@@ -226,7 +229,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_faq -> { startActivity(Intent(this@HomeActivity, FaqActivity::class.java)) }
 
-            R.id.notif_icon -> { startActivity(Intent(this@HomeActivity, LastDonorActivity::class.java)) }
+            R.id.notif_icon -> {  }
             R.id.blood_more -> {
                 //////// Pagination
                 startActivity(Intent(this@HomeActivity, MapsRequestActivity::class.java))

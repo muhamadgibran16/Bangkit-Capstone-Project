@@ -11,13 +11,11 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import com.example.donorgo.R
-import com.example.donorgo.activity.donor.VoluntaryActivity
 import com.example.donorgo.activity.home.HomeActivity
-import com.example.donorgo.activity.news.HomeNewsAdapter
+import com.example.donorgo.activity.news.NewsHomeAdapter
 import com.example.donorgo.activity.news.News
 import com.example.donorgo.activity.news.NewsActivity
 import com.example.donorgo.databinding.ActivityWebViewNewsBinding
-import com.example.donorgo.dataclass.UserProfileData
 
 class WebViewNewsActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityWebViewNewsBinding
@@ -64,7 +62,7 @@ class WebViewNewsActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.bt_back -> {
-                if (sourcePage == HomeNewsAdapter.HOME_PAGE) {
+                if (sourcePage == NewsHomeAdapter.HOME_PAGE) {
                     startActivity(Intent(this@WebViewNewsActivity, HomeActivity::class.java))
                 } else {
                     startActivity(Intent(this@WebViewNewsActivity, NewsActivity::class.java))

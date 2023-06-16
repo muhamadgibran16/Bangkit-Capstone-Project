@@ -33,6 +33,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonorGo"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCGexNcgquCWl2KhX37SujcpGNnfi3T94E" />
+
         <activity
             android:name=".activity.aboutUs.AboutActivity"
             android:exported="false">
@@ -99,6 +104,7 @@
         <activity
             android:name=".activity.maps.MapsRequestActivity"
             android:exported="false"
+            android:theme="@style/MapsTheme"
             android:launchMode="singleTask" />
         <activity
             android:name=".activity.profile.ProfileActivity"

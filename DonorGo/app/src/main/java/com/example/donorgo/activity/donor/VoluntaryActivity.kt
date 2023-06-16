@@ -33,6 +33,9 @@ class VoluntaryActivity : AppCompatActivity(), View.OnClickListener {
     private val voluntaryViewModel: VoluntaryViewModel by viewModels {
         RepoViewModelFactory.getInstance(this)
     }
+    private val profileViewModel: ProfileViewModel by viewModels {
+        RepoViewModelFactory.getInstance(this)
+    }
     private var myToken: String = ""
     private var userId: String = ""
     private var userAction: Boolean = false
@@ -55,9 +58,17 @@ class VoluntaryActivity : AppCompatActivity(), View.OnClickListener {
         // SessionViewModel
         sessionViewModel.getUserToken().observe(this) { token ->
             this.myToken = token
+            profileViewModel.getUserProfile(token)
         }
         sessionViewModel.getUserUniqueID().observe(this) { uid ->
             this.userId = uid
+            Log.w("uid", uid)
+        }
+
+        // ProfileViewModel
+        profileViewModel.userProfile.observe(this) {
+            this.userProfileData = it
+            displayUserProfile(it)
         }
 
         // RequestViewModel
@@ -156,6 +167,10 @@ class VoluntaryActivity : AppCompatActivity(), View.OnClickListener {
                 announcement.visibility = View.VISIBLE
                 announcement.text = resources.getString(R.string.can_donate_again, canDonateDate)
                 btnDonor.isEnabled = false
+            } else {
+                announcement.visibility = View.GONE
+                announcement.text = resources.getString(R.string.can_donate_again, canDonateDate)
+                btnDonor.isEnabled = true
             }
         }
     }

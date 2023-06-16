@@ -1,7 +1,5 @@
 package com.example.donorgo.retrofit
 
-import com.example.donorgo.activity.history.HistoryResponse
-import com.example.donorgo.activity.stock.StockResponse
 import com.example.donorgo.dataclass.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -104,71 +102,45 @@ interface ApiService {
         @Header("Authorization") token: String
     ): Call<ResponseMessage>
 
-    // History Request
-    @GET("blood-history")
-    fun getAllHistory(
-        @Header ("Authorization")token: String
-    ): Call<HistoryResponse>
-
-    // Stock
+    // All Stock
     @GET("list/all-stock")
     fun getAllStock(
         @Header ("Authorization")token: String
-    ): Call<StockResponse>
+    ): Call<ResponseListStock>
 
+    // List Stock by BloodType
     @GET("list/stock/{id}")
     fun getStockByTypeId(
         @Header ("Authorization") token: String,
         @Path("id") idType: Int
-    ): Call<StockResponse>
+    ): Call<ResponseListStock>
 
-    @GET("list/stock/{type}/rhesus/{rhesus}")
+    // List Stick by Blood Type and Rhesus
+    @GET("list/stock/type/{typeid}/rhesus/{rhesusid}")
     fun getStockByTypeIdAndRhesusId(
-        @Header ("Authorization")token: String,
-        @Path("type") idType: Int,
-        @Path("rhesus") idRhesus: Int,
-    ): Call<StockResponse>
+        @Header ("Authorization") token: String,
+        @Path("typeid") idBloodType: Int,
+        @Path("rhesusid") idRhesus: Int,
+    ): Call<ResponseListStock>
 
+    // Get All List Blood Request
     @GET("list/filter-all-data")
     fun getAllBloodRequest(
         @Header ("Authorization") token: String
     ): Call<ResponseListAllBloodRequest>
 
+    // Filter Blood Request by RS Name
     @GET("list/filter-data/{nama_rs}")
     fun getBloodRequestByRSName(
         @Path("nama_rs") namaRs: String,
         @Header ("Authorization")token: String,
     ): Call<ResponseListAllBloodRequest>
 
+    // History Request
+    @GET("blood-history")
+    fun getAllHistory(
+        @Header ("Authorization") token: String
+    ): Call<HistoryResponse>
 
-
-//    //Uploud Image DataStory_Schema
-//    @Multipart
-//    @POST("stories")
-//    fun uploudImage(
-//        @Part file: MultipartBody.Part,
-//        @Part("description") description: RequestBody,
-//        @Part("lat") latitude: Float? = null,
-//        @Part("lon") longitude: Float? = null,
-//        @Header("Authorization") token: String
-//    ): Call<ResponseMessage>
-//
-//    //Get All Stories
-//    @GET("stories")
-//    fun getAllStories(
-//        @Query("page") page: Int? = null,
-//        @Query("size") size: Int? = null,
-//        @Query("location") location: Int? = 0,
-//        @Header("Authorization") token: String
-//    ): Call<ResponseGetStory>
-//
-//    //Get All Stories
-//    @GET("stories")
-//    suspend fun getAllStoriesWithPagging(
-//        @Query("page") page: Int? = null,
-//        @Query("size") size: Int? = null,
-//        @Query("location") location: Int? = 0,
-//        @Header("Authorization") token: String
-//    ): ResponseGetStory
 
 }

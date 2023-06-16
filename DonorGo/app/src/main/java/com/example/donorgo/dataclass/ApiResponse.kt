@@ -462,6 +462,101 @@ data class BloodRequestItem(
     val longitude: String
 ) : Parcelable
 
+// GET ALL Blood Stock
+data class ResponseListStock(
+
+    @field:SerializedName("payload")
+    val payload: List<StockItem>,
+
+    @field:SerializedName("success")
+    val success: Boolean,
+
+    @field:SerializedName("message")
+    val message: String
+)
+
+data class StockItem(
+
+    @field:SerializedName("alamat_rs")
+    val alamatRs: String,
+
+    @field:SerializedName("rhesus")
+    val rhesus: String,
+
+    @field:SerializedName("nama_rs")
+    val namaRs: String,
+
+    @field:SerializedName("tipe_darah")
+    val tipeDarah: String,
+
+    @field:SerializedName("stock")
+    val stock: Int,
+
+    @field:SerializedName("id_darah")
+    val idDarah: Int,
+
+    @field:SerializedName("id_rhesus")
+    val idRhesus: Int
+)
+
+// GET HISTORY BLOOD REQUEST
+data class HistoryResponse(
+
+    @field:SerializedName("payload")
+    val payload: List<ItemHistory>? = null,
+
+    @field:SerializedName("success")
+    val success: Boolean? = null,
+
+    @field:SerializedName("message")
+    val message: String? = null
+)
+
+data class ItemHistory(
+
+    @field:SerializedName("nama_pasien")
+    val namaPasien: String? = null,
+
+    @field:SerializedName("kota")
+    val kota: String? = null,
+
+    @field:SerializedName("gender")
+    val gender: String? = null,
+
+    @field:SerializedName("telp_keluarga")
+    val telpKeluarga: String? = null,
+
+    @field:SerializedName("createdAt")
+    val createdAt: String? = null,
+
+    @field:SerializedName("id_request")
+    val idRequest: String? = null,
+
+    @field:SerializedName("rhesus")
+    val rhesus: String? = null,
+
+    @field:SerializedName("nama_keluarga")
+    val namaKeluarga: String? = null,
+
+    @field:SerializedName("createdBy")
+    val createdBy: String? = null,
+
+    @field:SerializedName("nama_rs")
+    val namaRs: String? = null,
+
+    @field:SerializedName("tipe_darah")
+    val tipeDarah: String? = null,
+
+    @field:SerializedName("deskripsi")
+    val deskripsi: String? = null,
+
+    @field:SerializedName("jml_kantong")
+    val jmlKantong: Int? = null,
+
+    @field:SerializedName("prov")
+    val prov: String? = null
+)
+
 @Parcelize
 data class DataToOTP(
     var email: String,

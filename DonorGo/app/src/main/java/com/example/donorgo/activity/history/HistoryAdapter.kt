@@ -3,7 +3,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.donorgo.databinding.ItemHistoryRequestVertikalBinding
-import com.example.donorgo.activity.history.ItemHistory
+import com.example.donorgo.dataclass.ItemHistory
+
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
     private val historyList: MutableList<ItemHistory> = mutableListOf()

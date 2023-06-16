@@ -1,0 +1,124 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "d4fd54eaa4dc610381f8f3ee40028f30",
+    "entities": [
+      {
+        "tableName": "Tabel_Blood_Request",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_request` TEXT NOT NULL, `alamat_rs` TEXT NOT NULL, `nama_pasien` TEXT NOT NULL, `kota` TEXT NOT NULL, `gender` TEXT NOT NULL, `latitude` TEXT NOT NULL, `telp_keluarga` TEXT NOT NULL, `createdAt` TEXT NOT NULL, `rhesus` TEXT NOT NULL, `nama_keluarga` TEXT NOT NULL, `nama_rs` TEXT NOT NULL, `tipe_darah` TEXT NOT NULL, `deskripsi` TEXT NOT NULL, `jml_kantong` INTEGER NOT NULL, `prov` TEXT NOT NULL, `longitude` TEXT NOT NULL, PRIMARY KEY(`id_request`))",
+        "fields": [
+          {
+            "fieldPath": "idRequest",
+            "columnName": "id_request",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "alamatRs",
+            "columnName": "alamat_rs",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "namaPasien",
+            "columnName": "nama_pasien",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kota",
+            "columnName": "kota",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gender",
+            "columnName": "gender",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "latitude",
+            "columnName": "latitude",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "telpKeluarga",
+            "columnName": "telp_keluarga",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rhesus",
+            "columnName": "rhesus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "namaKeluarga",
+            "columnName": "nama_keluarga",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "namaRs",
+            "columnName": "nama_rs",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipeDarah",
+            "columnName": "tipe_darah",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deskripsi",
+            "columnName": "deskripsi",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "jmlKantong",
+            "columnName": "jml_kantong",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prov",
+            "columnName": "prov",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitude",
+            "columnName": "longitude",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id_request"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd4fd54eaa4dc610381f8f3ee40028f30')"
+    ]
+  }
+}

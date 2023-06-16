@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.DonorGo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.DonorGo" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/red_blood</item>
         <item name="colorPrimaryVariant">@color/child_red</item>
@@ -32,7 +32,7 @@
         <item name="cardCornerRadius">12dp</item>
     </style>
 
-    <style name="Theme.Dialog.Select" parent="Theme.MaterialComponents.DayNight.Dialog">
+    <style name="Theme.Dialog.Select" parent="Theme.MaterialComponents.Light.Dialog">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/red_blood</item>
         <item name="colorPrimaryVariant">@color/child_red</item>
@@ -46,6 +46,18 @@
         <item name="android:windowBackground">@drawable/bg_dialog</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="MapsTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/red_blood</item>
+        <item name="colorPrimaryVariant">@color/child_red</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/white</item>
     </style>
 
     <style name="roundedCorners">

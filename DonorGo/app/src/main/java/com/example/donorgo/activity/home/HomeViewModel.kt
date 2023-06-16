@@ -20,4 +20,6 @@ class HomeViewModel(private val mViewModelRepository: ViewModelRepository) : Vie
         mViewModelRepository.getAllBloodRequest(token)
     }
 
+    fun getBloodListRequestIntoDB(token: String) = mViewModelRepository.getAllBloodRequestIntoDB(token)
+
 }

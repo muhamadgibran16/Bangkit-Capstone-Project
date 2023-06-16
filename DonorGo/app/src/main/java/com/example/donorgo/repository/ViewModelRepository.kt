@@ -1,10 +1,16 @@
 package com.example.donorgo.repository
 
+import android.content.ContentValues
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.donorgo.BuildConfig
+import com.example.donorgo.database.LocalRoomDatabase
+import com.example.donorgo.database.TabelBloodRequest
 import com.example.donorgo.dataclass.*
+import com.example.donorgo.helper.AppExecutors
 import com.example.donorgo.retrofit.ApiConfig
 import com.example.donorgo.retrofit.ApiService
 import okhttp3.MultipartBody
@@ -13,11 +19,14 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.example.donorgo.helper.Result
 
 class ViewModelRepository constructor(
     private val apiService: ApiService,
+    private val database: LocalRoomDatabase,
+    private val appExecutors: AppExecutors,
 ) {
-//    private val result = MediatorLiveData<Result<List<TabelStory>>>()
+    private val result = MediatorLiveData<Result<List<TabelBloodRequest>>>()
 
     private val _dataSesion = MutableLiveData<DataLogin>()
     val dataSesion: LiveData<DataLogin> = _dataSesion
@@ -42,6 +51,12 @@ class ViewModelRepository constructor(
 
     private val _listRequest = MutableLiveData<List<BloodRequestItem>>()
     val listRequest: LiveData<List<BloodRequestItem>> = _listRequest
+
+    private val _listStock = MutableLiveData<List<StockItem>>()
+    val listStock: LiveData<List<StockItem>> = _listStock
+
+    private val _listHistory = MutableLiveData<List<ItemHistory>?>()
+    val listHistory: LiveData<List<ItemHistory>?> = _listHistory
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -385,6 +400,7 @@ class ViewModelRepository constructor(
                 if (response.isSuccessful) {
                     val data = response.body()
                     _message.value = data?.message
+                    Log.w("z", "giuiug")
                 } else {
                     _message.value = response.message()
                 }
@@ -528,15 +544,199 @@ class ViewModelRepository constructor(
         })
     }
 
+    // To get Story User From Database
+    fun getTabelBloodRequestFromDB(): LiveData<Int> = database.requestBloodDao().getTabelRequestSize()
+
+    fun getAllBloodRequestIntoDB(token: String): MediatorLiveData<Result<List<TabelBloodRequest>>> {
+        result.value = Result.Loading
+        if (token.isNotEmpty()) {
+            val client = apiService.getAllBloodRequest("Bearer $token")
+            client.enqueue(object : Callback<ResponseListAllBloodRequest> {
+                override fun onResponse(
+                    call: Call<ResponseListAllBloodRequest>,
+                    response: Response<ResponseListAllBloodRequest>
+                ) {
+                    val data = response.body()
+                    if (response.isSuccessful) {
+                        val myRequest = data?.payload
+                        val convertList = ArrayList<TabelBloodRequest>()
+                        appExecutors.diskIO.execute {
+                            myRequest?.forEach { request ->
+                                val rawData = TabelBloodRequest(
+                                    request.idRequest,
+                                    request.alamatRs,
+                                    request.namaPasien,
+                                    request.kota,
+                                    request.gender,
+                                    request.latitude,
+                                    request.telpKeluarga,
+                                    request.createdAt,
+                                    request.rhesus,
+                                    request.namaKeluarga,
+                                    request.namaRs,
+                                    request.tipeDarah,
+                                    request.deskripsi,
+                                    request.jmlKantong,
+                                    request.prov,
+                                    request.longitude
+                                )
+                                convertList.add(rawData)
+                            }
+                            if (myRequest != null) {
+                                database.requestBloodDao().deleteAllData()
+                                database.requestBloodDao().insertUpToDateData(convertList)
+                            }
+                        }
+                    } else {
+                        result.value = Result.Error(response.message())
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseListAllBloodRequest>, t: Throwable) {
+                    result.value = Result.Error(t.message.toString())
+                }
+            })
+            val localData = database.requestBloodDao().getAllRequestFromDB()
+            result.addSource(localData) { newData: List<TabelBloodRequest> ->
+                result.value = Result.Success(newData)
+            }
+        }
+        return result
+    }
+
+    fun fetchStockAllData(token: String) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().getAllStock("Bearer $token")
+        client.enqueue(object : Callback<ResponseListStock> {
+            override fun onResponse(
+                call: Call<ResponseListStock>,
+                response: Response<ResponseListStock>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                    _listStock.value = data?.payload
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseListStock>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+            }
+        })
+    }
+
+    fun fetchStockDataByTypeId(token: String, idBloodType: Int) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().getStockByTypeId("Bearer $token", idBloodType)
+        client.enqueue(object : Callback<ResponseListStock> {
+            override fun onResponse(
+                call: Call<ResponseListStock>,
+                response: Response<ResponseListStock>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                    _listStock.value = data?.payload
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseListStock>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+            }
+        })
+    }
+
+    fun fetchStockDataByTypeIdAndRhesusId(token: String, idBloodType: Int, idRhesus: Int) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().getStockByTypeIdAndRhesusId("Bearer $token", idBloodType, idRhesus)
+        client.enqueue(object : Callback<ResponseListStock> {
+            override fun onResponse(
+                call: Call<ResponseListStock>,
+                response: Response<ResponseListStock>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                    _listStock.value = data?.payload
+                    Log.w("GGG", "1")
+                } else {
+                    if (response.code() == 404) {
+                        Log.w("GGG", "hhh")
+                        _message.value = "No Stock Available for the Blood Type!"
+                    } else if (response.code() == 500) {
+                        _message.value = "Internal Server Error"
+                    } else {
+                        _message.value = response.message()
+                        Log.w("uploud", "hmmm ${response.code()}")
+                    }
+                    Log.w("GGG", "2")
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseListStock>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+                Log.w("GGG", "3")
+            }
+        })
+    }
+
+   fun fetchHistoryData(token: String) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().getAllHistory("Bearer $token")
+        client.enqueue(object : Callback<HistoryResponse> {
+            override fun onResponse(
+                call: Call<HistoryResponse>,
+                response: Response<HistoryResponse>
+            ) {
+                _isLoading.value = false
+                _isError.value = !response.isSuccessful
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    _message.value = data?.message
+                    _listHistory.value = data?.payload
+                    Log.w("GGG", "1")
+                } else {
+                    _message.value = response.message()
+                }
+            }
+
+            override fun onFailure(call: Call<HistoryResponse>, t: Throwable) {
+                _isError.value = true
+                _isLoading.value = false
+                _message.value = t.message.toString()
+                Log.w("GGG", "3")
+            }
+        })
+
+    }
+
     companion object {
         @Volatile
         private var instance: ViewModelRepository? = null
 
         fun getInstance(
             apiService: ApiService,
+            database: LocalRoomDatabase,
+            appExecutors: AppExecutors
         ): ViewModelRepository =
             instance ?: synchronized(this) {
-                instance ?: ViewModelRepository(apiService)
+                instance ?: ViewModelRepository(apiService, database, appExecutors)
             }.also { instance = it }
     }
 }

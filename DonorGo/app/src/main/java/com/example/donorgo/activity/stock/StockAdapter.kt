@@ -5,23 +5,27 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.donorgo.databinding.ItemBloodStockBinding
+import com.example.donorgo.dataclass.StockItem
 
 class StockAdapter : RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
-    private val stockList: MutableList<ItemStock> = mutableListOf()
+    private val stockList: MutableList<StockItem> = mutableListOf()
+    private lateinit var binding: ItemBloodStockBinding
 
-    fun setStockList(stock: List<ItemStock>) {
+    fun setStockList(stock: List<StockItem>) {
         stockList.clear()
         stockList.addAll(stock)
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StockViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemBloodStockBinding.inflate(inflater, parent, false)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): StockAdapter.StockViewHolder {
+        binding = ItemBloodStockBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return StockViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: StockViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: StockAdapter.StockViewHolder, position: Int) {
         val stock = stockList[position]
         holder.bind(stock)
     }
@@ -32,7 +36,7 @@ class StockAdapter : RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
 
     inner class StockViewHolder(private val binding: ItemBloodStockBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(stock: ItemStock) {
+        fun bind(stock: StockItem) {
             Log.d("StockAdapter", "Nama Rs: ${stock.namaRs}")
             Log.d("StockAdapter", "Alamat Rs: ${stock.alamatRs}")
             Log.d("StockAdapter", "Tipe Darah: ${stock.tipeDarah}")
